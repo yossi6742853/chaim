@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a1628">
+<title>חיים כץ — פעילות מכוונת מטרה | כל התוכניות והפעילויות</title>
+<meta name="description" content="האתר המלא של חיים כץ — מאגר פעילויות ODT, אבות עם בנים, משחקים קבוצתיים, סדנאות למחנכים, טיפול באתגר ועוד מעל 200 פעילויות">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏔️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<style>
+/* ===== RESET & VARS ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a1628;--bg2:#0d1f3c;--card:#111d35;--card2:#162848;
+  --border:rgba(255,255,255,0.08);--gold:#d4af37;--gold2:#f7e98e;
+  --green:#27ae60;--red:#e74c3c;--blue:#2980b9;--cyan:#00d2ff;
+  --orange:#e67e22;--purple:#9b59b6;--pink:#e84393;
+  --text:#e8eaf0;--muted:#7a8ba8;--glow:rgba(0,210,255,0.08);
+  --radius:16px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+}
+html{scroll-behavior:smooth;scrollbar-color:rgba(0,210,255,0.15) var(--bg);scrollbar-width:thin}
+::selection{background:rgba(0,210,255,0.3);color:#fff}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(0,210,255,0.15);border-radius:3px}
+body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 20% 10%,rgba(0,50,120,0.2),transparent 60%),
+  radial-gradient(ellipse at 80% 80%,rgba(212,175,55,0.05),transparent 50%)}
+
+/* ===== ANIMATED BACKGROUND PARTICLES ===== */
+#particles-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;overflow:hidden;z-index:1}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(10,22,40,0.6) 70%,var(--bg) 100%);z-index:1}
+.hero-content{position:relative;z-index:2}
+
+/* Animated mountain scene */
+.mountain-scene{position:absolute;bottom:0;left:0;width:100%;height:60%;z-index:0}
+.mountain-scene svg{position:absolute;bottom:0;width:100%}
+
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,210,255,0.1);border:1px solid rgba(0,210,255,0.25);
+  padding:8px 24px;border-radius:50px;font-size:0.85rem;color:var(--cyan);margin-bottom:20px;
+  animation:badgePulse 3s ease-in-out infinite;backdrop-filter:blur(10px)}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 10px rgba(0,210,255,0.1)}50%{box-shadow:0 0 25px rgba(0,210,255,0.25)}}
+
+.hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1.1;margin-bottom:10px;
+  background:linear-gradient(135deg,#fff 0%,var(--cyan) 30%,var(--gold) 60%,#fff 100%);
+  background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:heroShimmer 6s ease-in-out infinite;filter:drop-shadow(0 4px 20px rgba(0,210,255,0.2))}
+@keyframes heroShimmer{0%,100%{background-position:0% 0%}50%{background-position:300% 0%}}
+
+.hero-subtitle{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);margin-bottom:30px;max-width:600px;font-weight:300}
+.hero-stats{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2.5rem;font-weight:900;color:var(--cyan);display:block;line-height:1}
+.hero-stat .label{font-size:0.8rem;color:var(--muted)}
+
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{padding:12px 28px;border-radius:12px;border:none;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;
+  transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+.btn-primary{background:linear-gradient(135deg,var(--cyan),#0088cc);color:#fff;box-shadow:0 4px 15px rgba(0,210,255,0.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,210,255,0.4)}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.2);color:#fff}
+.btn-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#e8c84a);color:#000}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(212,175,55,0.4)}
+.btn-sm{padding:8px 18px;font-size:0.85rem;border-radius:10px}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;animation:scrollBounce 2s infinite}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+.scroll-indicator i{font-size:1.5rem;color:rgba(255,255,255,0.3)}
+
+/* ===== NAVBAR ===== */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 30px;display:flex;justify-content:space-between;align-items:center;
+  transition:all 0.4s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.navbar.scrolled{background:rgba(10,22,40,0.95);border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,0.3)}
+.nav-logo{font-size:1.3rem;font-weight:900;color:var(--cyan);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo span{font-size:0.75rem;color:var(--gold);background:rgba(212,175,55,0.15);padding:2px 10px;border-radius:20px}
+.nav-links{display:flex;gap:5px;flex-wrap:wrap}
+.nav-links a{color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);background:rgba(0,210,255,0.08)}
+.nav-hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:1;padding:80px 20px}
+.section-header{text-align:center;margin-bottom:50px}
+.section-header h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:10px;
+  background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.section-header p{color:var(--muted);font-size:1.1rem;max-width:600px;margin:0 auto}
+.container{max-width:1200px;margin:0 auto;padding:0 15px}
+
+/* ===== SEARCH BAR ===== */
+.search-container{max-width:600px;margin:0 auto 40px;position:relative}
+.search-input{width:100%;padding:16px 50px 16px 20px;border-radius:16px;border:2px solid var(--border);
+  background:rgba(17,29,53,0.8);color:var(--text);font-size:1.05rem;font-family:inherit;
+  backdrop-filter:blur(20px);transition:all var(--transition)}
+.search-input::placeholder{color:var(--muted)}
+.search-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 20px rgba(0,210,255,0.15)}
+.search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.2rem}
+.search-count{text-align:center;margin-top:10px;font-size:0.85rem;color:var(--muted);min-height:20px}
+
+/* ===== CATEGORY FILTERS ===== */
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.filter-btn{padding:8px 20px;border-radius:50px;border:1px solid var(--border);background:rgba(255,255,255,0.03);
+  color:var(--muted);font-size:0.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);font-family:inherit}
+.filter-btn:hover{border-color:rgba(0,210,255,0.3);color:var(--cyan)}
+.filter-btn.active{background:linear-gradient(135deg,rgba(0,210,255,0.15),rgba(0,210,255,0.05));
+  border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 15px rgba(0,210,255,0.1)}
+
+/* ===== PROGRAM CARDS ===== */
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.program-card{background:linear-gradient(145deg,rgba(17,29,53,0.9),rgba(22,40,72,0.7));
+  border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+  cursor:pointer;position:relative}
+.program-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.6));z-index:1;pointer-events:none}
+.program-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(0,210,255,0.08);
+  border-color:rgba(0,210,255,0.2)}
+
+/* Animated SVG illustration area */
+.card-illustration{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.card-illustration svg{width:100%;height:100%}
+.card-illustration .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(17,29,53,0.95));z-index:1}
+
+.card-body{padding:20px;position:relative;z-index:2}
+.card-category{display:inline-flex;align-items:center;gap:5px;font-size:0.75rem;color:var(--cyan);
+  background:rgba(0,210,255,0.1);padding:4px 12px;border-radius:20px;margin-bottom:10px;font-weight:500}
+.card-title{font-size:1.2rem;font-weight:700;margin-bottom:6px;color:#fff}
+.card-desc{font-size:0.88rem;color:var(--muted);line-height:1.6;margin-bottom:12px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-meta{display:flex;gap:15px;flex-wrap:wrap;font-size:0.8rem;color:var(--muted)}
+.card-meta span{display:flex;align-items:center;gap:4px}
+.card-meta i{color:var(--cyan);font-size:0.85rem}
+
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tag{padding:3px 10px;border-radius:8px;font-size:0.7rem;font-weight:500;border:1px solid var(--border);color:var(--muted)}
+
+/* ===== PROGRAM MODAL ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);z-index:200;
+  display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.3s}
+.modal-overlay.active{display:flex}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:24px;max-width:800px;width:100%;
+  max-height:90vh;overflow-y:auto;position:relative;animation:modalSlide 0.4s cubic-bezier(0.4,0,0.2,1)}
+@keyframes modalSlide{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.1);border:none;color:#fff;
+  width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:5;transition:all var(--transition);
+  display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--red);transform:rotate(90deg)}
+.modal-hero{height:250px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.modal-hero .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,var(--card));z-index:1}
+.modal-body{padding:30px;position:relative;z-index:2;margin-top:-60px}
+.modal-body h2{font-size:1.8rem;font-weight:900;margin-bottom:5px}
+.modal-body .subtitle{color:var(--muted);margin-bottom:20px}
+.modal-body .detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;margin-bottom:20px}
+.detail-item{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:15px}
+.detail-item .label{font-size:0.75rem;color:var(--muted);margin-bottom:4px}
+.detail-item .value{font-size:1rem;font-weight:700;color:var(--cyan)}
+.modal-body h3{font-size:1.2rem;font-weight:700;margin:20px 0 10px;color:var(--gold)}
+.modal-body ul{padding-right:20px;color:var(--muted);line-height:2}
+.modal-body ul li::marker{color:var(--cyan)}
+
+/* Steps animation in modal */
+.steps{display:flex;gap:15px;flex-wrap:wrap;margin:15px 0}
+.step{flex:1;min-width:150px;background:rgba(0,210,255,0.05);border:1px solid rgba(0,210,255,0.15);
+  border-radius:12px;padding:15px;text-align:center;transition:all var(--transition)}
+.step:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,210,255,0.1)}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--blue));
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;margin:0 auto 8px}
+.step-title{font-weight:700;font-size:0.9rem;margin-bottom:4px}
+.step-desc{font-size:0.78rem;color:var(--muted)}
+
+/* ===== ABOUT SECTION ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about-text h3{font-size:1.6rem;font-weight:900;margin-bottom:15px;color:#fff}
+.about-text p{color:var(--muted);line-height:1.8;margin-bottom:15px}
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.about-stat{background:rgba(0,210,255,0.05);border:1px solid rgba(0,210,255,0.1);border-radius:16px;padding:20px;text-align:center;transition:all var(--transition)}
+.about-stat:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,210,255,0.1)}
+.about-stat .num{font-size:2rem;font-weight:900;color:var(--cyan);display:block}
+.about-stat .label{font-size:0.8rem;color:var(--muted)}
+
+/* ===== TIMELINE ===== */
+.timeline{position:relative;padding:20px 0}
+.timeline::before{content:'';position:absolute;right:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--cyan),var(--gold),var(--purple));transform:translateX(50%)}
+.tl-item{display:flex;align-items:center;margin-bottom:40px;position:relative}
+.tl-item:nth-child(odd){flex-direction:row-reverse}
+.tl-content{width:45%;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;
+  transition:all var(--transition)}
+.tl-content:hover{border-color:rgba(0,210,255,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.tl-dot{width:16px;height:16px;border-radius:50%;background:var(--cyan);border:3px solid var(--bg);
+  position:absolute;right:50%;transform:translateX(50%);z-index:2;box-shadow:0 0 15px rgba(0,210,255,0.4)}
+.tl-content h4{font-weight:700;margin-bottom:5px;color:#fff}
+.tl-content p{font-size:0.85rem;color:var(--muted)}
+
+/* ===== PODCAST SECTION ===== */
+.podcast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.podcast-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;
+  transition:all var(--transition);cursor:pointer}
+.podcast-card:hover{border-color:rgba(212,175,55,0.3);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.podcast-card .episode{font-size:0.8rem;color:var(--gold);margin-bottom:8px}
+.podcast-card h4{font-weight:700;margin-bottom:6px;font-size:1.05rem}
+.podcast-card p{font-size:0.85rem;color:var(--muted);line-height:1.5}
+.podcast-card .meta{display:flex;gap:15px;margin-top:10px;font-size:0.8rem;color:var(--muted)}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:25px;text-align:center;
+  transition:all var(--transition)}
+.contact-card:hover{border-color:rgba(0,210,255,0.2);transform:translateY(-4px)}
+.contact-card i{font-size:2rem;color:var(--cyan);margin-bottom:10px;display:block}
+.contact-card h4{font-weight:700;margin-bottom:5px}
+.contact-card p{color:var(--muted);font-size:0.9rem}
+.contact-card a{color:var(--cyan);text-decoration:none}
+
+/* ===== FOOTER ===== */
+footer{position:relative;z-index:1;padding:40px 20px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:0.85rem}
+footer a{color:var(--cyan);text-decoration:none}
+
+/* ===== ANIMATIONS ===== */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s,transform 0.6s}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* Floating elements */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-15px) rotate(3deg)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes pulse2{0%,100%{r:3}50%{r:5}}
+@keyframes campfire{0%,100%{transform:scaleY(1);opacity:0.9}50%{transform:scaleY(1.15);opacity:1}}
+@keyframes walkCycle{0%{transform:translateX(-20px)}50%{transform:translateX(20px)}100%{transform:translateX(-20px)}}
+@keyframes wave{0%,100%{d:path('M0,25 Q25,20 50,25 T100,25')}50%{d:path('M0,25 Q25,30 50,25 T100,25')}}
+@keyframes ropeSwing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+
+/* Card illustrations color themes */
+.illust-odt{background:linear-gradient(135deg,#0d2137,#1a3a5c)}
+.illust-fathers{background:linear-gradient(135deg,#1a2f1a,#2d5a2d)}
+.illust-games{background:linear-gradient(135deg,#2d1a3a,#4a2d6a)}
+.illust-workshop{background:linear-gradient(135deg,#3a2d1a,#6a5a2d)}
+.illust-therapy{background:linear-gradient(135deg,#1a2d3a,#2d4a6a)}
+.illust-podcast{background:linear-gradient(135deg,#3a1a2d,#6a2d4a)}
+.illust-trek{background:linear-gradient(135deg,#1a3a2d,#2d6a4a)}
+.illust-team{background:linear-gradient(135deg,#2d3a1a,#4a6a2d)}
+
+/* ===== BACK TO TOP ===== */
+.back-top{position:fixed;bottom:30px;left:30px;width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;border:none;font-size:1.2rem;
+  cursor:pointer;z-index:99;opacity:0;transform:translateY(20px);transition:all var(--transition);
+  box-shadow:0 4px 20px rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center}
+.back-top.visible{opacity:1;transform:translateY(0)}
+.back-top:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,210,255,0.5)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr}
+  .programs-grid{grid-template-columns:1fr}
+  .timeline::before{right:20px}
+  .tl-item,.tl-item:nth-child(odd){flex-direction:column;align-items:flex-start}
+  .tl-content{width:calc(100% - 40px);margin-right:40px}
+  .tl-dot{right:20px}
+  .nav-links{display:none;position:absolute;top:100%;right:0;left:0;background:rgba(10,22,40,0.98);
+    flex-direction:column;padding:15px;border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+  .nav-links.open{display:flex}
+  .nav-hamburger{display:block}
+  .hero h1{font-size:2.2rem}
+  .hero-stats{gap:15px}
+  .hero-stat .num{font-size:1.8rem}
+  .modal{margin:10px;border-radius:16px}
+  .modal-body{padding:20px}
+  .filters{gap:6px}
+  .filter-btn{padding:6px 14px;font-size:0.8rem}
+}
+
+/* ===== LOTTIE-LIKE SVG ANIMATIONS ===== */
+.svg-anim{width:100%;height:100%}
+.svg-anim *{transform-origin:center}
+
+/* Fire animation */
+.fire-group{animation:campfire 0.8s ease-in-out infinite}
+.fire-group:nth-child(2){animation-delay:0.2s}
+.fire-group:nth-child(3){animation-delay:0.4s}
+
+/* Walking figures */
+.walker{animation:walkCycle 3s ease-in-out infinite}
+.walker:nth-child(2){animation-delay:0.5s}
+
+/* Rope swing */
+.rope-person{animation:ropeSwing 2s ease-in-out infinite;transform-origin:top center}
+
+/* Stars twinkle */
+@keyframes twinkle{0%,100%{opacity:0.3}50%{opacity:1}}
+.star{animation:twinkle 2s ease-in-out infinite}
+.star:nth-child(2n){animation-delay:0.5s}
+.star:nth-child(3n){animation-delay:1s}
+
+/* Dice roll */
+@keyframes diceRoll{0%{transform:rotate(0deg)}25%{transform:rotate(90deg)}50%{transform:rotate(180deg)}75%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
+.dice{animation:diceRoll 3s ease-in-out infinite}
+
+/* Wave for water */
+@keyframes waterWave{0%{transform:translateX(0)}100%{transform:translateX(-50px)}}
+.water-wave{animation:waterWave 3s linear infinite}
+
+/* Jumping person */
+@keyframes jump{0%,100%{transform:translateY(0)}30%{transform:translateY(-20px)}60%{transform:translateY(-5px)}}
+.jumper{animation:jump 1.5s ease-in-out infinite}
+
+/* Loading shimmer for lazy cards */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.skeleton{background:linear-gradient(90deg,var(--card) 25%,rgba(255,255,255,0.05) 50%,var(--card) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+
+/* Counter animation */
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* No results */
+.no-results{text-align:center;padding:60px 20px;color:var(--muted)}
+.no-results i{font-size:3rem;margin-bottom:15px;display:block;color:var(--border)}
+</style>
+</head>
+<body>
+
+<!-- ===== PARTICLES CANVAS ===== -->
+<canvas id="particles-bg"></canvas>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <a href="#hero" class="nav-logo">
+    <i class="bi bi-compass"></i> חיים כץ
+    <span>פעילות מכוונת מטרה</span>
+  </a>
+  <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <i class="bi bi-list"></i>
+  </button>
+  <div class="nav-links">
+    <a href="#programs" class="active">תוכניות</a>
+    <a href="#activities">מאגר פעילויות</a>
+    <a href="#about">אודות</a>
+    <a href="#podcast">פודקאסט</a>
+    <a href="#contact">יצירת קשר</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <!-- Animated Mountain Scene SVG -->
+  <div class="mountain-scene">
+    <svg viewBox="0 0 1440 500" preserveAspectRatio="none">
+      <!-- Sky gradient -->
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#0a1628"/>
+          <stop offset="100%" stop-color="#1a3050"/>
+        </linearGradient>
+        <linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a3050"/>
+          <stop offset="100%" stop-color="#0d1f3c"/>
+        </linearGradient>
+        <linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#162848"/>
+          <stop offset="100%" stop-color="#0a1628"/>
+        </linearGradient>
+        <radialGradient id="moonGlow">
+          <stop offset="0%" stop-color="rgba(255,255,200,0.3)"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="500" fill="url(#skyGrad)"/>
+
+      <!-- Stars -->
+      <circle class="star" cx="100" cy="50" r="1.5" fill="#fff"/>
+      <circle class="star" cx="300" cy="80" r="1" fill="#fff"/>
+      <circle class="star" cx="500" cy="30" r="1.5" fill="#fff"/>
+      <circle class="star" cx="700" cy="70" r="1" fill="#fff"/>
+      <circle class="star" cx="900" cy="40" r="2" fill="#fff"/>
+      <circle class="star" cx="1100" cy="60" r="1" fill="#fff"/>
+      <circle class="star" cx="1300" cy="35" r="1.5" fill="#fff"/>
+      <circle class="star" cx="200" cy="100" r="1" fill="#fff"/>
+      <circle class="star" cx="600" cy="90" r="1.5" fill="#fff"/>
+      <circle class="star" cx="1000" cy="20" r="1" fill="#fff"/>
+      <circle class="star" cx="1200" cy="85" r="2" fill="#fff"/>
+      <circle class="star" cx="400" cy="55" r="1" fill="#fff"/>
+      <circle class="star" cx="800" cy="110" r="1.5" fill="#fff"/>
+
+      <!-- Moon -->
+      <circle cx="1200" cy="80" r="60" fill="url(#moonGlow)"/>
+      <circle cx="1200" cy="80" r="20" fill="rgba(255,255,200,0.15)"/>
+
+      <!-- Far mountains -->
+      <path d="M0,350 L200,200 L400,280 L600,180 L800,250 L1000,170 L1200,230 L1440,190 L1440,500 L0,500Z" fill="url(#mtn1)" opacity="0.5"/>
+      <!-- Near mountains -->
+      <path d="M0,400 L150,280 L350,350 L500,250 L700,320 L900,240 L1100,300 L1300,260 L1440,310 L1440,500 L0,500Z" fill="url(#mtn2)" opacity="0.7"/>
+      <!-- Ground -->
+      <path d="M0,420 Q360,380 720,420 T1440,400 L1440,500 L0,500Z" fill="#0a1628"/>
+
+      <!-- Animated campfire -->
+      <g transform="translate(720,410)">
+        <!-- Fire wood -->
+        <line x1="-12" y1="5" x2="12" y2="5" stroke="#8B4513" stroke-width="3" stroke-linecap="round"/>
+        <line x1="-10" y1="8" x2="10" y2="2" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Fire -->
+        <ellipse class="fire-group" cx="0" cy="-2" rx="6" ry="12" fill="#e67e22" opacity="0.8"/>
+        <ellipse class="fire-group" cx="-3" cy="-5" rx="4" ry="10" fill="#f39c12" opacity="0.7"/>
+        <ellipse class="fire-group" cx="2" cy="-8" rx="3" ry="8" fill="#f1c40f" opacity="0.6"/>
+        <!-- Sparks -->
+        <circle class="star" cx="-5" cy="-18" r="1" fill="#f39c12"/>
+        <circle class="star" cx="4" cy="-22" r="0.8" fill="#f1c40f"/>
+        <circle class="star" cx="0" cy="-25" r="0.6" fill="#e67e22"/>
+      </g>
+
+      <!-- Two walking figures (father & son) -->
+      <g class="walker" transform="translate(600,405)">
+        <!-- Father -->
+        <circle cx="0" cy="-20" r="5" fill="var(--cyan)" opacity="0.6"/>
+        <line x1="0" y1="-15" x2="0" y2="0" stroke="var(--cyan)" stroke-width="2" opacity="0.6"/>
+        <line x1="0" y1="-8" x2="-6" y2="-3" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="0" y1="-8" x2="6" y2="-3" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="0" y1="0" x2="-4" y2="8" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="0" y1="0" x2="4" y2="8" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
+        <!-- Son (smaller) -->
+        <circle cx="18" cy="-14" r="3.5" fill="var(--gold)" opacity="0.6"/>
+        <line x1="18" y1="-10" x2="18" y2="0" stroke="var(--gold)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="18" y1="-5" x2="13" y2="-1" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
+        <line x1="18" y1="-5" x2="23" y2="-1" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
+        <line x1="18" y1="0" x2="15" y2="8" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
+        <line x1="18" y1="0" x2="21" y2="8" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
+        <!-- Holding hands -->
+        <line x1="6" y1="-3" x2="13" y2="-1" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2,2"/>
+      </g>
+
+      <!-- Trees -->
+      <g transform="translate(200,380)">
+        <rect x="-3" y="0" width="6" height="30" fill="#2d5a2d" rx="2"/>
+        <polygon points="0,-20 -15,10 15,10" fill="#1a3a1a" opacity="0.7"/>
+        <polygon points="0,-30 -12,0 12,0" fill="#2d5a2d" opacity="0.6"/>
+      </g>
+      <g transform="translate(1250,390)">
+        <rect x="-3" y="0" width="6" height="25" fill="#2d5a2d" rx="2"/>
+        <polygon points="0,-18 -12,8 12,8" fill="#1a3a1a" opacity="0.7"/>
+        <polygon points="0,-26 -10,0 10,0" fill="#2d5a2d" opacity="0.6"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="bi bi-lightning-charge-fill"></i>
+      פעילות מכוונת מטרה — חוויה שמשנה
+    </div>
+    <h1>חיים כץ</h1>
+    <p class="hero-subtitle">
+      מנחה ODT, מחנך, סופר ופדגוג — מפתח פעילויות ייחודיות ויצירתיות
+      המבוססות על למידה חווייתית ועשייתית
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="num" data-count="200">0</span><span class="label">פעילויות</span></div>
+      <div class="hero-stat"><span class="num" data-count="15">0</span><span class="label">שנות ניסיון</span></div>
+      <div class="hero-stat"><span class="num" data-count="8">0</span><span class="label">תוכניות</span></div>
+      <div class="hero-stat"><span class="num" data-count="5000">0</span><span class="label">משתתפים</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#programs" class="btn btn-primary"><i class="bi bi-grid-3x3-gap-fill"></i> לכל התוכניות</a>
+      <a href="#activities" class="btn btn-outline"><i class="bi bi-search"></i> חיפוש פעילויות</a>
+    </div>
+  </div>
+  <div class="scroll-indicator"><i class="bi bi-chevron-double-down"></i></div>
+</section>
+
+<!-- ===== MAIN PROGRAMS ===== -->
+<section id="programs">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>התוכניות המרכזיות</h2>
+      <p>שמונה תוכניות ייחודיות לכל גיל וקהל — מאבות ובנים ועד גיבוש ארגוני</p>
+    </div>
+
+    <div class="programs-grid" id="programs-grid">
+      <!-- Cards generated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACTIVITIES DATABASE ===== -->
+<section id="activities" style="background:rgba(0,0,0,0.2)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>מאגר פעילויות מלא</h2>
+      <p>חיפוש בתוך מעל 200 פעילויות, משחקים ואתגרים — סנן לפי קטגוריה, גיל או רמת קושי</p>
+    </div>
+
+    <div class="search-container fade-up">
+      <input type="text" class="search-input" id="searchInput" placeholder="חפש פעילות, משחק או אתגר..." oninput="filterActivities()">
+      <i class="bi bi-search search-icon"></i>
+      <div class="search-count" id="searchCount"></div>
+    </div>
+
+    <div class="filters fade-up" id="filters">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">הכל</button>
+      <button class="filter-btn" data-filter="odt" onclick="setFilter('odt',this)"><i class="bi bi-compass"></i> ODT</button>
+      <button class="filter-btn" data-filter="group" onclick="setFilter('group',this)"><i class="bi bi-people"></i> קבוצתי</button>
+      <button class="filter-btn" data-filter="energetic" onclick="setFilter('energetic',this)"><i class="bi bi-lightning"></i> אנרגטי</button>
+      <button class="filter-btn" data-filter="thinking" onclick="setFilter('thinking',this)"><i class="bi bi-lightbulb"></i> חשיבה</button>
+      <button class="filter-btn" data-filter="icebreaker" onclick="setFilter('icebreaker',this)"><i class="bi bi-snow"></i> שוברי קרח</button>
+      <button class="filter-btn" data-filter="fathers" onclick="setFilter('fathers',this)"><i class="bi bi-heart"></i> אבות ובנים</button>
+      <button class="filter-btn" data-filter="outdoor" onclick="setFilter('outdoor',this)"><i class="bi bi-tree"></i> שטח</button>
+      <button class="filter-btn" data-filter="classroom" onclick="setFilter('classroom',this)"><i class="bi bi-building"></i> כיתה</button>
+    </div>
+
+    <div class="programs-grid" id="activities-grid">
+      <!-- Generated by JS -->
+    </div>
+    <div class="no-results" id="noResults" style="display:none">
+      <i class="bi bi-search"></i>
+      <h3>לא נמצאו תוצאות</h3>
+      <p>נסה לחפש מילה אחרת או שנה את הסינון</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <div class="hero-badge" style="margin-bottom:15px;display:inline-flex">
+          <i class="bi bi-person-badge"></i> מי אני
+        </div>
+        <h3>חיים כץ — המדריך החרדי הראשון לפעילויות אתגר</h3>
+        <p>
+          חיים כץ הוא מטפל מוסמך באתגר ובמסעות, מומחה בבניית קבוצות והנחיית תהליכי שינוי ארגוניים.
+          הוא פיתח גישה ייחודית המשלבת ארבעה מרכיבים: חוויה, ידע, גילוי עצמי וחיבור קבוצתי.
+        </p>
+        <p>
+          לאחר שנים של עבודה עם נוער בסיכון בקהילה החרדית, חיים גילה שפעילות חוצות (ODT)
+          משנה בני נוער שמתקשים. הוא המדריך החרדי הראשון בתחום פעילויות האתגר בשטח.
+        </p>
+        <p>
+          כיום הוא מוביל מגוון תוכניות — מפעילויות אבות ובנים בשטח, דרך סדנאות למחנכים,
+          ועד ימי גיבוש לארגונים. הוא גם מחבר משחקים קבוצתיים ומנחה את הפודקאסט "הקשר".
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat"><span class="num" data-count="200">0</span><span class="label">פעילויות במאגר</span></div>
+        <div class="about-stat"><span class="num" data-count="15">0</span><span class="label">שנות ניסיון</span></div>
+        <div class="about-stat"><span class="num" data-count="50">0</span><span class="label">ארגונים</span></div>
+        <div class="about-stat"><span class="num" data-count="5000">0</span><span class="label">משתתפים</span></div>
+      </div>
+    </div>
+
+    <!-- Expertise -->
+    <div style="margin-top:60px" class="fade-up">
+      <div class="section-header"><h2>תחומי התמחות</h2></div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num"><i class="bi bi-compass"></i></div>
+          <div class="step-title">ODT — אימון חוצות</div>
+          <div class="step-desc">פעילות אתגרית בשטח, בניית קבוצה, עבודת צוות</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><i class="bi bi-heart"></i></div>
+          <div class="step-title">אבות עם בנים</div>
+          <div class="step-desc">חיבור בין אב לבן דרך אתגרים בשטח</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><i class="bi bi-mortarboard"></i></div>
+          <div class="step-title">הכשרת מחנכים</div>
+          <div class="step-desc">סדנאות משחק חברתי לבניית כיתה</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><i class="bi bi-hospital"></i></div>
+          <div class="step-title">טיפול באתגר</div>
+          <div class="step-desc">עבודה טיפולית עם נוער בסיכון דרך הרפתקאות</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><i class="bi bi-controller"></i></div>
+          <div class="step-title">יצירת משחקים</div>
+          <div class="step-desc">פיתוח משחקים קבוצתיים ולימודיים מקוריים</div>
+        </div>
+        <div class="step">
+          <div class="step-num"><i class="bi bi-mic"></i></div>
+          <div class="step-title">פודקאסט "הקשר"</div>
+          <div class="step-desc">שיחות עומק על קשר אבות ובנים</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PODCAST ===== -->
+<section id="podcast" style="background:rgba(0,0,0,0.2)">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2><i class="bi bi-mic-fill" style="color:var(--gold)"></i> פודקאסט "הקשר"</h2>
+      <p>בהגשת חיים כץ — שיחות עומק על הקשר בין אבות לבנים, חינוך ועשייה בשטח</p>
+    </div>
+    <div class="podcast-grid fade-up">
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 7</div>
+        <h4>המסע שמדליק את הקשר — אבות עם בנים במדבר</h4>
+        <p>חיים כץ עם רפאל סלמון על מסעות במדבר שמחזקים את הקשר בין אב לבן</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 45 דק'</span><span><i class="bi bi-calendar"></i> 2026</span></div>
+      </div>
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 6</div>
+        <h4>חיים כץ מארח את אברימי יעקובוביץ</h4>
+        <p>שיחה מרתקת על חינוך, יצירה והקשר האמיתי בין הורים לילדים</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 50 דק'</span><span><i class="bi bi-calendar"></i> 2026</span></div>
+      </div>
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 5</div>
+        <h4>אבות ובנים בשטח — עם מאיר דרברמדיקר</h4>
+        <p>על הכוח של לצאת לשטח יחד — אב ובן, אתגרים ורגעי אמת</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 42 דק'</span><span><i class="bi bi-calendar"></i> 2025</span></div>
+      </div>
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 4</div>
+        <h4>משחקים עם משמעות</h4>
+        <p>איך משחקים קבוצתיים בונים כישורים חברתיים ומחזקים קשרים</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 38 דק'</span><span><i class="bi bi-calendar"></i> 2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2>יצירת קשר</h2>
+      <p>מוזמנים ליצור קשר לתיאום פעילויות, סדנאות וימי גיבוש</p>
+    </div>
+    <div class="contact-grid fade-up">
+      <div class="contact-card">
+        <i class="bi bi-telephone-fill"></i>
+        <h4>טלפון</h4>
+        <p><a href="tel:0548531641">054-853-1641</a></p>
+        <p><a href="tel:0772303658">077-230-3658</a></p>
+      </div>
+      <div class="contact-card">
+        <i class="bi bi-envelope-fill"></i>
+        <h4>אימייל</h4>
+        <p><a href="mailto:office@gisha-center.com">office@gisha-center.com</a></p>
+        <p><a href="mailto:a0533180118@gmail.com">a0533180118@gmail.com</a></p>
+      </div>
+      <div class="contact-card">
+        <i class="bi bi-globe2"></i>
+        <h4>אתרים</h4>
+        <p><a href="https://www.chaim-katz.com" target="_blank">chaim-katz.com</a></p>
+        <p><a href="https://www.avot-banim.org" target="_blank">avot-banim.org</a></p>
+      </div>
+      <div class="contact-card">
+        <i class="bi bi-geo-alt-fill"></i>
+        <h4>מרכז גשה</h4>
+        <p>מרכז התוכניות והפעילויות<br>לבנים בציבור החרדי</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>
+    <strong style="color:var(--cyan)">חיים כץ</strong> — פעילות מכוונת מטרה |
+    <a href="https://www.chaim-katz.com" target="_blank">האתר הרשמי</a> |
+    <a href="https://www.avot-banim.org" target="_blank">אבות עם בנים</a>
+  </p>
+  <p style="margin-top:8px;font-size:0.75rem">כל הזכויות שמורות &copy; 2026</p>
+</footer>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0})"><i class="bi bi-arrow-up"></i></button>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModal()"><i class="bi bi-x-lg"></i></button>
+    <div class="modal-hero" id="modalHero"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ===== DATA =====
+const PROGRAMS = [
+  {
+    id:'fathers',title:'אבות עם בנים בשטח',category:'אבות ובנים',catKey:'fathers',
+    icon:'bi-heart-fill',color:'#27ae60',
+    desc:'תוכנית ייחודית לאבות ובנים בגילאי 9-13. יום שלם של פעילות אתגרית בשטח — הדלקת אש פרימיטיבית, פארק חבלים בעיניים מכוסות, ומשימות שבונות קשר אמיתי לב-אל-לב.',
+    ages:'9-13',duration:'יום שלם',participants:'20-50',
+    illustType:'illust-fathers',
+    details:{
+      subtitle:'החוויה שמחברת אב ובן — בלב הטבע',
+      items:['הדלקת אש באמצעים פרימיטיביים','פארק חבלים בעיניים עצומות','מציאת חפצים בשטח','משימות אתגר זוגיות','קפיצת אמון מקיר טיפוס 14 מטר','שיחת עיבוד בסוף היום'],
+      steps:[
+        {title:'התכנסות',desc:'מפגש פתיחה, היכרות והצגת האתגרים'},
+        {title:'אתגרים בשטח',desc:'פעילויות אתגריות זוגיות — אב ובן יחד'},
+        {title:'ארוחה משותפת',desc:'בישול בשטח, הדלקת מדורה והכנת ארוחה'},
+        {title:'עיבוד ושיחה',desc:'שיחת סיכום עמוקה על החוויה והקשר'}
+      ]
+    }
+  },
+  {
+    id:'odt',title:'ODT — אימון חוצות',category:'ODT / גיבוש',catKey:'odt',
+    icon:'bi-compass-fill',color:'#00d2ff',
+    desc:'סדרת משימות אתגריות בשטח שמטרתן להעניק חוויה קבוצתית משותפת ומעצימה. הליכה על חבלים, משחקי אסטרטגיה, בניית צוותים ואתגרי חשיבה.',
+    ages:'כל הגילאים',duration:'90 דק\' - יום שלם',participants:'15-25',
+    illustType:'illust-odt',
+    details:{
+      subtitle:'Team Building — גיבוש, אתגר, חוויה ולמידה',
+      items:['הליכה על חבלים','איקס-עיגול ענק','כדורגל סיני','טנגרם','אתגרי ריבועים','דגים — משחק קואורדינציה','חישוקים','אתגרי חבלים','משחקי בנייה','כדור בסכנה','מבוך','מוקשים'],
+      steps:[
+        {title:'הכנה',desc:'התאמת התוכנית לצרכי הקבוצה'},
+        {title:'פתיחה',desc:'שוברי קרח וחימום'},
+        {title:'תחנות אתגר',desc:'10 תחנות משחק מגוונות'},
+        {title:'סיכום',desc:'עיבוד קבוצתי והפנמה'}
+      ]
+    }
+  },
+  {
+    id:'therapy',title:'טיפול באתגר',category:'טיפולי',catKey:'therapy',
+    icon:'bi-heart-pulse-fill',color:'#e84393',
+    desc:'תוכנית טיפולית לנוער בסיכון המשלבת מסעות הישרדות בשטח, ניתוק מטכנולוגיה, ואתגרים פיזיים. כולל מסעות של שבוע שלם במדבר.',
+    ages:'13-18',duration:'שבוע מלא',participants:'10-15',
+    illustType:'illust-therapy',
+    details:{
+      subtitle:'טיפול הרפתקני — כשהשטח הופך למרחב ריפוי',
+      items:['מסע שבוע במדבר','ניתוק מלא מטלפונים','קפיצת אמון מגובה 14 מטר','בישול בשטח','לינה בטבע','שיחות עיבוד יומיות','אתגרים פיזיים מותאמים','בניית חוסן אישי'],
+      steps:[
+        {title:'אבחון',desc:'פגישה מקדימה עם המשפחה'},
+        {title:'הכנה',desc:'הכנת הנער ואספקת ציוד'},
+        {title:'המסע',desc:'שבוע של אתגרים בטבע'},
+        {title:'מעקב',desc:'ליווי לאחר המסע'}
+      ]
+    }
+  },
+  {
+    id:'educators',title:'סדנאות למחנכים',category:'הכשרות',catKey:'workshop',
+    icon:'bi-mortarboard-fill',color:'#f39c12',
+    desc:'הכשרת מחנכים בשימוש במשחקים חברתיים ליצירת לכידות כיתתית. למידה איך לגרום לתלמידים ביישנים להשתתף באופן שווה.',
+    ages:'מחנכים',duration:'3-6 שעות',participants:'10-30',
+    illustType:'illust-workshop',
+    details:{
+      subtitle:'כלים מעשיים למחנכים — משחקים שבונים כיתה',
+      items:['משחקי שוברי קרח','משחקי חשיבה קבוצתיים','טכניקות לשיתוף תלמידים ביישנים','בניית דינמיקה כיתתית חיובית','משחקים לתחילת/סיום שיעור','כלים לניהול קבוצה'],
+      steps:[
+        {title:'תיאוריה',desc:'רקע על למידה חווייתית'},
+        {title:'התנסות',desc:'משחקים וחוויה ישירה'},
+        {title:'תרגול',desc:'הנחיית משחקים בעצמך'},
+        {title:'ערכה',desc:'ערכת משחקים לכיתה'}
+      ]
+    }
+  },
+  {
+    id:'adults',title:'קבוצות מבוגרים',category:'מבוגרים',catKey:'odt',
+    icon:'bi-people-fill',color:'#9b59b6',
+    desc:'מפגשים קבוצתיים למבוגרים בגילאי 30-50. שילוב אתגרים בשטח עם דיאלוג קבוצתי, חשיבה על כיוון חיים ובניית קשרים.',
+    ages:'30-50',duration:'יום שלם',participants:'עד 20',
+    illustType:'illust-team',
+    details:{
+      subtitle:'יום של עצירה, חשיבה ואתגר — למבוגרים',
+      items:['אתגרים פיזיים מותאמים','שיחות קבוצתיות מונחות','תרגילי חשיבה יצירתית','פעילויות אמון','בניית חזון אישי','ארוחה משותפת בטבע'],
+      steps:[
+        {title:'היכרות',desc:'שוברי קרח ובניית אמון'},
+        {title:'אתגר',desc:'משימות קבוצתיות בשטח'},
+        {title:'דיאלוג',desc:'שיחה מונחית על כיוון חיים'},
+        {title:'סיכום',desc:'תובנות ומחויבות אישית'}
+      ]
+    }
+  },
+  {
+    id:'organizations',title:'ימי גיבוש לארגונים',category:'ארגוני',catKey:'odt',
+    icon:'bi-building',color:'#2980b9',
+    desc:'פעילויות גיבוש חווייתיות לחברות וארגונים. כל פעילות מותאמת אישית לפי מטרות הארגון — תקשורת, עבודת צוות, מנהיגות.',
+    ages:'מבוגרים',duration:'חצי יום - יום שלם',participants:'20-200',
+    illustType:'illust-team',
+    details:{
+      subtitle:'גיבוש ארגוני שנותן תוצאות — לא סתם כיף',
+      items:['פעילויות Team Building','אתגרי תקשורת','משימות מנהיגות','תחרויות צוותיות','אתגרי חשיבה מתחת ללחץ','סימולציות ארגוניות'],
+      steps:[
+        {title:'ייעוץ',desc:'שיחת הכנה עם מנהלי הארגון'},
+        {title:'תכנון',desc:'בניית תוכנית מותאמת'},
+        {title:'ביצוע',desc:'יום פעילות מלא'},
+        {title:'סיכום',desc:'דוח תובנות למנהלים'}
+      ]
+    }
+  },
+  {
+    id:'games',title:'משחקים קבוצתיים',category:'משחקים',catKey:'group',
+    icon:'bi-controller',color:'#e67e22',
+    desc:'מאגר של מעל 200 משחקים קבוצתיים מקוריים — משחקי חשיבה, אנרגטיים, שוברי קרח, ומשחקי חברה. לכיתות, משפחות וקבוצות.',
+    ages:'9+',duration:'5-30 דק\' למשחק',participants:'3-50',
+    illustType:'illust-games',
+    details:{
+      subtitle:'מאגר המשחקים הגדול — לכל מצב ולכל קבוצה',
+      items:['אתגר ה-10','52 קטגוריות','ערימת שמות ב-30 שניות','אימפולס','ניחוש הפוך','אצבעות זריזות','קוביה של שאלות','הגל — משחק כסאות אנרגטי'],
+      steps:[
+        {title:'בחירה',desc:'בחרו משחק מהמאגר'},
+        {title:'הכנה',desc:'הכינו את החומרים (מינימום)'},
+        {title:'הנחיה',desc:'הסבירו ושחקו!'},
+        {title:'הנאה',desc:'צחוקים ולמידה מובטחים'}
+      ]
+    }
+  },
+  {
+    id:'podcast-program',title:'פודקאסט "הקשר"',category:'מדיה',catKey:'podcast',
+    icon:'bi-mic-fill',color:'#d4af37',
+    desc:'פודקאסט בהגשת חיים כץ — שיחות עומק עם אנשי חינוך, הורים ומומחים על הקשר בין אבות לבנים, חינוך ומשמעות.',
+    ages:'מבוגרים',duration:'40-50 דק\' לפרק',participants:'האזנה',
+    illustType:'illust-podcast',
+    details:{
+      subtitle:'שיחות שמזיזות משהו — על חינוך, קשר ומשמעות',
+      items:['פרקי עומק על חינוך','ראיונות עם מומחים','סיפורי הצלחה של אבות ובנים','טיפים מעשיים להורים','שיחות על אתגרים בחינוך','תובנות מהשטח'],
+      steps:[
+        {title:'האזנה',desc:'בחרו פרק שמעניין אתכם'},
+        {title:'חשיבה',desc:'עצרו וחשבו על התובנות'},
+        {title:'שיחה',desc:'דברו עם הבן/הבת על מה ששמעתם'},
+        {title:'עשייה',desc:'יישמו רעיון אחד מהפרק'}
+      ]
+    }
+  }
+];
+
+// ===== ACTIVITIES DATABASE (200+) =====
+const ACTIVITIES = [
+  // --- ODT ---
+  {name:'הליכה על חבלים',cat:'odt',desc:'איזון על חבלים מתוחים בגבהים שונים. מפתח ריכוז, אמון ויציבות.',ages:'8+',participants:'5-30',difficulty:2,tags:['שטח','אתגר','איזון']},
+  {name:'איקס-עיגול ענק',cat:'odt',desc:'משחק אסטרטגיה קבוצתי בגרסה ענקית בשטח. שני צוותים מתחרים.',ages:'8+',participants:'10-40',difficulty:1,tags:['צוותי','אסטרטגיה','שטח']},
+  {name:'כדורגל סיני',cat:'odt',desc:'גרסה מאתגרת של כדורגל עם חוקים מיוחדים — ללא נגיעה ברגליים!',ages:'10+',participants:'10-30',difficulty:2,tags:['ספורט','צוותי','כיף']},
+  {name:'טנגרם ענק',cat:'odt',desc:'פאזל בניית צורות בגרסה ענקית. דורש חשיבה מרחבית ועבודת צוות.',ages:'8+',participants:'4-20',difficulty:2,tags:['חשיבה','בנייה','צוותי']},
+  {name:'אתגר הריבועים',cat:'odt',desc:'חידת ריבועים קבוצתית — צריך למצוא את כל הריבועים האפשריים.',ages:'10+',participants:'5-20',difficulty:3,tags:['חשיבה','לוגיקה','אתגר']},
+  {name:'דגים — קואורדינציה',cat:'odt',desc:'משימת תפיסה וקואורדינציה בין חברי הצוות. כל אחד תופס ומעביר.',ages:'8+',participants:'8-25',difficulty:2,tags:['קואורדינציה','צוותי','כיף']},
+  {name:'מעגל חישוקים',cat:'odt',desc:'העברת חישוק סביב מעגל אנשים שאוחזים ידיים — בלי לנתק!',ages:'6+',participants:'8-40',difficulty:1,tags:['שיתוף פעולה','מעגל','פשוט']},
+  {name:'אתגרי חבלים',cat:'odt',desc:'סדרת אתגרים עם חבלים — קשירה, גרירה, בנייה ואיזון.',ages:'10+',participants:'5-20',difficulty:3,tags:['שטח','כוח','אתגר']},
+  {name:'בניית מגדל',cat:'odt',desc:'כל צוות בונה מגדל מחומרים שונים — הגבוה ביותר מנצח!',ages:'8+',participants:'8-40',difficulty:2,tags:['בנייה','יצירתיות','תחרות']},
+  {name:'כדור בסכנה',cat:'odt',desc:'ניהול כדור דרך מסלול מכשולים — בלי ליפול! דורש תקשורת צוותית.',ages:'8+',participants:'6-20',difficulty:2,tags:['צוותי','ריכוז','תקשורת']},
+  {name:'מבוך עיוור',cat:'odt',desc:'ניווט במבוך עם עיניים מכוסות — רק לפי הוראות קוליות של חברי הצוות.',ages:'10+',participants:'4-20',difficulty:3,tags:['אמון','תקשורת','אתגר']},
+  {name:'שדה מוקשים',cat:'odt',desc:'חציית שטח "ממוקש" — רק שחקן אחד יודע את המסלול הבטוח.',ages:'10+',participants:'6-30',difficulty:2,tags:['אמון','אסטרטגיה','שטח']},
+  {name:'גשר חבלים',cat:'odt',desc:'בניית גשר חבלים קבוצתי וחציית מכשול.',ages:'12+',participants:'8-20',difficulty:3,tags:['בנייה','שטח','אתגר']},
+  {name:'סולם יעקב',cat:'odt',desc:'טיפוס על סולם חבלים — דורש תיאום בין שני מטפסים.',ages:'10+',participants:'2-20',difficulty:3,tags:['טיפוס','שיתוף','אתגר']},
+  {name:'קפיצת אמון',cat:'odt',desc:'קפיצה לאחור אל ידיים קולטות. אחד האתגרים החזקים ביותר לבניית אמון.',ages:'12+',participants:'8-20',difficulty:3,tags:['אמון','אומץ','קבוצה']},
+
+  // --- ENERGETIC ---
+  {name:'הגל — משחק כסאות אנרגטי',cat:'energetic',desc:'גרסה אנרגטית של משחק כסאות — כשהמנחה אומר "גל!" כולם קופצים!',ages:'8+',participants:'10-40',difficulty:1,tags:['אנרגטי','כיף','תנועה']},
+  {name:'מרוץ שקיות',cat:'energetic',desc:'מרוץ קפיצות בתוך שקיות — פשוט ומשעשע!',ages:'6+',participants:'5-30',difficulty:1,tags:['מרוץ','צחוק','תנועה']},
+  {name:'כדור נמלט',cat:'energetic',desc:'כדור מועבר ברחבי המעגל — מי שהכדור אצלו כשהמוזיקה נעצרת, יוצא.',ages:'6+',participants:'8-40',difficulty:1,tags:['מעגל','מהירות','כיף']},
+  {name:'תופסת מורכבת',cat:'energetic',desc:'תופסת עם חוקים מיוחדים — מי שנתפס הופך לתופס נוסף!',ages:'7+',participants:'10-50',difficulty:1,tags:['ריצה','אנרגטי','שטח']},
+  {name:'קרב כריות',cat:'energetic',desc:'קרב כריות על קורת איזון — מי נשאר עומד?',ages:'8+',participants:'2-20',difficulty:2,tags:['אתגר','כיף','איזון']},
+  {name:'מחנה בסיס',cat:'energetic',desc:'משחק הגנה והתקפה — שני צוותים, דגלים ואסטרטגיה.',ages:'10+',participants:'16-50',difficulty:2,tags:['צוותי','אסטרטגיה','ריצה']},
+  {name:'ריצת שליחים',cat:'energetic',desc:'מסלול מכשולים עם תחנות — ריצת שליחים צוותית.',ages:'8+',participants:'8-40',difficulty:2,tags:['מרוץ','צוותי','תחרות']},
+  {name:'מלחמת בלונים',cat:'energetic',desc:'כל משתתף עם בלון קשור לרגל — המטרה: לפוצץ את הבלונים של היריב.',ages:'7+',participants:'10-50',difficulty:1,tags:['כיף','תחרות','אנרגטי']},
+  {name:'כיסא מוזיקלי ענק',cat:'energetic',desc:'כסאות מוזיקליים בגרסה ענקית — עם מוזיקה חיה ותנועה.',ages:'6+',participants:'10-30',difficulty:1,tags:['קלאסי','כיף','מוזיקה']},
+  {name:'מרוץ 3 רגליים',cat:'energetic',desc:'שני שותפים קשורים יחד ברגל אחת — מרוץ קואורדינציה!',ages:'8+',participants:'10-40',difficulty:1,tags:['זוגי','כיף','קואורדינציה']},
+
+  // --- GROUP / THINKING ---
+  {name:'אתגר ה-10',cat:'thinking',desc:'משחק מהיר ומהנה — צריך להגיע ל-10 בדיוק! מתאים לקבוצות של 3-6.',ages:'9+',participants:'3-6',difficulty:2,tags:['חשיבה','מהיר','אסטרטגיה']},
+  {name:'52 קטגוריות',cat:'thinking',desc:'משחק קל ומהיר שמפעיל את המוח ומחבר אנשים. מומלץ לגיבוש ולמשפחות.',ages:'8+',participants:'4-20',difficulty:1,tags:['חשיבה','מהיר','קל']},
+  {name:'ערימת שמות ב-30 שניות',cat:'thinking',desc:'משחק זיכרון — ניחוש שמות מערימה תוך 30 שניות. מבוסס מהירות ותגובה.',ages:'10+',participants:'4-20',difficulty:2,tags:['זיכרון','מהירות','כיף']},
+  {name:'אימפולס',cat:'thinking',desc:'משחק שעוזר להבין ולשלוט באימפולסיביות. כשהצבע והכיתוב מתאימים — תתפוס מהר!',ages:'8+',participants:'2-10',difficulty:2,tags:['ריכוז','שליטה עצמית','חינוכי']},
+  {name:'ניחוש הפוך',cat:'thinking',desc:'איזה קלף לא יצא מחפיסת 40 קלפים ממוספרים 1-10? משחק לוגיקה.',ages:'10+',participants:'3-8',difficulty:3,tags:['לוגיקה','חשיבה','קלפים']},
+  {name:'אצבעות זריזות',cat:'thinking',desc:'משחק מהירות תגובה עם האצבעות — מי הכי מהיר?',ages:'7+',participants:'2-10',difficulty:1,tags:['מהירות','זריזות','כיף']},
+  {name:'קוביה של שאלות',cat:'group',desc:'קוביה עם שאלות על כל פן — כל זריקה מעלה שאלה מעניינת לדיון.',ages:'10+',participants:'4-30',difficulty:1,tags:['שיחה','היכרות','קבוצתי']},
+  {name:'מי אני?',cat:'icebreaker',desc:'כרטיס על המצח — שאל שאלות כן/לא כדי לגלות מי אתה!',ages:'8+',participants:'5-30',difficulty:1,tags:['היכרות','כיף','קלאסי']},
+  {name:'שני אמיתות ושקר',cat:'icebreaker',desc:'כל אחד אומר 3 עובדות — אחת שקר. מי מצליח לזהות?',ages:'10+',participants:'4-20',difficulty:1,tags:['היכרות','חשיבה','כיף']},
+  {name:'סיפור משותף',cat:'group',desc:'כל אחד מוסיף משפט לסיפור — מה ייצא בסוף?',ages:'8+',participants:'5-30',difficulty:1,tags:['יצירתיות','שיתוף','כיף']},
+  {name:'מילה אחת',cat:'group',desc:'הקבוצה צריכה ליצור משפט שלם — כל אחד אומר מילה אחת.',ages:'8+',participants:'5-20',difficulty:1,tags:['שיתוף','ריכוז','תקשורת']},
+  {name:'הנחיית עיוור',cat:'group',desc:'אחד עם עיניים סגורות — השני מנחה אותו במילים. אמון בפעולה.',ages:'10+',participants:'4-30',difficulty:2,tags:['אמון','תקשורת','זוגי']},
+  {name:'צוותי בנייה',cat:'group',desc:'כל צוות מקבל חומרים ובונה מבנה. הגבוה/חזק/יפה ביותר מנצח.',ages:'8+',participants:'8-40',difficulty:2,tags:['בנייה','יצירתיות','תחרות']},
+  {name:'מעגל הצגה',cat:'icebreaker',desc:'כל אחד מציג את עצמו עם תנועה — וכולם חוזרים!',ages:'6+',participants:'5-30',difficulty:1,tags:['היכרות','תנועה','זיכרון']},
+  {name:'רצף ספירה',cat:'icebreaker',desc:'הקבוצה סופרת עד 20 — בלי שיהיה שני אנשים באותו זמן!',ages:'8+',participants:'5-30',difficulty:2,tags:['ריכוז','שיתוף','אתגר']},
+  {name:'מראה',cat:'icebreaker',desc:'זוג עומד מול זוג — אחד מוביל תנועות והשני מחקה.',ages:'6+',participants:'4-40',difficulty:1,tags:['זוגי','תנועה','כיף']},
+
+  // --- FATHERS & SONS ---
+  {name:'הדלקת אש פרימיטיבית',cat:'fathers',desc:'אב ובן לומדים להדליק אש בשיטות עתיקות — אבן צור, מקל וחיכוך.',ages:'9-13',participants:'זוגות',difficulty:3,tags:['שטח','הישרדות','אתגר']},
+  {name:'פארק חבלים בעיניים עצומות',cat:'fathers',desc:'הבן מנווט את האב (או להפך) במסלול חבלים עם עיניים מכוסות.',ages:'9-13',participants:'זוגות',difficulty:3,tags:['אמון','אתגר','חבלים']},
+  {name:'ציד אוצרות בשטח',cat:'fathers',desc:'מסלול ניווט עם רמזים — אב ובן מחפשים אוצרות ביחד.',ages:'8-13',participants:'זוגות',difficulty:2,tags:['ניווט','הרפתקה','כיף']},
+  {name:'בישול שטח אב ובן',cat:'fathers',desc:'הכנת ארוחה בשטח — מהדלקת האש ועד האוכל. יחד!',ages:'9-13',participants:'זוגות',difficulty:2,tags:['בישול','שטח','שיתוף']},
+  {name:'קפיצת אמון — אב ובן',cat:'fathers',desc:'הבן קופץ מגובה — האב תופס. רגע של אמון מוחלט.',ages:'10-13',participants:'זוגות',difficulty:3,tags:['אמון','אומץ','חיבור']},
+  {name:'מסע לילי',cat:'fathers',desc:'הליכה בחושך בטבע — רק אב ובן, כוכבים ושיחה.',ages:'10-13',participants:'זוגות',difficulty:2,tags:['לילה','שיחה','חוויה']},
+  {name:'בניית מחסה יחד',cat:'fathers',desc:'אב ובן בונים מחסה מענפים ועלים — בית קטן בטבע.',ages:'9-13',participants:'זוגות',difficulty:2,tags:['בנייה','שטח','שיתוף']},
+  {name:'חידון טבע אב-בן',cat:'fathers',desc:'חידון על צמחים, בעלי חיים וכוכבים — מי יודע יותר?',ages:'8-13',participants:'זוגות',difficulty:1,tags:['לימוד','טבע','חידון']},
+
+  // --- CLASSROOM ---
+  {name:'סיבוב היכרות עם כדור',cat:'classroom',desc:'הכדור מועבר — מי שתופס מציג את עצמו ושואל שאלה.',ages:'6+',participants:'10-35',difficulty:1,tags:['היכרות','כיתה','פשוט']},
+  {name:'בינגו אישי',cat:'classroom',desc:'טבלת בינגו עם מאפיינים — מצא מישהו שמתאים לכל משבצת!',ages:'8+',participants:'10-35',difficulty:1,tags:['היכרות','כיתה','כיף']},
+  {name:'חידון קבוצתי',cat:'classroom',desc:'שאלות טריוויה בצוותים — כל צוות מתייעץ ועונה.',ages:'8+',participants:'10-40',difficulty:1,tags:['חידון','צוותי','לימוד']},
+  {name:'דיבייט מהיר',cat:'classroom',desc:'ויכוח מובנה בין שתי קבוצות — 2 דקות לכל צד.',ages:'12+',participants:'10-30',difficulty:2,tags:['דיון','חשיבה','כיתה']},
+  {name:'מפת חשיבה קבוצתית',cat:'classroom',desc:'כל צוות בונה מפת חשיבה על נושא — ומציג לכיתה.',ages:'10+',participants:'10-35',difficulty:2,tags:['חשיבה','יצירתיות','הצגה']},
+  {name:'סיפורי שרשרת',cat:'classroom',desc:'כל תלמיד ממשיך את הסיפור — בכתב או בע"פ.',ages:'8+',participants:'10-35',difficulty:1,tags:['יצירתיות','כתיבה','כיף']},
+  {name:'ציור עיוור',cat:'classroom',desc:'אחד מתאר — השני מצייר בלי לראות את המקור. תקשורת!',ages:'8+',participants:'4-30',difficulty:1,tags:['ציור','תקשורת','כיף']},
+  {name:'מלך/ת השאלות',cat:'classroom',desc:'תלמידים שואלים שאלות על נושא — השאלה הכי טובה מנצחת.',ages:'10+',participants:'10-35',difficulty:2,tags:['חשיבה','שאלות','לימוד']},
+
+  // --- OUTDOOR ---
+  {name:'ניווט בשטח עם מפה',cat:'outdoor',desc:'ניווט עם מפה ומצפן בלבד — ללא GPS. אתגר אמיתי.',ages:'12+',participants:'4-20',difficulty:3,tags:['ניווט','שטח','הישרדות']},
+  {name:'טיפוס סלעים',cat:'outdoor',desc:'טיפוס על קירות סלע טבעיים עם ביטחון מלא.',ages:'10+',participants:'5-15',difficulty:3,tags:['טיפוס','אומץ','שטח']},
+  {name:'גלישת סנפלינג',cat:'outdoor',desc:'ירידה בחבלים ממצוק — אחד האתגרים המרגשים בשטח.',ages:'12+',participants:'5-20',difficulty:3,tags:['סנפלינג','אומץ','חבלים']},
+  {name:'ספלאנקינג (מערות)',cat:'outdoor',desc:'חקירת מערות — אתגר חושך, מרחב מוגבל ותגליות.',ages:'12+',participants:'5-15',difficulty:3,tags:['מערות','הרפתקה','חושך']},
+  {name:'רפטינג',cat:'outdoor',desc:'שייט קבוצתי במים — עבודת צוות על המים.',ages:'10+',participants:'6-30',difficulty:2,tags:['מים','צוותי','הרפתקה']},
+  {name:'הישרדות במדבר',cat:'outdoor',desc:'יום הישרדות מלא — מציאת מים, בניית צל, ניווט בחום.',ages:'14+',participants:'5-15',difficulty:3,tags:['מדבר','הישרדות','אתגר']},
+  {name:'לינת כוכבים',cat:'outdoor',desc:'לינה בטבע ללא אוהלים — רק שמיכות וכוכבים.',ages:'10+',participants:'5-30',difficulty:2,tags:['לילה','טבע','חוויה']},
+  {name:'מסלול אתגר בנחל',cat:'outdoor',desc:'הליכה בנחל עם מכשולים טבעיים — סלעים, מפלים קטנים ומים.',ages:'10+',participants:'5-25',difficulty:2,tags:['נחל','מים','שטח']},
+
+  // --- MORE GROUP GAMES ---
+  {name:'מנהל הזמן',cat:'group',desc:'משימות עם מגבלת זמן קצרה — מי מספיק?',ages:'10+',participants:'5-30',difficulty:2,tags:['זמן','לחץ','כיף']},
+  {name:'מגדל הקלפים',cat:'group',desc:'בניית מגדל מקלפים — הגבוה ביותר מנצח.',ages:'8+',participants:'2-10',difficulty:2,tags:['בנייה','סבלנות','ריכוז']},
+  {name:'חבל גדול',cat:'group',desc:'משיכת חבל קלאסית — צוות מול צוות!',ages:'8+',participants:'10-50',difficulty:1,tags:['כוח','צוותי','קלאסי']},
+  {name:'ריקוד הכיסאות',cat:'energetic',desc:'הגרסה הקלאסית — מוזיקה, כיסאות, ומי נשאר?',ages:'6+',participants:'8-30',difficulty:1,tags:['קלאסי','מוזיקה','כיף']},
+  {name:'מרוץ ביצים על כף',cat:'energetic',desc:'מרוץ עם ביצה על כפית — מי לא ישבור?',ages:'7+',participants:'5-30',difficulty:1,tags:['מרוץ','ריכוז','כיף']},
+  {name:'סלט פירות',cat:'icebreaker',desc:'כל אחד בוחר פרי — כששומעים את הפרי שלך, מחליפים מקום!',ages:'6+',participants:'10-40',difficulty:1,tags:['תנועה','כיף','פשוט']},
+  {name:'תא טלפון',cat:'group',desc:'הודעה עוברת מאוזן לאוזן — מה יצא בסוף?',ages:'6+',participants:'8-30',difficulty:1,tags:['תקשורת','כיף','קלאסי']},
+  {name:'פנטומימה',cat:'group',desc:'הצגה ללא מילים — מי מנחש ראשון?',ages:'8+',participants:'4-30',difficulty:1,tags:['הצגה','כיף','יצירתיות']},
+  {name:'ציור מילים',cat:'group',desc:'צייר את המילה על הלוח — ללא אותיות! כמו פיקשנרי.',ages:'8+',participants:'4-30',difficulty:1,tags:['ציור','ניחוש','כיף']},
+  {name:'מי המרגל?',cat:'thinking',desc:'אחד מרגל בקבוצה — כולם צריכים לגלות מי!',ages:'10+',participants:'6-20',difficulty:2,tags:['חשיבה','בלשות','מתח']},
+  {name:'סודוקו קבוצתי',cat:'thinking',desc:'סודוקו על לוח ענק — כל צוות ממלא חלק.',ages:'10+',participants:'4-20',difficulty:3,tags:['לוגיקה','מספרים','צוותי']},
+  {name:'חדר בריחה שטח',cat:'thinking',desc:'חידות ופאזלים בשטח פתוח — 60 דקות לפתור!',ages:'12+',participants:'5-20',difficulty:3,tags:['חידות','אתגר','צוותי']},
+  {name:'שבב מוח',cat:'thinking',desc:'שאלות מפתיעות שדורשות חשיבה יצירתית — לא לוגית!',ages:'10+',participants:'3-30',difficulty:2,tags:['חשיבה','הפתעה','כיף']},
+  {name:'הקוד הסודי',cat:'thinking',desc:'פיצוח קוד מספרי — רמזים מוליכים לפתרון.',ages:'10+',participants:'3-15',difficulty:3,tags:['לוגיקה','קוד','אתגר']},
+  {name:'ממויין!',cat:'icebreaker',desc:'כולם עומדים בשורה — ממיינים לפי גובה/תאריך לידה/שם, בלי לדבר!',ages:'8+',participants:'8-40',difficulty:1,tags:['היכרות','תקשורת','כיף']},
+  {name:'האי הבודד',cat:'group',desc:'מה תיקח איתך לאי בודד? כל אחד בוחר ומסביר.',ages:'8+',participants:'4-30',difficulty:1,tags:['שיחה','דמיון','היכרות']},
+  {name:'מכירה פומבית',cat:'group',desc:'ערכים ומושגים נמכרים במכירה פומבית — מה הכי חשוב לך?',ages:'12+',participants:'8-30',difficulty:2,tags:['ערכים','דיון','חשיבה']},
+  {name:'עיתון קבוצתי',cat:'group',desc:'כל צוות מכין עיתון בזמן מוגבל — כתבות, ציורים, כותרות.',ages:'10+',participants:'8-35',difficulty:2,tags:['יצירתיות','צוותי','כתיבה']},
+  {name:'שרשרת אנושית',cat:'energetic',desc:'כולם מחוברים — צריך לבצע משימות בלי להיפרד!',ages:'8+',participants:'10-40',difficulty:1,tags:['שיתוף','תנועה','כיף']},
+  {name:'מרוץ סירות',cat:'outdoor',desc:'בניית רפסודה מחומרים טבעיים — ומרוץ על המים!',ages:'12+',participants:'8-30',difficulty:3,tags:['בנייה','מים','תחרות']},
+  {name:'מצפן אנושי',cat:'outdoor',desc:'ניווט רק לפי כיווני רוח — בלי שום עזר טכנולוגי.',ages:'12+',participants:'4-15',difficulty:3,tags:['ניווט','שטח','הישרדות']},
+  {name:'עקבות בטבע',cat:'outdoor',desc:'זיהוי עקבות חיות, צמחים ומינרלים — חקירת שטח.',ages:'8+',participants:'5-25',difficulty:2,tags:['טבע','לימוד','הרפתקה']},
+  {name:'תצפית ציפורים',cat:'outdoor',desc:'שקט, סבלנות ומשקפת — גילוי עולם הציפורים.',ages:'8+',participants:'5-20',difficulty:1,tags:['טבע','שקט','צפייה']},
+  {name:'גיאוקאשינג',cat:'outdoor',desc:'ציד אוצרות טכנולוגי — GPS ורמזים לאיתור נקודות.',ages:'10+',participants:'4-30',difficulty:2,tags:['ניווט','טכנולוגיה','הרפתקה']},
+];
+
+// ===== SVG ILLUSTRATIONS =====
+function getSvgIllustration(type, animate=true) {
+  const svgs = {
+    'illust-fathers': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gf1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d5a2d"/><stop offset="100%" stop-color="#1a3a1a"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gf1)"/>
+      <circle class="star" cx="50" cy="30" r="1.5" fill="#fff"/>
+      <circle class="star" cx="150" cy="20" r="1" fill="#fff"/>
+      <circle class="star" cx="250" cy="35" r="2" fill="#fff"/>
+      <circle class="star" cx="350" cy="25" r="1" fill="#fff"/>
+      <path d="M0,160 L80,100 L160,130 L240,90 L320,120 L400,80 L400,200 L0,200Z" fill="#1a3a1a" opacity="0.5"/>
+      <path d="M0,180 L100,140 L200,160 L300,130 L400,150 L400,200 L0,200Z" fill="#0d2618"/>
+      <g class="walker" transform="translate(160,150)">
+        <circle cx="0" cy="-28" r="8" fill="#00d2ff" opacity="0.8"/>
+        <line x1="0" y1="-20" x2="0" y2="2" stroke="#00d2ff" stroke-width="2.5" opacity="0.8"/>
+        <line x1="0" y1="-12" x2="-10" y2="-4" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="2" x2="-6" y2="15" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="2" x2="6" y2="15" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
+        <circle cx="25" cy="-20" r="6" fill="#d4af37" opacity="0.8"/>
+        <line x1="25" y1="-14" x2="25" y2="2" stroke="#d4af37" stroke-width="2" opacity="0.8"/>
+        <line x1="25" y1="-8" x2="18" y2="-2" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <line x1="25" y1="2" x2="21" y2="15" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <line x1="25" y1="2" x2="29" y2="15" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
+        <line x1="-10" y1="-4" x2="18" y2="-2" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+      </g>
+      <g transform="translate(300,135)">
+        <ellipse class="fire-group" cx="0" cy="-3" rx="5" ry="10" fill="#e67e22" opacity="0.7"/>
+        <ellipse class="fire-group" cx="2" cy="-6" rx="3" ry="7" fill="#f39c12" opacity="0.6"/>
+      </g>
+    </svg>`,
+    'illust-odt': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="go1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d2137"/><stop offset="100%" stop-color="#1a3a5c"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#go1)"/>
+      <line x1="100" y1="50" x2="300" y2="50" stroke="#8B4513" stroke-width="3"/>
+      <line x1="100" y1="50" x2="100" y2="180" stroke="#8B4513" stroke-width="4"/>
+      <line x1="300" y1="50" x2="300" y2="180" stroke="#8B4513" stroke-width="4"/>
+      <g class="rope-person" transform="translate(180,50)">
+        <line x1="0" y1="0" x2="0" y2="30" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="0" cy="35" r="5" fill="#00d2ff" opacity="0.8"/>
+        <line x1="0" y1="40" x2="0" y2="60" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="48" x2="-8" y2="42" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="48" x2="8" y2="42" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="60" x2="-5" y2="72" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="60" x2="5" y2="72" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
+      </g>
+      <g transform="translate(60,160)">
+        <circle cx="0" cy="0" r="5" fill="#e67e22" opacity="0.6"/>
+        <circle cx="15" cy="2" r="4" fill="#2980b9" opacity="0.6"/>
+        <circle cx="30" cy="-1" r="5" fill="#27ae60" opacity="0.6"/>
+      </g>
+      <text x="200" y="190" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="12" font-family="Heebo">ODT</text>
+    </svg>`,
+    'illust-games': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2d1a3a"/><stop offset="100%" stop-color="#4a2d6a"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gg1)"/>
+      <g class="dice" transform="translate(200,100)">
+        <rect x="-30" y="-30" width="60" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <circle cx="-12" cy="-12" r="4" fill="#d4af37"/>
+        <circle cx="12" cy="-12" r="4" fill="#d4af37"/>
+        <circle cx="0" cy="0" r="4" fill="#d4af37"/>
+        <circle cx="-12" cy="12" r="4" fill="#d4af37"/>
+        <circle cx="12" cy="12" r="4" fill="#d4af37"/>
+      </g>
+      <g transform="translate(80,60)">
+        <rect x="0" y="0" width="40" height="55" rx="4" fill="rgba(0,210,255,0.15)" stroke="rgba(0,210,255,0.3)" stroke-width="1.5"/>
+        <text x="20" y="35" text-anchor="middle" fill="#00d2ff" font-size="20" font-weight="bold">7</text>
+      </g>
+      <g transform="translate(280,80)">
+        <rect x="0" y="0" width="40" height="55" rx="4" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.3)" stroke-width="1.5"/>
+        <text x="20" y="35" text-anchor="middle" fill="#e74c3c" font-size="20" font-weight="bold">K</text>
+      </g>
+      <circle class="star" cx="50" cy="30" r="8" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
+      <circle class="star" cx="350" cy="40" r="6" fill="none" stroke="rgba(0,210,255,0.2)" stroke-width="1"/>
+    </svg>`,
+    'illust-workshop': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a2d1a"/><stop offset="100%" stop-color="#6a5a2d"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gw1)"/>
+      <rect x="60" y="60" width="280" height="120" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
+      <rect x="80" y="50" width="240" height="10" rx="2" fill="rgba(212,175,55,0.2)"/>
+      <g transform="translate(120,110)">
+        <circle cx="0" cy="0" r="10" fill="#00d2ff" opacity="0.6"/>
+        <circle cx="40" cy="5" r="10" fill="#27ae60" opacity="0.6"/>
+        <circle cx="80" cy="-2" r="10" fill="#e67e22" opacity="0.6"/>
+        <circle cx="120" cy="3" r="10" fill="#9b59b6" opacity="0.6"/>
+        <circle cx="160" cy="-5" r="10" fill="#e74c3c" opacity="0.6"/>
+      </g>
+      <g class="jumper" transform="translate(200,140)">
+        <circle cx="0" cy="-8" r="3" fill="#d4af37"/>
+        <line x1="0" y1="-5" x2="0" y2="5" stroke="#d4af37" stroke-width="1.5"/>
+        <line x1="-5" y1="0" x2="5" y2="0" stroke="#d4af37" stroke-width="1.5"/>
+      </g>
+      <text x="200" y="85" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="16" font-family="Heebo">סדנה</text>
+    </svg>`,
+    'illust-therapy': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gt1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2d3a"/><stop offset="100%" stop-color="#2d4a6a"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gt1)"/>
+      <path d="M0,180 Q100,140 200,170 T400,160 L400,200 L0,200Z" fill="#0d1f3c" opacity="0.5"/>
+      <circle cx="350" cy="40" r="20" fill="rgba(255,255,200,0.08)"/>
+      <circle cx="350" cy="40" r="10" fill="rgba(255,255,200,0.04)"/>
+      <circle class="star" cx="50" cy="30" r="1.5" fill="#fff"/><circle class="star" cx="150" cy="20" r="1" fill="#fff"/>
+      <circle class="star" cx="250" cy="35" r="1.5" fill="#fff"/>
+      <g class="walker" transform="translate(180,145)">
+        <circle cx="0" cy="-15" r="5" fill="#e84393" opacity="0.7"/>
+        <line x1="0" y1="-10" x2="0" y2="5" stroke="#e84393" stroke-width="2" opacity="0.7"/>
+        <line x1="-12" y1="8" x2="0" y2="0" stroke="#8B4513" stroke-width="1.5" opacity="0.5"/>
+        <line x1="0" y1="5" x2="-4" y2="18" stroke="#e84393" stroke-width="1.5" opacity="0.7"/>
+        <line x1="0" y1="5" x2="4" y2="18" stroke="#e84393" stroke-width="1.5" opacity="0.7"/>
+      </g>
+      <path d="M80,170 Q120,130 160,170" fill="none" stroke="rgba(0,210,255,0.2)" stroke-width="2"/>
+      <path d="M240,165 Q280,125 320,165" fill="none" stroke="rgba(0,210,255,0.2)" stroke-width="2"/>
+    </svg>`,
+    'illust-podcast': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a1a2d"/><stop offset="100%" stop-color="#6a2d4a"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gp1)"/>
+      <g transform="translate(200,100)">
+        <rect x="-12" y="-30" width="24" height="40" rx="12" fill="rgba(212,175,55,0.3)" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
+        <line x1="0" y1="10" x2="0" y2="25" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
+        <line x1="-10" y1="25" x2="10" y2="25" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
+        <path d="M-20,0 Q-20,20 0,20 Q20,20 20,0" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5"/>
+      </g>
+      <g transform="translate(200,100)">
+        <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1" class="star"/>
+        <circle cx="0" cy="0" r="65" fill="none" stroke="rgba(212,175,55,0.06)" stroke-width="1" class="star"/>
+        <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(212,175,55,0.03)" stroke-width="1" class="star"/>
+      </g>
+      <text x="200" y="170" text-anchor="middle" fill="rgba(255,255,255,0.08)" font-size="14" font-family="Heebo">הקשר</text>
+    </svg>`,
+    'illust-trek': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gtr1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a2d"/><stop offset="100%" stop-color="#2d6a4a"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gtr1)"/>
+      <path d="M0,150 L100,80 L200,120 L300,70 L400,100 L400,200 L0,200Z" fill="#1a4a3a" opacity="0.5"/>
+      <path d="M0,170 L80,130 L180,155 L280,120 L400,150 L400,200 L0,200Z" fill="#0d3020"/>
+      <g class="walker" transform="translate(200,135)">
+        <circle cx="0" cy="-15" r="5" fill="#00d2ff" opacity="0.7"/>
+        <line x1="0" y1="-10" x2="0" y2="5" stroke="#00d2ff" stroke-width="2" opacity="0.7"/>
+        <line x1="0" y1="5" x2="-4" y2="18" stroke="#00d2ff" stroke-width="1.5" opacity="0.7"/>
+        <line x1="0" y1="5" x2="4" y2="18" stroke="#00d2ff" stroke-width="1.5" opacity="0.7"/>
+        <line x1="6" y1="-5" x2="6" y2="-25" stroke="#8B4513" stroke-width="1.5" opacity="0.5"/>
+      </g>
+      <circle class="star" cx="350" cy="30" r="15" fill="rgba(255,255,200,0.06)"/>
+    </svg>`,
+    'illust-team': `<svg viewBox="0 0 400 200" class="svg-anim">
+      <defs><linearGradient id="gtm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2d50"/><stop offset="100%" stop-color="#2d4a80"/></linearGradient></defs>
+      <rect width="400" height="200" fill="url(#gtm1)"/>
+      <g transform="translate(200,100)">
+        <circle cx="0" cy="-30" r="8" fill="#00d2ff" opacity="0.5"/>
+        <circle cx="-40" cy="-10" r="8" fill="#27ae60" opacity="0.5"/>
+        <circle cx="40" cy="-10" r="8" fill="#e67e22" opacity="0.5"/>
+        <circle cx="-25" cy="20" r="8" fill="#9b59b6" opacity="0.5"/>
+        <circle cx="25" cy="20" r="8" fill="#e74c3c" opacity="0.5"/>
+        <line x1="0" y1="-22" x2="-32" y2="-4" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="0" y1="-22" x2="32" y2="-4" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="-32" y1="-4" x2="-20" y2="14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="32" y1="-4" x2="20" y2="14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="-20" y1="14" x2="20" y2="14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      </g>
+    </svg>`
+  };
+  return svgs[type] || svgs['illust-odt'];
+}
+
+// ===== RENDER PROGRAMS =====
+function renderPrograms() {
+  const grid = document.getElementById('programs-grid');
+  grid.innerHTML = PROGRAMS.map((p,i) => `
+    <div class="program-card fade-up" onclick="openProgramModal(${i})" style="animation-delay:${i*0.1}s">
+      <div class="card-illustration ${p.illustType}">
+        ${getSvgIllustration(p.illustType)}
+        <div class="overlay-gradient"></div>
+      </div>
+      <div class="card-body">
+        <div class="card-category"><i class="bi ${p.icon}"></i> ${p.category}</div>
+        <div class="card-title">${p.title}</div>
+        <div class="card-desc">${p.desc}</div>
+        <div class="card-meta">
+          <span><i class="bi bi-people"></i> ${p.participants}</span>
+          <span><i class="bi bi-clock"></i> ${p.duration}</span>
+          <span><i class="bi bi-person"></i> ${p.ages}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ===== RENDER ACTIVITIES =====
+let currentFilter = 'all';
+function renderActivities(items) {
+  const grid = document.getElementById('activities-grid');
+  const noRes = document.getElementById('noResults');
+  if (items.length === 0) {
+    grid.innerHTML = '';
+    noRes.style.display = 'block';
+    document.getElementById('searchCount').textContent = 'לא נמצאו תוצאות';
+    return;
+  }
+  noRes.style.display = 'none';
+  document.getElementById('searchCount').textContent = `${items.length} פעילויות נמצאו`;
+  grid.innerHTML = items.map((a,i) => {
+    const diffStars = '★'.repeat(a.difficulty) + '☆'.repeat(3-a.difficulty);
+    const catColors = {odt:'#00d2ff',group:'#27ae60',energetic:'#e74c3c',thinking:'#f39c12',icebreaker:'#9b59b6',fathers:'#d4af37',outdoor:'#2980b9',classroom:'#e67e22'};
+    const catNames = {odt:'ODT',group:'קבוצתי',energetic:'אנרגטי',thinking:'חשיבה',icebreaker:'שובר קרח',fathers:'אבות ובנים',outdoor:'שטח',classroom:'כיתה'};
+    const color = catColors[a.cat]||'#00d2ff';
+    return `<div class="program-card fade-up" style="animation-delay:${(i%12)*0.05}s" onclick="openActivityModal(${ACTIVITIES.indexOf(a)})">
+      <div class="card-illustration" style="height:100px;background:linear-gradient(135deg,${color}15,${color}08)">
+        <div style="font-size:2.5rem;opacity:0.3;z-index:2;position:relative">${getActivityEmoji(a.cat)}</div>
+        <div class="overlay-gradient"></div>
+      </div>
+      <div class="card-body" style="padding:15px">
+        <div class="card-category" style="background:${color}18;color:${color}">${catNames[a.cat]||a.cat}</div>
+        <div class="card-title" style="font-size:1.05rem">${a.name}</div>
+        <div class="card-desc" style="-webkit-line-clamp:2">${a.desc}</div>
+        <div class="card-meta">
+          <span><i class="bi bi-people"></i> ${a.participants}</span>
+          <span><i class="bi bi-person"></i> ${a.ages}</span>
+          <span style="color:${color}">${diffStars}</span>
+        </div>
+        <div class="card-tags">${a.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+      </div>
+    </div>`;
+  }).join('');
+  observeFadeUp();
+}
+
+function getActivityEmoji(cat) {
+  const map = {odt:'\u{1F9ED}',group:'\u{1F465}',energetic:'\u{26A1}',thinking:'\u{1F4A1}',icebreaker:'\u{2744}\uFE0F',fathers:'\u{2764}\uFE0F',outdoor:'\u{1F3D5}\uFE0F',classroom:'\u{1F3EB}'};
+  return map[cat]||'\u{1F3AF}';
+}
+
+function filterActivities() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  let items = ACTIVITIES;
+  if (currentFilter !== 'all') items = items.filter(a => a.cat === currentFilter);
+  if (q) items = items.filter(a =>
+    a.name.includes(q) || a.desc.includes(q) || a.tags.some(t => t.includes(q))
+  );
+  renderActivities(items);
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterActivities();
+}
+
+// ===== MODALS =====
+function openProgramModal(idx) {
+  const p = PROGRAMS[idx];
+  const modal = document.getElementById('modal');
+  document.getElementById('modalHero').innerHTML = `
+    <div style="width:100%;height:100%" class="${p.illustType}">${getSvgIllustration(p.illustType)}</div>
+    <div class="overlay-gradient"></div>`;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="card-category" style="margin-bottom:8px"><i class="bi ${p.icon}"></i> ${p.category}</div>
+    <h2>${p.title}</h2>
+    <div class="subtitle">${p.details.subtitle}</div>
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">גילאים</div><div class="value">${p.ages}</div></div>
+      <div class="detail-item"><div class="label">משך</div><div class="value">${p.duration}</div></div>
+      <div class="detail-item"><div class="label">משתתפים</div><div class="value">${p.participants}</div></div>
+    </div>
+    <h3>מה כולל?</h3>
+    <ul>${p.details.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <h3>איך זה עובד?</h3>
+    <div class="steps">${p.details.steps.map((s,i)=>`
+      <div class="step"><div class="step-num">${i+1}</div><div class="step-title">${s.title}</div><div class="step-desc">${s.desc}</div></div>
+    `).join('')}</div>
+    <div style="margin-top:20px;text-align:center">
+      <a href="tel:0548531641" class="btn btn-primary btn-sm"><i class="bi bi-telephone"></i> להזמנה: 054-853-1641</a>
+    </div>`;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function openActivityModal(idx) {
+  const a = ACTIVITIES[idx];
+  const catColors = {odt:'#00d2ff',group:'#27ae60',energetic:'#e74c3c',thinking:'#f39c12',icebreaker:'#9b59b6',fathers:'#d4af37',outdoor:'#2980b9',classroom:'#e67e22'};
+  const catNames = {odt:'ODT',group:'קבוצתי',energetic:'אנרגטי',thinking:'חשיבה',icebreaker:'שובר קרח',fathers:'אבות ובנים',outdoor:'שטח',classroom:'כיתה'};
+  const color = catColors[a.cat]||'#00d2ff';
+  const diffStars = '\u2605'.repeat(a.difficulty) + '\u2606'.repeat(3-a.difficulty);
+  const modal = document.getElementById('modal');
+  document.getElementById('modalHero').innerHTML = `
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,${color}25,${color}08);display:flex;align-items:center;justify-content:center">
+      <span style="font-size:5rem;opacity:0.3">${getActivityEmoji(a.cat)}</span>
+    </div><div class="overlay-gradient"></div>`;
+  document.getElementById('modalBody').innerHTML = `
+    <div class="card-category" style="background:${color}18;color:${color}">${catNames[a.cat]}</div>
+    <h2>${a.name}</h2>
+    <div class="subtitle">${a.desc}</div>
+    <div class="detail-grid">
+      <div class="detail-item"><div class="label">גילאים</div><div class="value">${a.ages}</div></div>
+      <div class="detail-item"><div class="label">משתתפים</div><div class="value">${a.participants}</div></div>
+      <div class="detail-item"><div class="label">רמת קושי</div><div class="value" style="color:${color}">${diffStars}</div></div>
+    </div>
+    <h3>תגיות</h3>
+    <div class="card-tags" style="margin-bottom:15px">${a.tags.map(t=>`<span class="tag" style="font-size:0.85rem;padding:5px 14px">${t}</span>`).join('')}</div>
+    <div style="margin-top:20px;text-align:center">
+      <a href="https://www.chaim-katz.com" target="_blank" class="btn btn-outline btn-sm"><i class="bi bi-box-arrow-up-left"></i> לפרטים נוספים באתר הרשמי</a>
+    </div>`;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+// ===== PARTICLES =====
+function initParticles() {
+  const c = document.getElementById('particles-bg');
+  const ctx = c.getContext('2d');
+  let w, h, particles=[];
+  function resize() { w=c.width=window.innerWidth; h=c.height=window.innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  for(let i=0;i<60;i++) particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+0.5,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3,o:Math.random()*0.3+0.1});
+  function draw() {
+    ctx.clearRect(0,0,w,h);
+    particles.forEach(p => {
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(0,210,255,${p.o})`;ctx.fill();
+      p.x+=p.dx;p.y+=p.dy;
+      if(p.x<0||p.x>w)p.dx*=-1;if(p.y<0||p.y>h)p.dy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ===== SCROLL EFFECTS =====
+function observeFadeUp() {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+  }, {threshold:0.1});
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => obs.observe(el));
+}
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    const obs = new IntersectionObserver((entries) => {
+      if(entries[0].isIntersecting) {
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target/60));
+        const timer = setInterval(() => {
+          current = Math.min(current+step, target);
+          el.textContent = current >= 1000 ? (current/1000).toFixed(0)+'K+' : current+'+';
+          if(current>=target) clearInterval(timer);
+        }, 30);
+        obs.unobserve(el);
+      }
+    });
+    obs.observe(el);
+  });
+}
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+  const nb = document.getElementById('navbar');
+  nb.classList.toggle('scrolled', window.scrollY>80);
+  const bt = document.getElementById('backTop');
+  bt.classList.toggle('visible', window.scrollY>500);
+});
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  initParticles();
+  renderPrograms();
+  renderActivities(ACTIVITIES);
+  observeFadeUp();
+  animateCounters();
+});
+</script>
+</body>
+</html>
