@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0a1628">
+<meta name="theme-color" content="#f8f6f0">
 <title>חיים כץ — פעילות מכוונת מטרה | כל התוכניות והפעילויות</title>
 <meta name="description" content="האתר המלא של חיים כץ — מאגר פעילויות ODT, אבות עם בנים, משחקים קבוצתיים, סדנאות למחנכים, טיפול באתגר ועוד מעל 200 פעילויות">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>🏔️</text></svg>">
@@ -13,211 +13,216 @@
 /* ===== RESET & VARS ===== */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#0a1628;--bg2:#0d1f3c;--card:#111d35;--card2:#162848;
-  --border:rgba(255,255,255,0.08);--gold:#d4af37;--gold2:#f7e98e;
-  --green:#27ae60;--red:#e74c3c;--blue:#2980b9;--cyan:#00d2ff;
-  --orange:#e67e22;--purple:#9b59b6;--pink:#e84393;
-  --text:#e8eaf0;--muted:#7a8ba8;--glow:rgba(0,210,255,0.08);
+  --bg:#f8f6f0;--bg2:#f0ede5;--card:#ffffff;--card2:#f5f3ed;
+  --border:rgba(0,0,0,0.08);--gold:#c8960c;--gold2:#f7c948;
+  --green:#1faa5a;--red:#e74c3c;--blue:#2176bd;--cyan:#0099cc;
+  --orange:#e67e22;--purple:#8e44ad;--pink:#d63384;
+  --text:#2d3436;--muted:#636e72;--glow:rgba(212,175,55,0.08);
   --radius:16px;--transition:0.3s cubic-bezier(0.4,0,0.2,1);
+  --accent1:#ff6b35;--accent2:#ffc107;--accent3:#00b894;
 }
-html{scroll-behavior:smooth;scrollbar-color:rgba(0,210,255,0.15) var(--bg);scrollbar-width:thin}
-::selection{background:rgba(0,210,255,0.3);color:#fff}
-::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:rgba(0,210,255,0.15);border-radius:3px}
+html{scroll-behavior:smooth;scrollbar-color:rgba(200,150,12,0.2) var(--bg);scrollbar-width:thin}
+::selection{background:rgba(255,193,7,0.35);color:#2d3436}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#f0ede5}
+::-webkit-scrollbar-thumb{background:rgba(200,150,12,0.25);border-radius:3px}
 body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;
-  background-image:radial-gradient(ellipse at 20% 10%,rgba(0,50,120,0.2),transparent 60%),
-  radial-gradient(ellipse at 80% 80%,rgba(212,175,55,0.05),transparent 50%)}
+  background-image:radial-gradient(ellipse at 20% 10%,rgba(255,193,7,0.06),transparent 60%),
+  radial-gradient(ellipse at 80% 80%,rgba(255,107,53,0.04),transparent 50%)}
 
 /* ===== ANIMATED BACKGROUND PARTICLES ===== */
 #particles-bg{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 
 /* ===== HERO ===== */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px;overflow:hidden;z-index:1}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(10,22,40,0.6) 70%,var(--bg) 100%);z-index:1}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(248,246,240,0.4) 70%,var(--bg) 100%);z-index:1}
+.hero::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from 0deg at 50% 50%,rgba(255,193,7,0.03) 0deg,rgba(255,107,53,0.03) 120deg,rgba(0,184,148,0.03) 240deg,rgba(255,193,7,0.03) 360deg);animation:heroGradientSpin 20s linear infinite;z-index:0}
+@keyframes heroGradientSpin{to{transform:rotate(360deg)}}
 .hero-content{position:relative;z-index:2}
 
 /* Animated mountain scene */
 .mountain-scene{position:absolute;bottom:0;left:0;width:100%;height:60%;z-index:0}
 .mountain-scene svg{position:absolute;bottom:0;width:100%}
 
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,210,255,0.1);border:1px solid rgba(0,210,255,0.25);
-  padding:8px 24px;border-radius:50px;font-size:0.85rem;color:var(--cyan);margin-bottom:20px;
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,150,12,0.1);border:1px solid rgba(200,150,12,0.3);
+  padding:8px 24px;border-radius:50px;font-size:0.85rem;color:var(--gold);margin-bottom:20px;
   animation:badgePulse 3s ease-in-out infinite;backdrop-filter:blur(10px)}
-@keyframes badgePulse{0%,100%{box-shadow:0 0 10px rgba(0,210,255,0.1)}50%{box-shadow:0 0 25px rgba(0,210,255,0.25)}}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 10px rgba(200,150,12,0.1)}50%{box-shadow:0 0 25px rgba(200,150,12,0.25)}}
 
 .hero h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:900;line-height:1.1;margin-bottom:10px;
-  background:linear-gradient(135deg,#fff 0%,var(--cyan) 30%,var(--gold) 60%,#fff 100%);
+  background:linear-gradient(135deg,#2d3436 0%,var(--gold) 30%,var(--accent1) 60%,#2d3436 100%);
   background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  animation:heroShimmer 6s ease-in-out infinite;filter:drop-shadow(0 4px 20px rgba(0,210,255,0.2))}
+  animation:heroShimmer 6s ease-in-out infinite;filter:drop-shadow(0 4px 20px rgba(200,150,12,0.15))}
 @keyframes heroShimmer{0%,100%{background-position:0% 0%}50%{background-position:300% 0%}}
 
 .hero-subtitle{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--muted);margin-bottom:30px;max-width:600px;font-weight:300}
 .hero-stats{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
 .hero-stat{text-align:center}
-.hero-stat .num{font-size:2.5rem;font-weight:900;color:var(--cyan);display:block;line-height:1}
+.hero-stat .num{font-size:2.5rem;font-weight:900;color:var(--gold);display:block;line-height:1}
 .hero-stat .label{font-size:0.8rem;color:var(--muted)}
 
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .btn{padding:12px 28px;border-radius:12px;border:none;font-size:1rem;font-weight:700;font-family:inherit;cursor:pointer;
   transition:all var(--transition);display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-.btn-primary{background:linear-gradient(135deg,var(--cyan),#0088cc);color:#fff;box-shadow:0 4px 15px rgba(0,210,255,0.3)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,210,255,0.4)}
-.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.2);color:#fff}
-.btn-outline:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-3px)}
-.btn-gold{background:linear-gradient(135deg,var(--gold),#e8c84a);color:#000}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(212,175,55,0.4)}
+.btn-primary{background:linear-gradient(135deg,var(--accent1),#e85d2c);color:#fff;box-shadow:0 4px 15px rgba(255,107,53,0.3);animation:ctaPulse 2.5s ease-in-out infinite}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,107,53,0.4)}
+@keyframes ctaPulse{0%,100%{box-shadow:0 4px 15px rgba(255,107,53,0.3)}50%{box-shadow:0 6px 25px rgba(255,107,53,0.5)}}
+.btn-outline{background:transparent;border:2px solid rgba(0,0,0,0.15);color:var(--text)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px)}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#e8b84a);color:#fff}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(200,150,12,0.4)}
 .btn-sm{padding:8px 18px;font-size:0.85rem;border-radius:10px}
 
 /* ===== SCROLL INDICATOR ===== */
 .scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;animation:scrollBounce 2s infinite}
 @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
-.scroll-indicator i{font-size:1.5rem;color:rgba(255,255,255,0.3)}
+.scroll-indicator i{font-size:1.8rem;color:var(--gold);filter:drop-shadow(0 2px 8px rgba(200,150,12,0.3))}
 
 /* ===== NAVBAR ===== */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 30px;display:flex;justify-content:space-between;align-items:center;
   transition:all 0.4s;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
-.navbar.scrolled{background:rgba(10,22,40,0.95);border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,0.3)}
-.nav-logo{font-size:1.3rem;font-weight:900;color:var(--cyan);text-decoration:none;display:flex;align-items:center;gap:8px}
-.nav-logo span{font-size:0.75rem;color:var(--gold);background:rgba(212,175,55,0.15);padding:2px 10px;border-radius:20px}
+.navbar.scrolled{background:rgba(255,255,255,0.95);border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,0.06)}
+.nav-logo{font-size:1.3rem;font-weight:900;color:var(--accent1);text-decoration:none;display:flex;align-items:center;gap:8px}
+.nav-logo span{font-size:0.75rem;color:var(--gold);background:rgba(200,150,12,0.1);padding:2px 10px;border-radius:20px}
 .nav-links{display:flex;gap:5px;flex-wrap:wrap}
 .nav-links a{color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:0.85rem;font-weight:500;transition:all var(--transition)}
-.nav-links a:hover,.nav-links a.active{color:var(--cyan);background:rgba(0,210,255,0.08)}
-.nav-hamburger{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--accent1);background:rgba(255,107,53,0.08)}
+.nav-hamburger{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer}
 
 /* ===== SECTIONS ===== */
 section{position:relative;z-index:1;padding:80px 20px}
 .section-header{text-align:center;margin-bottom:50px}
 .section-header h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;margin-bottom:10px;
-  background:linear-gradient(135deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  background:linear-gradient(135deg,var(--text),var(--accent1));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .section-header p{color:var(--muted);font-size:1.1rem;max-width:600px;margin:0 auto}
 .container{max-width:1200px;margin:0 auto;padding:0 15px}
 
 /* ===== SEARCH BAR ===== */
 .search-container{max-width:600px;margin:0 auto 40px;position:relative}
 .search-input{width:100%;padding:16px 50px 16px 20px;border-radius:16px;border:2px solid var(--border);
-  background:rgba(17,29,53,0.8);color:var(--text);font-size:1.05rem;font-family:inherit;
-  backdrop-filter:blur(20px);transition:all var(--transition)}
+  background:rgba(255,255,255,0.9);color:var(--text);font-size:1.05rem;font-family:inherit;
+  backdrop-filter:blur(20px);transition:all var(--transition);box-shadow:0 2px 10px rgba(0,0,0,0.04)}
 .search-input::placeholder{color:var(--muted)}
-.search-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 20px rgba(0,210,255,0.15)}
+.search-input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 20px rgba(200,150,12,0.12)}
 .search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.2rem}
 .search-count{text-align:center;margin-top:10px;font-size:0.85rem;color:var(--muted);min-height:20px}
 
 /* ===== CATEGORY FILTERS ===== */
 .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.filter-btn{padding:8px 20px;border-radius:50px;border:1px solid var(--border);background:rgba(255,255,255,0.03);
+.filter-btn{padding:8px 20px;border-radius:50px;border:1px solid var(--border);background:rgba(255,255,255,0.6);
   color:var(--muted);font-size:0.85rem;font-weight:500;cursor:pointer;transition:all var(--transition);font-family:inherit}
-.filter-btn:hover{border-color:rgba(0,210,255,0.3);color:var(--cyan)}
-.filter-btn.active{background:linear-gradient(135deg,rgba(0,210,255,0.15),rgba(0,210,255,0.05));
-  border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 15px rgba(0,210,255,0.1)}
+.filter-btn:hover{border-color:rgba(255,107,53,0.3);color:var(--accent1)}
+.filter-btn.active{background:linear-gradient(135deg,rgba(255,107,53,0.12),rgba(255,193,7,0.08));
+  border-color:var(--accent1);color:var(--accent1);box-shadow:0 0 15px rgba(255,107,53,0.08)}
 
 /* ===== PROGRAM CARDS ===== */
 .programs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
-.program-card{background:linear-gradient(145deg,rgba(17,29,53,0.9),rgba(22,40,72,0.7));
+.program-card{background:#fff;
   border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
-  cursor:pointer;position:relative}
-.program-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.6));z-index:1;pointer-events:none}
-.program-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 30px rgba(0,210,255,0.08);
-  border-color:rgba(0,210,255,0.2)}
+  cursor:pointer;position:relative;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.program-card::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(255,255,255,0.8));z-index:1;pointer-events:none}
+.program-card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,0.08),0 0 30px rgba(255,107,53,0.06);
+  border-color:rgba(255,107,53,0.2)}
 
 /* Animated SVG illustration area */
 .card-illustration{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .card-illustration svg{width:100%;height:100%}
-.card-illustration .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(17,29,53,0.95));z-index:1}
+.card-illustration .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(255,255,255,0.95));z-index:1}
 
 .card-body{padding:20px;position:relative;z-index:2}
-.card-category{display:inline-flex;align-items:center;gap:5px;font-size:0.75rem;color:var(--cyan);
-  background:rgba(0,210,255,0.1);padding:4px 12px;border-radius:20px;margin-bottom:10px;font-weight:500}
-.card-title{font-size:1.2rem;font-weight:700;margin-bottom:6px;color:#fff}
+.card-category{display:inline-flex;align-items:center;gap:5px;font-size:0.75rem;color:var(--accent1);
+  background:rgba(255,107,53,0.08);padding:4px 12px;border-radius:20px;margin-bottom:10px;font-weight:500}
+.card-title{font-size:1.2rem;font-weight:700;margin-bottom:6px;color:var(--text)}
 .card-desc{font-size:0.88rem;color:var(--muted);line-height:1.6;margin-bottom:12px;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card-meta{display:flex;gap:15px;flex-wrap:wrap;font-size:0.8rem;color:var(--muted)}
 .card-meta span{display:flex;align-items:center;gap:4px}
-.card-meta i{color:var(--cyan);font-size:0.85rem}
+.card-meta i{color:var(--accent1);font-size:0.85rem}
 
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .tag{padding:3px 10px;border-radius:8px;font-size:0.7rem;font-weight:500;border:1px solid var(--border);color:var(--muted)}
 
 /* ===== PROGRAM MODAL ===== */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);backdrop-filter:blur(8px);z-index:200;
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);backdrop-filter:blur(8px);z-index:200;
   display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.3s}
 .modal-overlay.active{display:flex}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.modal{background:var(--card);border:1px solid var(--border);border-radius:24px;max-width:800px;width:100%;
-  max-height:90vh;overflow-y:auto;position:relative;animation:modalSlide 0.4s cubic-bezier(0.4,0,0.2,1)}
+.modal{background:#fff;border:1px solid var(--border);border-radius:24px;max-width:800px;width:100%;
+  max-height:90vh;overflow-y:auto;position:relative;animation:modalSlide 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 25px 80px rgba(0,0,0,0.15)}
 @keyframes modalSlide{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
-.modal-close{position:absolute;top:16px;left:16px;background:rgba(255,255,255,0.1);border:none;color:#fff;
+.modal-close{position:absolute;top:16px;left:16px;background:rgba(0,0,0,0.1);border:none;color:var(--text);
   width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:5;transition:all var(--transition);
   display:flex;align-items:center;justify-content:center}
 .modal-close:hover{background:var(--red);transform:rotate(90deg)}
 .modal-hero{height:250px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.modal-hero .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,var(--card));z-index:1}
+.modal-hero .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#fff);z-index:1}
 .modal-body{padding:30px;position:relative;z-index:2;margin-top:-60px}
 .modal-body h2{font-size:1.8rem;font-weight:900;margin-bottom:5px}
 .modal-body .subtitle{color:var(--muted);margin-bottom:20px}
 .modal-body .detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;margin-bottom:20px}
-.detail-item{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:12px;padding:15px}
+.detail-item{background:rgba(255,107,53,0.04);border:1px solid var(--border);border-radius:12px;padding:15px}
 .detail-item .label{font-size:0.75rem;color:var(--muted);margin-bottom:4px}
-.detail-item .value{font-size:1rem;font-weight:700;color:var(--cyan)}
+.detail-item .value{font-size:1rem;font-weight:700;color:var(--accent1)}
+.modal-body h2{color:var(--text)}
 .modal-body h3{font-size:1.2rem;font-weight:700;margin:20px 0 10px;color:var(--gold)}
 .modal-body ul{padding-right:20px;color:var(--muted);line-height:2}
-.modal-body ul li::marker{color:var(--cyan)}
+.modal-body ul li::marker{color:var(--accent1)}
 
 /* Steps animation in modal */
 .steps{display:flex;gap:15px;flex-wrap:wrap;margin:15px 0}
-.step{flex:1;min-width:150px;background:rgba(0,210,255,0.05);border:1px solid rgba(0,210,255,0.15);
+.step{flex:1;min-width:150px;background:rgba(255,107,53,0.04);border:1px solid rgba(255,107,53,0.12);
   border-radius:12px;padding:15px;text-align:center;transition:all var(--transition)}
-.step:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,210,255,0.1)}
-.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--blue));
+.step:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(255,107,53,0.08)}
+.step-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent1),var(--accent2));
   color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;margin:0 auto 8px}
-.step-title{font-weight:700;font-size:0.9rem;margin-bottom:4px}
+.step-title{font-weight:700;font-size:0.9rem;margin-bottom:4px;color:var(--text)}
 .step-desc{font-size:0.78rem;color:var(--muted)}
 
 /* ===== ABOUT SECTION ===== */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.about-text h3{font-size:1.6rem;font-weight:900;margin-bottom:15px;color:#fff}
+.about-text h3{font-size:1.6rem;font-weight:900;margin-bottom:15px;color:var(--text)}
 .about-text p{color:var(--muted);line-height:1.8;margin-bottom:15px}
 .about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.about-stat{background:rgba(0,210,255,0.05);border:1px solid rgba(0,210,255,0.1);border-radius:16px;padding:20px;text-align:center;transition:all var(--transition)}
-.about-stat:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,210,255,0.1)}
-.about-stat .num{font-size:2rem;font-weight:900;color:var(--cyan);display:block}
+.about-stat{background:#fff;border:1px solid var(--border);border-radius:16px;padding:20px;text-align:center;transition:all var(--transition);box-shadow:0 2px 10px rgba(0,0,0,0.03)}
+.about-stat:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(255,107,53,0.08)}
+.about-stat .num{font-size:2rem;font-weight:900;color:var(--accent1);display:block}
 .about-stat .label{font-size:0.8rem;color:var(--muted)}
 
 /* ===== TIMELINE ===== */
 .timeline{position:relative;padding:20px 0}
-.timeline::before{content:'';position:absolute;right:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--cyan),var(--gold),var(--purple));transform:translateX(50%)}
+.timeline::before{content:'';position:absolute;right:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent1),var(--accent2),var(--accent3));transform:translateX(50%)}
 .tl-item{display:flex;align-items:center;margin-bottom:40px;position:relative}
 .tl-item:nth-child(odd){flex-direction:row-reverse}
-.tl-content{width:45%;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;
-  transition:all var(--transition)}
-.tl-content:hover{border-color:rgba(0,210,255,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
-.tl-dot{width:16px;height:16px;border-radius:50%;background:var(--cyan);border:3px solid var(--bg);
-  position:absolute;right:50%;transform:translateX(50%);z-index:2;box-shadow:0 0 15px rgba(0,210,255,0.4)}
-.tl-content h4{font-weight:700;margin-bottom:5px;color:#fff}
+.tl-content{width:45%;padding:20px;background:#fff;border:1px solid var(--border);border-radius:16px;
+  transition:all var(--transition);box-shadow:0 2px 10px rgba(0,0,0,0.03)}
+.tl-content:hover{border-color:rgba(255,107,53,0.2);box-shadow:0 8px 30px rgba(0,0,0,0.06)}
+.tl-dot{width:16px;height:16px;border-radius:50%;background:var(--accent1);border:3px solid var(--bg);
+  position:absolute;right:50%;transform:translateX(50%);z-index:2;box-shadow:0 0 15px rgba(255,107,53,0.2)}
+.tl-content h4{font-weight:700;margin-bottom:5px;color:var(--text)}
 .tl-content p{font-size:0.85rem;color:var(--muted)}
 
 /* ===== PODCAST SECTION ===== */
 .podcast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
-.podcast-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;
-  transition:all var(--transition);cursor:pointer}
-.podcast-card:hover{border-color:rgba(212,175,55,0.3);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.podcast-card{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:16px;padding:20px;
+  transition:all var(--transition);cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,0.03)}
+.podcast-card:hover{border-color:rgba(200,150,12,0.3);border-left-color:var(--accent1);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.06)}
 .podcast-card .episode{font-size:0.8rem;color:var(--gold);margin-bottom:8px}
-.podcast-card h4{font-weight:700;margin-bottom:6px;font-size:1.05rem}
+.podcast-card h4{font-weight:700;margin-bottom:6px;font-size:1.05rem;color:var(--text)}
 .podcast-card p{font-size:0.85rem;color:var(--muted);line-height:1.5}
 .podcast-card .meta{display:flex;gap:15px;margin-top:10px;font-size:0.8rem;color:var(--muted)}
 
 /* ===== CONTACT ===== */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
-.contact-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:25px;text-align:center;
-  transition:all var(--transition)}
-.contact-card:hover{border-color:rgba(0,210,255,0.2);transform:translateY(-4px)}
-.contact-card i{font-size:2rem;color:var(--cyan);margin-bottom:10px;display:block}
-.contact-card h4{font-weight:700;margin-bottom:5px}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:25px;text-align:center;
+  transition:all var(--transition);box-shadow:0 2px 10px rgba(0,0,0,0.03)}
+.contact-card:hover{border-color:rgba(255,107,53,0.2);transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,0,0,0.06)}
+.contact-card i{font-size:2rem;color:var(--accent1);margin-bottom:10px;display:block}
+.contact-card h4{font-weight:700;margin-bottom:5px;color:var(--text)}
 .contact-card p{color:var(--muted);font-size:0.9rem}
-.contact-card a{color:var(--cyan);text-decoration:none}
+.contact-card a{color:var(--accent1);text-decoration:none}
 
 /* ===== FOOTER ===== */
-footer{position:relative;z-index:1;padding:40px 20px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:0.85rem}
-footer a{color:var(--cyan);text-decoration:none}
+footer{position:relative;z-index:1;padding:40px 20px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:0.85rem;background:var(--bg2)}
+footer a{color:var(--accent1);text-decoration:none}
 
 /* ===== ANIMATIONS ===== */
 .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s,transform 0.6s}
@@ -235,22 +240,22 @@ footer a{color:var(--cyan);text-decoration:none}
 @keyframes ropeSwing{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
 
 /* Card illustrations color themes */
-.illust-odt{background:linear-gradient(135deg,#0d2137,#1a3a5c)}
-.illust-fathers{background:linear-gradient(135deg,#1a2f1a,#2d5a2d)}
-.illust-games{background:linear-gradient(135deg,#2d1a3a,#4a2d6a)}
-.illust-workshop{background:linear-gradient(135deg,#3a2d1a,#6a5a2d)}
-.illust-therapy{background:linear-gradient(135deg,#1a2d3a,#2d4a6a)}
-.illust-podcast{background:linear-gradient(135deg,#3a1a2d,#6a2d4a)}
-.illust-trek{background:linear-gradient(135deg,#1a3a2d,#2d6a4a)}
-.illust-team{background:linear-gradient(135deg,#2d3a1a,#4a6a2d)}
+.illust-odt{background:linear-gradient(135deg,#e3f2fd,#bbdefb)}
+.illust-fathers{background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
+.illust-games{background:linear-gradient(135deg,#f3e5f5,#e1bee7)}
+.illust-workshop{background:linear-gradient(135deg,#fff8e1,#ffecb3)}
+.illust-therapy{background:linear-gradient(135deg,#fce4ec,#f8bbd0)}
+.illust-podcast{background:linear-gradient(135deg,#fff3e0,#ffccbc)}
+.illust-trek{background:linear-gradient(135deg,#e0f2f1,#b2dfdb)}
+.illust-team{background:linear-gradient(135deg,#e8eaf6,#c5cae9)}
 
 /* ===== BACK TO TOP ===== */
 .back-top{position:fixed;bottom:30px;left:30px;width:48px;height:48px;border-radius:50%;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;border:none;font-size:1.2rem;
+  background:linear-gradient(135deg,var(--accent1),var(--accent2));color:#fff;border:none;font-size:1.2rem;
   cursor:pointer;z-index:99;opacity:0;transform:translateY(20px);transition:all var(--transition);
-  box-shadow:0 4px 20px rgba(0,210,255,0.3);display:flex;align-items:center;justify-content:center}
+  box-shadow:0 4px 20px rgba(255,107,53,0.2);display:flex;align-items:center;justify-content:center}
 .back-top.visible{opacity:1;transform:translateY(0)}
-.back-top:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,210,255,0.5)}
+.back-top:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(255,107,53,0.4)}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
@@ -260,7 +265,7 @@ footer a{color:var(--cyan);text-decoration:none}
   .tl-item,.tl-item:nth-child(odd){flex-direction:column;align-items:flex-start}
   .tl-content{width:calc(100% - 40px);margin-right:40px}
   .tl-dot{right:20px}
-  .nav-links{display:none;position:absolute;top:100%;right:0;left:0;background:rgba(10,22,40,0.98);
+  .nav-links{display:none;position:absolute;top:100%;right:0;left:0;background:rgba(255,255,255,0.98);
     flex-direction:column;padding:15px;border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
   .nav-links.open{display:flex}
   .nav-hamburger{display:block}
@@ -309,14 +314,72 @@ footer a{color:var(--cyan);text-decoration:none}
 
 /* Loading shimmer for lazy cards */
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-.skeleton{background:linear-gradient(90deg,var(--card) 25%,rgba(255,255,255,0.05) 50%,var(--card) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
+.skeleton{background:linear-gradient(90deg,#f0ede5 25%,rgba(255,255,255,0.5) 50%,#f0ede5 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}
 
 /* Counter animation */
 @keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
+/* ===== DAILY GAME ===== */
+.daily-card{background:#fff;border:2px solid var(--gold);border-radius:24px;padding:30px;position:relative;overflow:hidden;
+  box-shadow:0 8px 40px rgba(200,150,12,0.12)}
+.daily-card::before{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;
+  background:conic-gradient(from 0deg,rgba(255,193,7,0.03),rgba(255,107,53,0.03),rgba(0,184,148,0.03),rgba(255,193,7,0.03));
+  animation:heroGradientSpin 20s linear infinite;z-index:0}
+.daily-card>*{position:relative;z-index:1}
+.daily-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--gold),#e8b84a);
+  color:#fff;padding:6px 18px;border-radius:50px;font-size:0.8rem;font-weight:700;margin-bottom:15px}
+.daily-title{font-size:1.8rem;font-weight:900;margin-bottom:8px;color:var(--text)}
+.daily-desc{color:var(--muted);line-height:1.7;margin-bottom:20px;font-size:1.05rem}
+
+/* Levels display */
+.levels-container{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0}
+.level-card{flex:1;min-width:140px;border-radius:14px;padding:15px;text-align:center;transition:all var(--transition);cursor:default}
+.level-card.level-easy{background:rgba(31,170,90,0.08);border:1px solid rgba(31,170,90,0.2)}
+.level-card.level-medium{background:rgba(255,193,7,0.08);border:1px solid rgba(255,193,7,0.2)}
+.level-card.level-hard{background:rgba(231,76,60,0.08);border:1px solid rgba(231,76,60,0.2)}
+.level-card:hover{transform:translateY(-4px);box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+.level-icon{font-size:1.5rem;margin-bottom:6px}
+.level-name{font-weight:700;font-size:0.95rem;margin-bottom:4px}
+.level-desc{font-size:0.8rem;color:var(--muted);line-height:1.4}
+.level-easy .level-name{color:#1faa5a}
+.level-medium .level-name{color:#e8a800}
+.level-hard .level-name{color:#e74c3c}
+
+/* Rules & Reflection in modal */
+.rules-box{background:rgba(33,118,189,0.05);border:1px solid rgba(33,118,189,0.15);border-radius:14px;padding:18px;margin:15px 0}
+.rules-box h4{color:var(--blue);font-size:1rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.rules-box p,.rules-box ol{color:var(--muted);font-size:0.9rem;line-height:1.8;white-space:pre-line}
+.reflection-box{background:rgba(200,150,12,0.05);border:1px solid rgba(200,150,12,0.15);border-radius:14px;padding:18px;margin:15px 0}
+.reflection-box h4{color:var(--gold);font-size:1rem;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.reflection-box p{color:var(--muted);font-size:0.9rem;line-height:1.8;font-style:italic}
+
+/* Phone section */
+.phone-section{background:linear-gradient(135deg,rgba(0,184,148,0.05),rgba(33,118,189,0.05));border-radius:20px;padding:25px;margin-top:20px;text-align:center;border:1px solid rgba(0,184,148,0.15)}
+.phone-number{font-size:2rem;font-weight:900;color:var(--green);direction:ltr;display:inline-block}
+
 /* No results */
 .no-results{text-align:center;padding:60px 20px;color:var(--muted)}
-.no-results i{font-size:3rem;margin-bottom:15px;display:block;color:var(--border)}
+.no-results i{font-size:3rem;margin-bottom:15px;display:block;color:var(--muted)}
+.no-results h3{color:var(--text)}
+
+/* ===== LIGHT THEME ENHANCEMENTS ===== */
+/* Floating decorative shapes */
+section{position:relative}
+#programs::before,#about::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,53,0.06),transparent 70%);top:10%;right:-50px;z-index:0;pointer-events:none}
+#programs::after,#about::after{content:'';position:absolute;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,193,7,0.06),transparent 70%);bottom:10%;left:-30px;z-index:0;pointer-events:none}
+
+/* Card entrance with stagger */
+.program-card.fade-up.visible{animation:cardEntrance 0.5s ease-out forwards}
+@keyframes cardEntrance{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+/* Subtle parallax on sections */
+#about{background-image:linear-gradient(135deg,rgba(255,107,53,0.02) 0%,rgba(255,193,7,0.02) 100%)}
+#contact{background-image:linear-gradient(135deg,rgba(0,184,148,0.02) 0%,rgba(33,118,189,0.02) 100%)}
+
+/* Enhanced tag styling for light theme */
+.tag{background:rgba(0,0,0,0.03);border-color:rgba(0,0,0,0.06);color:var(--muted)}
 </style>
 </head>
 <body>
@@ -335,6 +398,7 @@ footer a{color:var(--cyan);text-decoration:none}
   </button>
   <div class="nav-links">
     <a href="#programs" class="active">תוכניות</a>
+    <a href="#daily-game">משחק היום</a>
     <a href="#activities">מאגר פעילויות</a>
     <a href="#about">אודות</a>
     <a href="#podcast">פודקאסט</a>
@@ -347,52 +411,65 @@ footer a{color:var(--cyan);text-decoration:none}
   <!-- Animated Mountain Scene SVG -->
   <div class="mountain-scene">
     <svg viewBox="0 0 1440 500" preserveAspectRatio="none">
-      <!-- Sky gradient -->
+      <!-- Sky gradient (daytime) -->
       <defs>
         <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#0a1628"/>
-          <stop offset="100%" stop-color="#1a3050"/>
+          <stop offset="0%" stop-color="#87CEEB"/>
+          <stop offset="60%" stop-color="#B0E0FF"/>
+          <stop offset="100%" stop-color="#FFE4B5"/>
         </linearGradient>
         <linearGradient id="mtn1" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1a3050"/>
-          <stop offset="100%" stop-color="#0d1f3c"/>
+          <stop offset="0%" stop-color="#5A8F5A"/>
+          <stop offset="100%" stop-color="#3D6B3D"/>
         </linearGradient>
         <linearGradient id="mtn2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#162848"/>
-          <stop offset="100%" stop-color="#0a1628"/>
+          <stop offset="0%" stop-color="#4A7A4A"/>
+          <stop offset="100%" stop-color="#2D5A2D"/>
         </linearGradient>
-        <radialGradient id="moonGlow">
-          <stop offset="0%" stop-color="rgba(255,255,200,0.3)"/>
+        <radialGradient id="sunGlow">
+          <stop offset="0%" stop-color="rgba(255,220,100,0.6)"/>
+          <stop offset="50%" stop-color="rgba(255,200,50,0.2)"/>
           <stop offset="100%" stop-color="transparent"/>
         </radialGradient>
       </defs>
       <rect width="1440" height="500" fill="url(#skyGrad)"/>
 
-      <!-- Stars -->
-      <circle class="star" cx="100" cy="50" r="1.5" fill="#fff"/>
-      <circle class="star" cx="300" cy="80" r="1" fill="#fff"/>
-      <circle class="star" cx="500" cy="30" r="1.5" fill="#fff"/>
-      <circle class="star" cx="700" cy="70" r="1" fill="#fff"/>
-      <circle class="star" cx="900" cy="40" r="2" fill="#fff"/>
-      <circle class="star" cx="1100" cy="60" r="1" fill="#fff"/>
-      <circle class="star" cx="1300" cy="35" r="1.5" fill="#fff"/>
-      <circle class="star" cx="200" cy="100" r="1" fill="#fff"/>
-      <circle class="star" cx="600" cy="90" r="1.5" fill="#fff"/>
-      <circle class="star" cx="1000" cy="20" r="1" fill="#fff"/>
-      <circle class="star" cx="1200" cy="85" r="2" fill="#fff"/>
-      <circle class="star" cx="400" cy="55" r="1" fill="#fff"/>
-      <circle class="star" cx="800" cy="110" r="1.5" fill="#fff"/>
+      <!-- Birds instead of stars -->
+      <g fill="none" stroke="#555" stroke-width="1.5" opacity="0.4">
+        <path d="M100,60 Q108,50 116,60 M108,60 Q116,50 124,60"/>
+        <path d="M350,40 Q356,32 362,40 M356,40 Q362,32 368,40"/>
+        <path d="M600,70 Q607,60 614,70 M607,70 Q614,60 621,70"/>
+        <path d="M900,35 Q906,27 912,35 M906,35 Q912,27 918,35"/>
+        <path d="M1150,55 Q1157,45 1164,55 M1157,55 Q1164,45 1171,55"/>
+      </g>
 
-      <!-- Moon -->
-      <circle cx="1200" cy="80" r="60" fill="url(#moonGlow)"/>
-      <circle cx="1200" cy="80" r="20" fill="rgba(255,255,200,0.15)"/>
+      <!-- Sun with rays -->
+      <circle cx="1200" cy="80" r="80" fill="url(#sunGlow)"/>
+      <circle cx="1200" cy="80" r="30" fill="#FFD700" opacity="0.8"/>
+      <g stroke="#FFD700" stroke-width="2" opacity="0.3">
+        <line x1="1200" y1="30" x2="1200" y2="15"/>
+        <line x1="1200" y1="130" x2="1200" y2="145"/>
+        <line x1="1150" y1="80" x2="1135" y2="80"/>
+        <line x1="1250" y1="80" x2="1265" y2="80"/>
+        <line x1="1165" y1="45" x2="1155" y2="35"/>
+        <line x1="1235" y1="45" x2="1245" y2="35"/>
+        <line x1="1165" y1="115" x2="1155" y2="125"/>
+        <line x1="1235" y1="115" x2="1245" y2="125"/>
+      </g>
 
-      <!-- Far mountains -->
-      <path d="M0,350 L200,200 L400,280 L600,180 L800,250 L1000,170 L1200,230 L1440,190 L1440,500 L0,500Z" fill="url(#mtn1)" opacity="0.5"/>
-      <!-- Near mountains -->
-      <path d="M0,400 L150,280 L350,350 L500,250 L700,320 L900,240 L1100,300 L1300,260 L1440,310 L1440,500 L0,500Z" fill="url(#mtn2)" opacity="0.7"/>
-      <!-- Ground -->
-      <path d="M0,420 Q360,380 720,420 T1440,400 L1440,500 L0,500Z" fill="#0a1628"/>
+      <!-- Fluffy clouds -->
+      <g fill="#fff" opacity="0.7">
+        <ellipse cx="300" cy="100" rx="60" ry="20"/><ellipse cx="330" cy="90" rx="40" ry="18"/><ellipse cx="270" cy="95" rx="35" ry="15"/>
+        <ellipse cx="800" cy="70" rx="50" ry="18"/><ellipse cx="830" cy="62" rx="35" ry="15"/><ellipse cx="775" cy="65" rx="30" ry="14"/>
+      </g>
+
+      <!-- Far mountains (green) -->
+      <path d="M0,350 L200,200 L400,280 L600,180 L800,250 L1000,170 L1200,230 L1440,190 L1440,500 L0,500Z" fill="url(#mtn1)" opacity="0.6"/>
+      <!-- Near mountains (darker green) -->
+      <path d="M0,400 L150,280 L350,350 L500,250 L700,320 L900,240 L1100,300 L1300,260 L1440,310 L1440,500 L0,500Z" fill="url(#mtn2)" opacity="0.8"/>
+      <!-- Ground (warm earth) -->
+      <path d="M0,420 Q360,380 720,420 T1440,400 L1440,500 L0,500Z" fill="#8B7355" opacity="0.3"/>
+      <path d="M0,440 Q360,420 720,440 T1440,430 L1440,500 L0,500Z" fill="#f0ede5"/>
 
       <!-- Animated campfire -->
       <g transform="translate(720,410)">
@@ -412,33 +489,33 @@ footer a{color:var(--cyan);text-decoration:none}
       <!-- Two walking figures (father & son) -->
       <g class="walker" transform="translate(600,405)">
         <!-- Father -->
-        <circle cx="0" cy="-20" r="5" fill="var(--cyan)" opacity="0.6"/>
-        <line x1="0" y1="-15" x2="0" y2="0" stroke="var(--cyan)" stroke-width="2" opacity="0.6"/>
-        <line x1="0" y1="-8" x2="-6" y2="-3" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
-        <line x1="0" y1="-8" x2="6" y2="-3" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
-        <line x1="0" y1="0" x2="-4" y2="8" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
-        <line x1="0" y1="0" x2="4" y2="8" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6"/>
+        <circle cx="0" cy="-20" r="5" fill="#E65100" opacity="0.8"/>
+        <line x1="0" y1="-15" x2="0" y2="0" stroke="#E65100" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="-8" x2="-6" y2="-3" stroke="#E65100" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="-8" x2="6" y2="-3" stroke="#E65100" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="0" x2="-4" y2="8" stroke="#E65100" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="0" x2="4" y2="8" stroke="#E65100" stroke-width="1.5" opacity="0.8"/>
         <!-- Son (smaller) -->
-        <circle cx="18" cy="-14" r="3.5" fill="var(--gold)" opacity="0.6"/>
-        <line x1="18" y1="-10" x2="18" y2="0" stroke="var(--gold)" stroke-width="1.5" opacity="0.6"/>
-        <line x1="18" y1="-5" x2="13" y2="-1" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
-        <line x1="18" y1="-5" x2="23" y2="-1" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
-        <line x1="18" y1="0" x2="15" y2="8" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
-        <line x1="18" y1="0" x2="21" y2="8" stroke="var(--gold)" stroke-width="1.2" opacity="0.6"/>
+        <circle cx="18" cy="-14" r="3.5" fill="#F57F17" opacity="0.8"/>
+        <line x1="18" y1="-10" x2="18" y2="0" stroke="#F57F17" stroke-width="1.5" opacity="0.8"/>
+        <line x1="18" y1="-5" x2="13" y2="-1" stroke="#F57F17" stroke-width="1.2" opacity="0.8"/>
+        <line x1="18" y1="-5" x2="23" y2="-1" stroke="#F57F17" stroke-width="1.2" opacity="0.8"/>
+        <line x1="18" y1="0" x2="15" y2="8" stroke="#F57F17" stroke-width="1.2" opacity="0.8"/>
+        <line x1="18" y1="0" x2="21" y2="8" stroke="#F57F17" stroke-width="1.2" opacity="0.8"/>
         <!-- Holding hands -->
-        <line x1="6" y1="-3" x2="13" y2="-1" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2,2"/>
+        <line x1="6" y1="-3" x2="13" y2="-1" stroke="rgba(0,0,0,0.2)" stroke-width="1" stroke-dasharray="2,2"/>
       </g>
 
-      <!-- Trees -->
+      <!-- Trees (bright green) -->
       <g transform="translate(200,380)">
-        <rect x="-3" y="0" width="6" height="30" fill="#2d5a2d" rx="2"/>
-        <polygon points="0,-20 -15,10 15,10" fill="#1a3a1a" opacity="0.7"/>
-        <polygon points="0,-30 -12,0 12,0" fill="#2d5a2d" opacity="0.6"/>
+        <rect x="-3" y="0" width="6" height="30" fill="#6B4226" rx="2"/>
+        <polygon points="0,-20 -15,10 15,10" fill="#2E7D32" opacity="0.8"/>
+        <polygon points="0,-30 -12,0 12,0" fill="#43A047" opacity="0.7"/>
       </g>
       <g transform="translate(1250,390)">
-        <rect x="-3" y="0" width="6" height="25" fill="#2d5a2d" rx="2"/>
-        <polygon points="0,-18 -12,8 12,8" fill="#1a3a1a" opacity="0.7"/>
-        <polygon points="0,-26 -10,0 10,0" fill="#2d5a2d" opacity="0.6"/>
+        <rect x="-3" y="0" width="6" height="25" fill="#6B4226" rx="2"/>
+        <polygon points="0,-18 -12,8 12,8" fill="#2E7D32" opacity="0.8"/>
+        <polygon points="0,-26 -10,0 10,0" fill="#43A047" opacity="0.7"/>
       </g>
     </svg>
   </div>
@@ -481,8 +558,19 @@ footer a{color:var(--cyan);text-decoration:none}
   </div>
 </section>
 
+<!-- ===== GAME OF THE DAY ===== -->
+<section id="daily-game" style="background:linear-gradient(135deg,rgba(255,107,53,0.04),rgba(255,193,7,0.04))">
+  <div class="container">
+    <div class="section-header fade-up">
+      <h2><i class="bi bi-star-fill" style="color:var(--gold)"></i> המשחק של היום</h2>
+      <p>כל יום — משחק חדש! עם הוראות מלאות, שלבים ורמות קושי</p>
+    </div>
+    <div id="daily-game-card" class="fade-up" style="max-width:800px;margin:0 auto"></div>
+  </div>
+</section>
+
 <!-- ===== ACTIVITIES DATABASE ===== -->
-<section id="activities" style="background:rgba(0,0,0,0.2)">
+<section id="activities" style="background:var(--bg2)">
   <div class="container">
     <div class="section-header fade-up">
       <h2>מאגר פעילויות מלא</h2>
@@ -588,7 +676,7 @@ footer a{color:var(--cyan);text-decoration:none}
 </section>
 
 <!-- ===== PODCAST ===== -->
-<section id="podcast" style="background:rgba(0,0,0,0.2)">
+<section id="podcast" style="background:var(--bg2)">
   <div class="container">
     <div class="section-header fade-up">
       <h2><i class="bi bi-mic-fill" style="color:var(--gold)"></i> פודקאסט "הקשר"</h2>
@@ -618,6 +706,24 @@ footer a{color:var(--cyan);text-decoration:none}
         <h4>משחקים עם משמעות</h4>
         <p>איך משחקים קבוצתיים בונים כישורים חברתיים ומחזקים קשרים</p>
         <div class="meta"><span><i class="bi bi-clock"></i> 38 דק'</span><span><i class="bi bi-calendar"></i> 2025</span></div>
+      </div>
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 3</div>
+        <h4>משחקים שמקשרים לב ונפש</h4>
+        <p>חיים כץ בפרק מעניין על משחקים שיוצרים חיבור עמוק — בין אנשים, בין לב לנפש</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 40 דק'</span><span><i class="bi bi-calendar"></i> 2025</span></div>
+      </div>
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 2</div>
+        <h4>המסע של עצמי דרך משחק — עם משה ברנשטיין</h4>
+        <p>שיחה עם משה ברנשטיין על איך משחק פותח דלתות פנימיות ומוביל לגילוי עצמי</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 45 דק'</span><span><i class="bi bi-calendar"></i> 2025</span></div>
+      </div>
+      <div class="podcast-card">
+        <div class="episode"><i class="bi bi-play-circle"></i> פרק 1</div>
+        <h4>ספיישל בין הזמנים — משחקים מרתקים ומעניינים</h4>
+        <p>פרק הפתיחה! חיים כץ מציג משחקים מרתקים ומקוריים לתקופת בין הזמנים</p>
+        <div class="meta"><span><i class="bi bi-clock"></i> 35 דק'</span><span><i class="bi bi-calendar"></i> 2025</span></div>
       </div>
     </div>
   </div>
@@ -650,8 +756,14 @@ footer a{color:var(--cyan);text-decoration:none}
         <p><a href="https://www.avot-banim.org" target="_blank">avot-banim.org</a></p>
       </div>
       <div class="contact-card">
+        <i class="bi bi-telephone-inbound-fill"></i>
+        <h4>קו המשחקים</h4>
+        <p><a href="tel:0772251404" style="font-size:1.3rem;font-weight:900">077-225-1404</a></p>
+        <p style="font-size:0.8rem">שמעו משחקים בטלפון!</p>
+      </div>
+      <div class="contact-card">
         <i class="bi bi-geo-alt-fill"></i>
-        <h4>מרכז גשה</h4>
+        <h4>מרכז גישה</h4>
         <p>מרכז התוכניות והפעילויות<br>לבנים בציבור החרדי</p>
       </div>
     </div>
@@ -661,7 +773,7 @@ footer a{color:var(--cyan);text-decoration:none}
 <!-- ===== FOOTER ===== -->
 <footer>
   <p>
-    <strong style="color:var(--cyan)">חיים כץ</strong> — פעילות מכוונת מטרה |
+    <strong style="color:var(--accent1)">חיים כץ</strong> — פעילות מכוונת מטרה |
     <a href="https://www.chaim-katz.com" target="_blank">האתר הרשמי</a> |
     <a href="https://www.avot-banim.org" target="_blank">אבות עם בנים</a>
   </p>
@@ -822,266 +934,513 @@ const PROGRAMS = [
 ];
 
 // ===== ACTIVITIES DATABASE (200+) =====
+// Each activity now has levels (שלבים) with escalating difficulty
 const ACTIVITIES = [
   // --- ODT ---
-  {name:'הליכה על חבלים',cat:'odt',desc:'איזון על חבלים מתוחים בגבהים שונים. מפתח ריכוז, אמון ויציבות.',ages:'8+',participants:'5-30',difficulty:2,tags:['שטח','אתגר','איזון']},
-  {name:'איקס-עיגול ענק',cat:'odt',desc:'משחק אסטרטגיה קבוצתי בגרסה ענקית בשטח. שני צוותים מתחרים.',ages:'8+',participants:'10-40',difficulty:1,tags:['צוותי','אסטרטגיה','שטח']},
-  {name:'כדורגל סיני',cat:'odt',desc:'גרסה מאתגרת של כדורגל עם חוקים מיוחדים — ללא נגיעה ברגליים!',ages:'10+',participants:'10-30',difficulty:2,tags:['ספורט','צוותי','כיף']},
-  {name:'טנגרם ענק',cat:'odt',desc:'פאזל בניית צורות בגרסה ענקית. דורש חשיבה מרחבית ועבודת צוות.',ages:'8+',participants:'4-20',difficulty:2,tags:['חשיבה','בנייה','צוותי']},
-  {name:'אתגר הריבועים',cat:'odt',desc:'חידת ריבועים קבוצתית — צריך למצוא את כל הריבועים האפשריים.',ages:'10+',participants:'5-20',difficulty:3,tags:['חשיבה','לוגיקה','אתגר']},
-  {name:'דגים — קואורדינציה',cat:'odt',desc:'משימת תפיסה וקואורדינציה בין חברי הצוות. כל אחד תופס ומעביר.',ages:'8+',participants:'8-25',difficulty:2,tags:['קואורדינציה','צוותי','כיף']},
-  {name:'מעגל חישוקים',cat:'odt',desc:'העברת חישוק סביב מעגל אנשים שאוחזים ידיים — בלי לנתק!',ages:'6+',participants:'8-40',difficulty:1,tags:['שיתוף פעולה','מעגל','פשוט']},
-  {name:'אתגרי חבלים',cat:'odt',desc:'סדרת אתגרים עם חבלים — קשירה, גרירה, בנייה ואיזון.',ages:'10+',participants:'5-20',difficulty:3,tags:['שטח','כוח','אתגר']},
-  {name:'בניית מגדל',cat:'odt',desc:'כל צוות בונה מגדל מחומרים שונים — הגבוה ביותר מנצח!',ages:'8+',participants:'8-40',difficulty:2,tags:['בנייה','יצירתיות','תחרות']},
-  {name:'כדור בסכנה',cat:'odt',desc:'ניהול כדור דרך מסלול מכשולים — בלי ליפול! דורש תקשורת צוותית.',ages:'8+',participants:'6-20',difficulty:2,tags:['צוותי','ריכוז','תקשורת']},
-  {name:'מבוך עיוור',cat:'odt',desc:'ניווט במבוך עם עיניים מכוסות — רק לפי הוראות קוליות של חברי הצוות.',ages:'10+',participants:'4-20',difficulty:3,tags:['אמון','תקשורת','אתגר']},
-  {name:'שדה מוקשים',cat:'odt',desc:'חציית שטח "ממוקש" — רק שחקן אחד יודע את המסלול הבטוח.',ages:'10+',participants:'6-30',difficulty:2,tags:['אמון','אסטרטגיה','שטח']},
-  {name:'גשר חבלים',cat:'odt',desc:'בניית גשר חבלים קבוצתי וחציית מכשול.',ages:'12+',participants:'8-20',difficulty:3,tags:['בנייה','שטח','אתגר']},
-  {name:'סולם יעקב',cat:'odt',desc:'טיפוס על סולם חבלים — דורש תיאום בין שני מטפסים.',ages:'10+',participants:'2-20',difficulty:3,tags:['טיפוס','שיתוף','אתגר']},
-  {name:'קפיצת אמון',cat:'odt',desc:'קפיצה לאחור אל ידיים קולטות. אחד האתגרים החזקים ביותר לבניית אמון.',ages:'12+',participants:'8-20',difficulty:3,tags:['אמון','אומץ','קבוצה']},
+  {name:'הליכה על חבלים',cat:'odt',desc:'איזון על חבלים מתוחים בגבהים שונים. מפתח ריכוז, אמון ויציבות.',ages:'8+',participants:'5-30',difficulty:2,tags:['שטח','אתגר','איזון'],
+    levels:[
+      {name:'קל',desc:'הליכה על חבל נמוך (20 ס"מ) עם אחיזה בידיים של חבר'},
+      {name:'בינוני',desc:'הליכה בלי אחיזה, חבל בגובה 40 ס"מ'},
+      {name:'מאתגר',desc:'הליכה בעיניים עצומות! חבר מנחה במילים בלבד'}
+    ],
+    rules:'1. קושרים חבל בין שני עצים בגובה נמוך.\n2. כל משתתף עולה על החבל ומנסה ללכת מקצה לקצה.\n3. ברמה הראשונה — מותר להיעזר בחברים.\n4. ברמה השנייה — ללא אחיזה.\n5. ברמה השלישית — בעיניים עצומות!',
+    reflection:'מה הרגשתם כשלא ראיתם? על מי סמכתם? איך זה דומה לאמונה בהקב"ה?'
+  },
+  {name:'איקס-עיגול ענק',cat:'odt',desc:'משחק אסטרטגיה קבוצתי בגרסה ענקית בשטח. שני צוותים מתחרים.',ages:'8+',participants:'10-40',difficulty:1,tags:['צוותי','אסטרטגיה','שטח'],
+    levels:[
+      {name:'קל',desc:'לוח 3x3 רגיל, ריצה פשוטה'},
+      {name:'בינוני',desc:'לוח 4x4, צריך 4 ברצף'},
+      {name:'מאתגר',desc:'לוח 3x3 אבל מותר להזיז חפצים של היריב!'}
+    ],
+    rules:'1. מסמנים לוח 3x3 ענק על הרצפה.\n2. שני צוותים עומדים במרחק 10 מטר.\n3. בתורו, שחקן רץ ומניח חפץ.\n4. הראשונים שמשלימים שורה — מנצחים!',
+    reflection:'איך החלטתם אסטרטגיה? האם עבדתם כצוות? מה למדתם על שיתוף פעולה?'
+  },
+  {name:'כדורגל סיני',cat:'odt',desc:'גרסה מאתגרת של כדורגל עם חוקים מיוחדים — ללא נגיעה ברגליים!',ages:'10+',participants:'10-30',difficulty:2,tags:['ספורט','צוותי','כיף'],
+    levels:[{name:'קל',desc:'חוקים רגילים + החלפת צדדים אחרי גול'},{name:'בינוני',desc:'מגבלת 3 שניות על החזקת כדור'},{name:'מאתגר',desc:'שני כדורים במקביל!'}],
+    rules:'1. מגרש קטן, 2 קבוצות.\n2. אחרי כל גול הקבוצות מתחלפות צדדים.\n3. מי שמחזיק כדור יותר מ-3 שניות — מעביר.\n4. ברמה 3 — שני כדורים!',
+    reflection:'איך הרגשתם עם החוקים המשונים? מה זה מלמד על גמישות?'},
+  {name:'טנגרם ענק',cat:'odt',desc:'פאזל בניית צורות בגרסה ענקית. דורש חשיבה מרחבית ועבודת צוות.',ages:'8+',participants:'4-20',difficulty:2,tags:['חשיבה','בנייה','צוותי'],
+    levels:[{name:'קל',desc:'צורה פשוטה — ריבוע'},{name:'בינוני',desc:'צורה מורכבת — בית/מנורה'},{name:'מאתגר',desc:'צורת חיה, בלי תמונה לעזרה'}],
+    rules:'1. מכינים 7 חתיכות טנגרם ענקיות מקרטון.\n2. מראים צורה יעד.\n3. הקבוצה בונה בתוך 10 דקות.\n4. הראשונים שמסיימים — מנצחים!',
+    reflection:'איך חילקתם תפקידים בקבוצה? מי הוביל? מה למדתם?'},
+  {name:'אתגר הריבועים',cat:'odt',desc:'חידת ריבועים קבוצתית — צריך למצוא את כל הריבועים האפשריים.',ages:'10+',participants:'5-20',difficulty:3,tags:['חשיבה','לוגיקה','אתגר'],
+    levels:[{name:'קל',desc:'רשת 3x3 — מצאו את כל הריבועים'},{name:'בינוני',desc:'רשת 5x5 — כולל ריבועים אלכסוניים'},{name:'מאתגר',desc:'רשת 6x6 עם הגבלת זמן של 3 דקות'}],
+    reflection:'מה למדתם על להסתכל מנקודת מבט אחרת?'},
+  {name:'דגים — קואורדינציה',cat:'odt',desc:'משימת תפיסה וקואורדינציה בין חברי הצוות. כל אחד תופס ומעביר.',ages:'8+',participants:'8-25',difficulty:2,tags:['קואורדינציה','צוותי','כיף'],
+    levels:[{name:'קל',desc:'דגים בורחים, דייגים תופסים'},{name:'בינוני',desc:'דגים יכולים "להקפיא" דייגים ל-5 שניות'},{name:'מאתגר',desc:'דייגים צריכים להחזיק ידיים — רשת אנושית!'}],
+    reflection:'מה עזר לכם להימלט? איך זה דומה למצבים שצריך לברוח מיצר הרע?'},
+  {name:'מעגל חישוקים',cat:'odt',desc:'העברת חישוק סביב מעגל אנשים שאוחזים ידיים — בלי לנתק!',ages:'6+',participants:'8-40',difficulty:1,tags:['שיתוף פעולה','מעגל','פשוט'],
+    levels:[{name:'קל',desc:'חישוק אחד, לכיוון אחד'},{name:'בינוני',desc:'שני חישוקים בכיוונים הפוכים!'},{name:'מאתגר',desc:'3 חישוקים + ספירה לאחור'}],
+    reflection:'מה עזר? איך תקשרתם בלי מילים?'},
+  {name:'אתגרי חבלים',cat:'odt',desc:'סדרת אתגרים עם חבלים — קשירה, גרירה, בנייה ואיזון.',ages:'10+',participants:'5-20',difficulty:3,tags:['שטח','כוח','אתגר'],
+    levels:[{name:'קל',desc:'קשירת 3 סוגי קשרים בסיסיים'},{name:'בינוני',desc:'בניית מתקן מחבלים (נדנדה/מחסה)'},{name:'מאתגר',desc:'חציית מכשול עם חבל בלבד — ללא נגיעה ברצפה!'}],
+    reflection:'איך שיתוף הפעולה עזר? מה למדתם על עזרה הדדית?'},
+  {name:'בניית מגדל',cat:'odt',desc:'כל צוות בונה מגדל מחומרים שונים — הגבוה ביותר מנצח!',ages:'8+',participants:'8-40',difficulty:2,tags:['בנייה','יצירתיות','תחרות'],
+    levels:[{name:'קל',desc:'בנייה חופשית — 15 דקות'},{name:'בינוני',desc:'בנייה בלי לדבר!'},{name:'מאתגר',desc:'בנייה עם יד אחת מאחורי הגב'}],
+    rules:'1. כל קבוצה מקבלת: 20 עיתונים, גליל נייר דבק, 10 קלפים.\n2. 15 דקות לבנייה.\n3. המגדל הגבוה ביותר שעומד לבד — מנצח!',
+    reflection:'איך תכננתם? מה למדתם על תכנון לפני פעולה?'},
+  {name:'כדור בסכנה',cat:'odt',desc:'ניהול כדור דרך מסלול מכשולים — בלי ליפול! דורש תקשורת צוותית.',ages:'8+',participants:'6-20',difficulty:2,tags:['צוותי','ריכוז','תקשורת'],
+    levels:[{name:'קל',desc:'העברת כדור בעיניים פתוחות'},{name:'בינוני',desc:'המעביר עם עיניים עצומות, חברים מנחים'},{name:'מאתגר',desc:'כל הקבוצה בעיניים עצומות חוץ ממנהיג אחד!'}],
+    reflection:'מה הרגשתם לסמוך על מישהו? איך זה מתקשר לבטחון בה׳?'},
+  {name:'מבוך עיוור',cat:'odt',desc:'ניווט במבוך עם עיניים מכוסות — רק לפי הוראות קוליות של חברי הצוות.',ages:'10+',participants:'4-20',difficulty:3,tags:['אמון','תקשורת','אתגר'],
+    levels:[{name:'קל',desc:'מבוך פשוט, מנחה צמוד'},{name:'בינוני',desc:'מבוך מורכב, מנחה ממרחק'},{name:'מאתגר',desc:'שני עיוורים במבוך, מנחה אחד לשניהם!'}],
+    reflection:'איך היה לקבל הנחיות? מה זה מלמד על הקשר בין רב לתלמיד?'},
+  {name:'שדה מוקשים',cat:'odt',desc:'חציית שטח "ממוקש" — רק שחקן אחד יודע את המסלול הבטוח.',ages:'10+',participants:'6-30',difficulty:2,tags:['אמון','אסטרטגיה','שטח'],
+    levels:[{name:'קל',desc:'המנחה רואה ומכוון'},{name:'בינוני',desc:'המנחה כותב את ההנחיות מראש'},{name:'מאתגר',desc:'כל הקבוצה חוצה בשרשרת — עיניים עצומות!'}],
+    reflection:'האם סמכתם על המנחה? מה קורה כשלא רואים?'},
+  {name:'גשר חבלים',cat:'odt',desc:'בניית גשר חבלים קבוצתי וחציית מכשול.',ages:'12+',participants:'8-20',difficulty:3,tags:['בנייה','שטח','אתגר'],
+    levels:[{name:'קל',desc:'גשר מוכן — רק לחצות'},{name:'בינוני',desc:'לבנות ולחצות'},{name:'מאתגר',desc:'לבנות בלי הוראות — רק חומרים!'}],
+    reflection:'מה הרגשתם? איך זה דומה להתגברות על קשיים בחיים?'},
+  {name:'סולם יעקב',cat:'odt',desc:'טיפוס על סולם חבלים — דורש תיאום בין שני מטפסים.',ages:'10+',participants:'2-20',difficulty:3,tags:['טיפוס','שיתוף','אתגר'],
+    levels:[{name:'קל',desc:'טיפוס יחיד עם עזרה'},{name:'בינוני',desc:'טיפוס זוגי מתואם'},{name:'מאתגר',desc:'טיפוס זוגי בעיניים עצומות!'}],
+    reflection:'על מי סמכתם? איך זה דומה לסולם יעקב בתורה?'},
+  {name:'קפיצת אמון',cat:'odt',desc:'קפיצה לאחור אל ידיים קולטות. אחד האתגרים החזקים ביותר לבניית אמון.',ages:'12+',participants:'8-20',difficulty:3,tags:['אמון','אומץ','קבוצה'],
+    levels:[{name:'קל',desc:'נפילה לאחור מעמידה'},{name:'בינוני',desc:'קפיצה מגובה 0.5 מטר'},{name:'מאתגר',desc:'קפיצה מגובה 1+ מטר — בעיניים עצומות!'}],
+    reflection:'מה הרגשתם לפני? האם סמכתם? מה זה מלמד על אמונה?'},
 
   // --- ENERGETIC ---
-  {name:'הגל — משחק כסאות אנרגטי',cat:'energetic',desc:'גרסה אנרגטית של משחק כסאות — כשהמנחה אומר "גל!" כולם קופצים!',ages:'8+',participants:'10-40',difficulty:1,tags:['אנרגטי','כיף','תנועה']},
-  {name:'מרוץ שקיות',cat:'energetic',desc:'מרוץ קפיצות בתוך שקיות — פשוט ומשעשע!',ages:'6+',participants:'5-30',difficulty:1,tags:['מרוץ','צחוק','תנועה']},
-  {name:'כדור נמלט',cat:'energetic',desc:'כדור מועבר ברחבי המעגל — מי שהכדור אצלו כשהמוזיקה נעצרת, יוצא.',ages:'6+',participants:'8-40',difficulty:1,tags:['מעגל','מהירות','כיף']},
-  {name:'תופסת מורכבת',cat:'energetic',desc:'תופסת עם חוקים מיוחדים — מי שנתפס הופך לתופס נוסף!',ages:'7+',participants:'10-50',difficulty:1,tags:['ריצה','אנרגטי','שטח']},
-  {name:'קרב כריות',cat:'energetic',desc:'קרב כריות על קורת איזון — מי נשאר עומד?',ages:'8+',participants:'2-20',difficulty:2,tags:['אתגר','כיף','איזון']},
-  {name:'מחנה בסיס',cat:'energetic',desc:'משחק הגנה והתקפה — שני צוותים, דגלים ואסטרטגיה.',ages:'10+',participants:'16-50',difficulty:2,tags:['צוותי','אסטרטגיה','ריצה']},
-  {name:'ריצת שליחים',cat:'energetic',desc:'מסלול מכשולים עם תחנות — ריצת שליחים צוותית.',ages:'8+',participants:'8-40',difficulty:2,tags:['מרוץ','צוותי','תחרות']},
-  {name:'מלחמת בלונים',cat:'energetic',desc:'כל משתתף עם בלון קשור לרגל — המטרה: לפוצץ את הבלונים של היריב.',ages:'7+',participants:'10-50',difficulty:1,tags:['כיף','תחרות','אנרגטי']},
-  {name:'כיסא מוזיקלי ענק',cat:'energetic',desc:'כסאות מוזיקליים בגרסה ענקית — עם מוזיקה חיה ותנועה.',ages:'6+',participants:'10-30',difficulty:1,tags:['קלאסי','כיף','מוזיקה']},
-  {name:'מרוץ 3 רגליים',cat:'energetic',desc:'שני שותפים קשורים יחד ברגל אחת — מרוץ קואורדינציה!',ages:'8+',participants:'10-40',difficulty:1,tags:['זוגי','כיף','קואורדינציה']},
+  {name:'הגל — משחק כסאות אנרגטי',cat:'energetic',desc:'גרסה אנרגטית של משחק כסאות — כשהמנחה אומר "גל!" כולם קופצים!',ages:'8+',participants:'10-40',difficulty:1,tags:['אנרגטי','כיף','תנועה'],
+    levels:[{name:'קל',desc:'גל לכיוון אחד'},{name:'בינוני',desc:'גל הפוך — ימינה ושמאלה!'},{name:'מאתגר',desc:'גל כפול + הוסרו כסאות'}]},
+  {name:'מרוץ שקיות',cat:'energetic',desc:'מרוץ קפיצות בתוך שקיות — פשוט ומשעשע!',ages:'6+',participants:'5-30',difficulty:1,tags:['מרוץ','צחוק','תנועה'],
+    levels:[{name:'קל',desc:'מרוץ ישר פשוט'},{name:'בינוני',desc:'מרוץ זיגזג בין חרוטים'},{name:'מאתגר',desc:'מרוץ שליחים — שקית + כדור על כפית!'}]},
+  {name:'כדור נמלט',cat:'energetic',desc:'כדור מועבר ברחבי המעגל — מי שהכדור אצלו כשנעצרים, יוצא.',ages:'6+',participants:'8-40',difficulty:1,tags:['מעגל','מהירות','כיף'],
+    levels:[{name:'קל',desc:'כדור אחד, כיוון אחד'},{name:'בינוני',desc:'שני כדורים בכיוונים הפוכים'},{name:'מאתגר',desc:'שלושה כדורים — מי שורד?!'}]},
+  {name:'תופסת מורכבת',cat:'energetic',desc:'תופסת עם חוקים מיוחדים — מי שנתפס הופך לתופס נוסף!',ages:'7+',participants:'10-50',difficulty:1,tags:['ריצה','אנרגטי','שטח'],
+    levels:[{name:'קל',desc:'תופסת רגילה'},{name:'בינוני',desc:'נתפסים הופכים לתופסים — שרשרת!'},{name:'מאתגר',desc:'תופסים חייבים להחזיק ידיים — רשת תופסת!'}]},
+  {name:'קרב כריות',cat:'energetic',desc:'קרב כריות על קורת איזון — מי נשאר עומד?',ages:'8+',participants:'2-20',difficulty:2,tags:['אתגר','כיף','איזון'],
+    levels:[{name:'קל',desc:'קורה רחבה, שתי ידיים'},{name:'בינוני',desc:'קורה צרה, יד אחת'},{name:'מאתגר',desc:'בעיניים עצומות!'}]},
+  {name:'מחנה בסיס',cat:'energetic',desc:'משחק הגנה והתקפה — שני צוותים, דגלים ואסטרטגיה.',ages:'10+',participants:'16-50',difficulty:2,tags:['צוותי','אסטרטגיה','ריצה'],
+    levels:[{name:'קל',desc:'דגל אחד לכל צוות'},{name:'בינוני',desc:'3 דגלים + שבויים'},{name:'מאתגר',desc:'דגלים + מרגלים סודיים!'}]},
+  {name:'ריצת שליחים',cat:'energetic',desc:'מסלול מכשולים עם תחנות — ריצת שליחים צוותית.',ages:'8+',participants:'8-40',difficulty:2,tags:['מרוץ','צוותי','תחרות'],
+    levels:[{name:'קל',desc:'ריצה + מסירת שרביט'},{name:'בינוני',desc:'ריצה + משימה בכל תחנה'},{name:'מאתגר',desc:'ריצה אחורנית + משימות מפתיעות'}]},
+  {name:'מלחמת בלונים',cat:'energetic',desc:'כל משתתף עם בלון קשור לרגל — המטרה: לפוצץ את הבלונים של היריב.',ages:'7+',participants:'10-50',difficulty:1,tags:['כיף','תחרות','אנרגטי'],
+    levels:[{name:'קל',desc:'בלון אחד, פיצוץ חופשי'},{name:'בינוני',desc:'שני בלונים לכל שחקן'},{name:'מאתגר',desc:'בלונים + שמירה על כדור ביד!'}]},
+  {name:'כיסא מוזיקלי ענק',cat:'energetic',desc:'כסאות מוזיקליים בגרסה ענקית — עם מחיאות כפיים ותנועה.',ages:'6+',participants:'10-30',difficulty:1,tags:['קלאסי','כיף','תנועה'],
+    levels:[{name:'קל',desc:'כסאות רגילים'},{name:'בינוני',desc:'כסאות + משימה לפני ישיבה'},{name:'מאתגר',desc:'כסאות + ריצה לאחור!'}]},
+  {name:'מרוץ 3 רגליים',cat:'energetic',desc:'שני שותפים קשורים יחד ברגל אחת — מרוץ קואורדינציה!',ages:'8+',participants:'10-40',difficulty:1,tags:['זוגי','כיף','קואורדינציה'],
+    levels:[{name:'קל',desc:'מרוץ ישר'},{name:'בינוני',desc:'מרוץ זיגזג + מכשולים'},{name:'מאתגר',desc:'4 רגליים — 3 שחקנים קשורים!'}]},
 
   // --- GROUP / THINKING ---
-  {name:'אתגר ה-10',cat:'thinking',desc:'משחק מהיר ומהנה — צריך להגיע ל-10 בדיוק! מתאים לקבוצות של 3-6.',ages:'9+',participants:'3-6',difficulty:2,tags:['חשיבה','מהיר','אסטרטגיה']},
-  {name:'52 קטגוריות',cat:'thinking',desc:'משחק קל ומהיר שמפעיל את המוח ומחבר אנשים. מומלץ לגיבוש ולמשפחות.',ages:'8+',participants:'4-20',difficulty:1,tags:['חשיבה','מהיר','קל']},
-  {name:'ערימת שמות ב-30 שניות',cat:'thinking',desc:'משחק זיכרון — ניחוש שמות מערימה תוך 30 שניות. מבוסס מהירות ותגובה.',ages:'10+',participants:'4-20',difficulty:2,tags:['זיכרון','מהירות','כיף']},
-  {name:'אימפולס',cat:'thinking',desc:'משחק שעוזר להבין ולשלוט באימפולסיביות. כשהצבע והכיתוב מתאימים — תתפוס מהר!',ages:'8+',participants:'2-10',difficulty:2,tags:['ריכוז','שליטה עצמית','חינוכי']},
-  {name:'ניחוש הפוך',cat:'thinking',desc:'איזה קלף לא יצא מחפיסת 40 קלפים ממוספרים 1-10? משחק לוגיקה.',ages:'10+',participants:'3-8',difficulty:3,tags:['לוגיקה','חשיבה','קלפים']},
-  {name:'אצבעות זריזות',cat:'thinking',desc:'משחק מהירות תגובה עם האצבעות — מי הכי מהיר?',ages:'7+',participants:'2-10',difficulty:1,tags:['מהירות','זריזות','כיף']},
-  {name:'קוביה של שאלות',cat:'group',desc:'קוביה עם שאלות על כל פן — כל זריקה מעלה שאלה מעניינת לדיון.',ages:'10+',participants:'4-30',difficulty:1,tags:['שיחה','היכרות','קבוצתי']},
-  {name:'מי אני?',cat:'icebreaker',desc:'כרטיס על המצח — שאל שאלות כן/לא כדי לגלות מי אתה!',ages:'8+',participants:'5-30',difficulty:1,tags:['היכרות','כיף','קלאסי']},
-  {name:'שני אמיתות ושקר',cat:'icebreaker',desc:'כל אחד אומר 3 עובדות — אחת שקר. מי מצליח לזהות?',ages:'10+',participants:'4-20',difficulty:1,tags:['היכרות','חשיבה','כיף']},
-  {name:'סיפור משותף',cat:'group',desc:'כל אחד מוסיף משפט לסיפור — מה ייצא בסוף?',ages:'8+',participants:'5-30',difficulty:1,tags:['יצירתיות','שיתוף','כיף']},
-  {name:'מילה אחת',cat:'group',desc:'הקבוצה צריכה ליצור משפט שלם — כל אחד אומר מילה אחת.',ages:'8+',participants:'5-20',difficulty:1,tags:['שיתוף','ריכוז','תקשורת']},
-  {name:'הנחיית עיוור',cat:'group',desc:'אחד עם עיניים סגורות — השני מנחה אותו במילים. אמון בפעולה.',ages:'10+',participants:'4-30',difficulty:2,tags:['אמון','תקשורת','זוגי']},
-  {name:'צוותי בנייה',cat:'group',desc:'כל צוות מקבל חומרים ובונה מבנה. הגבוה/חזק/יפה ביותר מנצח.',ages:'8+',participants:'8-40',difficulty:2,tags:['בנייה','יצירתיות','תחרות']},
-  {name:'מעגל הצגה',cat:'icebreaker',desc:'כל אחד מציג את עצמו עם תנועה — וכולם חוזרים!',ages:'6+',participants:'5-30',difficulty:1,tags:['היכרות','תנועה','זיכרון']},
-  {name:'רצף ספירה',cat:'icebreaker',desc:'הקבוצה סופרת עד 20 — בלי שיהיה שני אנשים באותו זמן!',ages:'8+',participants:'5-30',difficulty:2,tags:['ריכוז','שיתוף','אתגר']},
-  {name:'מראה',cat:'icebreaker',desc:'זוג עומד מול זוג — אחד מוביל תנועות והשני מחקה.',ages:'6+',participants:'4-40',difficulty:1,tags:['זוגי','תנועה','כיף']},
+  {name:'אתגר ה-10',cat:'thinking',desc:'משחק מהיר ומהנה — צריך להגיע ל-10 בדיוק! מתאים לקבוצות של 3-6.',ages:'9+',participants:'3-6',difficulty:2,tags:['חשיבה','מהיר','אסטרטגיה'],
+    levels:[{name:'קל',desc:'ספירה 1-10 רגילה'},{name:'בינוני',desc:'ספירה 1-20 + פעולה לכל מספר חמישי'},{name:'מאתגר',desc:'ספירה לאחור + שפה אחרת לכל מספר זוגי!'}],
+    rules:'1. כולם במעגל, סופרים 1-10.\n2. שני אנשים באותו זמן — שניהם יוצאים!\n3. היסוס מעל 3 שניות — גם יוצא.\n4. האחרון שנשאר — מנצח!',
+    reflection:'מה עזר להתרכז? מה למדנו על הקשבה?'},
+  {name:'52 קטגוריות',cat:'thinking',desc:'משחק קל ומהיר שמפעיל את המוח ומחבר אנשים. מומלץ לגיבוש ולמשפחות.',ages:'8+',participants:'4-20',difficulty:1,tags:['חשיבה','מהיר','קל'],
+    levels:[{name:'קל',desc:'קטגוריות פשוטות — 5 שניות'},{name:'בינוני',desc:'קטגוריות תורניות — 3 שניות'},{name:'מאתגר',desc:'תשובה שמתחילה באות ספציפית!'}],
+    reflection:'איזה קטגוריה הכי קשה? מה זה מלמד על חשיבה מהירה?'},
+  {name:'ערימת שמות ב-30 שניות',cat:'thinking',desc:'משחק זיכרון — ניחוש שמות מערימה תוך 30 שניות. מבוסס מהירות ותגובה.',ages:'10+',participants:'4-20',difficulty:2,tags:['זיכרון','מהירות','כיף'],
+    levels:[{name:'קל',desc:'שם בלבד'},{name:'בינוני',desc:'שם + דבר אחד'},{name:'מאתגר',desc:'שם + דבר + תנועה — וצריך לזכור הכל!'}],
+    reflection:'מה עזר לכם לזכור? איך זה מתקשר להקשבה?'},
+  {name:'אימפולס',cat:'thinking',desc:'משחק שעוזר להבין ולשלוט באימפולסיביות. הגיבו נכון לצבע!',ages:'8+',participants:'2-10',difficulty:2,tags:['ריכוז','שליטה עצמית','חינוכי'],
+    levels:[{name:'קל',desc:'3 צבעים, קצב איטי'},{name:'בינוני',desc:'4 צבעים, קצב מהיר'},{name:'מאתגר',desc:'5 צבעים + "הפוך" — אדום=ירוק, ירוק=אדום!'}],
+    reflection:'מה יותר קשה — השליטה או המהירות? מתי בחיים צריך לעצור?'},
+  {name:'ניחוש הפוך',cat:'thinking',desc:'איזה קלף לא יצא? משחק לוגיקה מרתק.',ages:'10+',participants:'3-8',difficulty:3,tags:['לוגיקה','חשיבה','קלפים'],
+    levels:[{name:'קל',desc:'5 קלפים גלויים'},{name:'בינוני',desc:'10 קלפים, חשיפה הדרגתית'},{name:'מאתגר',desc:'שנייה אחת לנחש!'}],
+    reflection:'לוגיקה או אינטואיציה? מה למדנו על מה שלא רואים?'},
+  {name:'אצבעות זריזות',cat:'thinking',desc:'משחק מהירות תגובה עם האצבעות — מי הכי מהיר?',ages:'7+',participants:'2-10',difficulty:1,tags:['מהירות','זריזות','כיף'],
+    levels:[{name:'קל',desc:'יד אחת, מספרים 1-5'},{name:'בינוני',desc:'שתי ידיים, מספרים 1-10'},{name:'מאתגר',desc:'קריאת שם לכל מספר + תנועה!'}],
+    reflection:'האם ניסיתם לקרוא את השני? מה קורה כששני אנשים חושבים אותו דבר?'},
+  {name:'קוביה של שאלות',cat:'group',desc:'קוביה עם שאלות על כל פן — כל זריקה מעלה שאלה מעניינת לדיון.',ages:'10+',participants:'4-30',difficulty:1,tags:['שיחה','היכרות','קבוצתי'],
+    levels:[{name:'קל',desc:'שאלות קלות — "מה אתה אוהב?"'},{name:'בינוני',desc:'שאלות עמוקות — "מה היית משנה?"'},{name:'מאתגר',desc:'שאלות תורניות + חיבור למעשים'}],
+    reflection:'איזו שאלה הייתה הכי מעניינת? מה גיליתם?'},
+  {name:'מי אני?',cat:'icebreaker',desc:'כרטיס על המצח — שאל שאלות כן/לא כדי לגלות מי אתה!',ages:'8+',participants:'5-30',difficulty:1,tags:['היכרות','כיף','קלאסי'],
+    levels:[{name:'קל',desc:'דמויות מהתנ"ך מפורסמות'},{name:'בינוני',desc:'דמויות מהגמרא'},{name:'מאתגר',desc:'מושגים מופשטים — מידות/מצוות'}],
+    reflection:'איך חקרתם? האם שאלתם שאלות חכמות?'},
+  {name:'שני אמיתות ושקר',cat:'icebreaker',desc:'כל אחד אומר 3 עובדות — אחת שקר. מי מצליח לזהות?',ages:'10+',participants:'4-20',difficulty:1,tags:['היכרות','חשיבה','כיף'],
+    levels:[{name:'קל',desc:'3 עובדות ברורות'},{name:'בינוני',desc:'3 עובדות מפתיעות'},{name:'מאתגר',desc:'5 עובדות — שתיים שקר!'}],
+    reflection:'מה הפתיע? איך מזהים שקר? חז"ל: "הוי זהיר בדבריך"'},
+  {name:'סיפור משותף',cat:'group',desc:'כל אחד מוסיף משפט לסיפור — מה ייצא בסוף?',ages:'8+',participants:'5-30',difficulty:1,tags:['יצירתיות','שיתוף','כיף'],
+    levels:[{name:'קל',desc:'כל אחד מוסיף משפט'},{name:'בינוני',desc:'כל אחד מוסיף 3 מילים בלבד'},{name:'מאתגר',desc:'מילה אחת + הנושא חייב להיות מהפרשה!'}],
+    reflection:'מה יצא? מה למדנו על שיתוף ויצירתיות?'},
+  {name:'מילה אחת',cat:'group',desc:'הקבוצה צריכה ליצור משפט שלם — כל אחד אומר מילה אחת.',ages:'8+',participants:'5-20',difficulty:1,tags:['שיתוף','ריכוז','תקשורת'],
+    levels:[{name:'קל',desc:'משפט חופשי'},{name:'בינוני',desc:'משפט על נושא נתון'},{name:'מאתגר',desc:'פסוק שלם מהתורה — מילה מילה!'}]},
+  {name:'הנחיית עיוור',cat:'group',desc:'אחד עם עיניים סגורות — השני מנחה אותו במילים. אמון בפעולה.',ages:'10+',participants:'4-30',difficulty:2,tags:['אמון','תקשורת','זוגי'],
+    levels:[{name:'קל',desc:'הנחיה צמודה, מסלול קצר'},{name:'בינוני',desc:'הנחיה ממרחק, מסלול ארוך'},{name:'מאתגר',desc:'מנחה אחד ל-3 עיוורים!'}],
+    reflection:'איך היה לסמוך? מה למדנו על אמון ותקשורת?'},
+  {name:'צוותי בנייה',cat:'group',desc:'כל צוות מקבל חומרים ובונה מבנה. הגבוה/חזק/יפה ביותר מנצח.',ages:'8+',participants:'8-40',difficulty:2,tags:['בנייה','יצירתיות','תחרות'],
+    levels:[{name:'קל',desc:'בנייה חופשית'},{name:'בינוני',desc:'בנייה לפי מפרט'},{name:'מאתגר',desc:'בנייה בלי לדבר!'}]},
+  {name:'מעגל הצגה',cat:'icebreaker',desc:'כל אחד מציג את עצמו עם תנועה — וכולם חוזרים!',ages:'6+',participants:'5-30',difficulty:1,tags:['היכרות','תנועה','זיכרון'],
+    levels:[{name:'קל',desc:'שם + תנועה'},{name:'בינוני',desc:'שם + תנועה + תכונה'},{name:'מאתגר',desc:'צריך לזכור את כל הקודמים!'}]},
+  {name:'רצף ספירה',cat:'icebreaker',desc:'הקבוצה סופרת עד 20 — בלי שיהיה שני אנשים באותו זמן!',ages:'8+',participants:'5-30',difficulty:2,tags:['ריכוז','שיתוף','אתגר'],
+    levels:[{name:'קל',desc:'ספירה עד 10'},{name:'בינוני',desc:'ספירה עד 20 + עיניים עצומות'},{name:'מאתגר',desc:'ספירה עד 30 לאחור!'}],
+    reflection:'מה עזר? איך מתואמים בלי תכנון? זה כמו אחדות — "כאיש אחד בלב אחד"'},
+  {name:'מראה',cat:'icebreaker',desc:'זוג עומד מול זוג — אחד מוביל תנועות והשני מחקה.',ages:'6+',participants:'4-40',difficulty:1,tags:['זוגי','תנועה','כיף'],
+    levels:[{name:'קל',desc:'תנועות איטיות'},{name:'בינוני',desc:'תנועות מהירות'},{name:'מאתגר',desc:'בלי לדעת מי מוביל — שניהם ביחד!'}]},
 
   // --- FATHERS & SONS ---
-  {name:'הדלקת אש פרימיטיבית',cat:'fathers',desc:'אב ובן לומדים להדליק אש בשיטות עתיקות — אבן צור, מקל וחיכוך.',ages:'9-13',participants:'זוגות',difficulty:3,tags:['שטח','הישרדות','אתגר']},
-  {name:'פארק חבלים בעיניים עצומות',cat:'fathers',desc:'הבן מנווט את האב (או להפך) במסלול חבלים עם עיניים מכוסות.',ages:'9-13',participants:'זוגות',difficulty:3,tags:['אמון','אתגר','חבלים']},
-  {name:'ציד אוצרות בשטח',cat:'fathers',desc:'מסלול ניווט עם רמזים — אב ובן מחפשים אוצרות ביחד.',ages:'8-13',participants:'זוגות',difficulty:2,tags:['ניווט','הרפתקה','כיף']},
-  {name:'בישול שטח אב ובן',cat:'fathers',desc:'הכנת ארוחה בשטח — מהדלקת האש ועד האוכל. יחד!',ages:'9-13',participants:'זוגות',difficulty:2,tags:['בישול','שטח','שיתוף']},
-  {name:'קפיצת אמון — אב ובן',cat:'fathers',desc:'הבן קופץ מגובה — האב תופס. רגע של אמון מוחלט.',ages:'10-13',participants:'זוגות',difficulty:3,tags:['אמון','אומץ','חיבור']},
-  {name:'מסע לילי',cat:'fathers',desc:'הליכה בחושך בטבע — רק אב ובן, כוכבים ושיחה.',ages:'10-13',participants:'זוגות',difficulty:2,tags:['לילה','שיחה','חוויה']},
-  {name:'בניית מחסה יחד',cat:'fathers',desc:'אב ובן בונים מחסה מענפים ועלים — בית קטן בטבע.',ages:'9-13',participants:'זוגות',difficulty:2,tags:['בנייה','שטח','שיתוף']},
-  {name:'חידון טבע אב-בן',cat:'fathers',desc:'חידון על צמחים, בעלי חיים וכוכבים — מי יודע יותר?',ages:'8-13',participants:'זוגות',difficulty:1,tags:['לימוד','טבע','חידון']},
+  {name:'הדלקת אש פרימיטיבית',cat:'fathers',desc:'אב ובן לומדים להדליק אש בשיטות עתיקות — אבן צור, מקל וחיכוך.',ages:'9-13',participants:'זוגות',difficulty:3,tags:['שטח','הישרדות','אתגר'],
+    levels:[{name:'קל',desc:'הדלקה עם צור מגנזיום'},{name:'בינוני',desc:'הדלקה עם מקל חיכוך (Bow Drill)'},{name:'מאתגר',desc:'הדלקה מאפס — רק חומרים מהטבע!'}],
+    reflection:'מה הרגשתם כשהצלחתם? מה למדתם על סבלנות?'},
+  {name:'פארק חבלים בעיניים עצומות',cat:'fathers',desc:'הבן מנווט את האב (או להפך) במסלול חבלים עם עיניים מכוסות.',ages:'9-13',participants:'זוגות',difficulty:3,tags:['אמון','אתגר','חבלים'],
+    levels:[{name:'קל',desc:'מסלול קצר, הנחיה צמודה'},{name:'בינוני',desc:'מסלול ארוך, הנחיה ממרחק'},{name:'מאתגר',desc:'שני הצדדים עיוורים לסירוגין!'}],
+    reflection:'איך היה לסמוך על אבא/בן? מה זה מחזק?'},
+  {name:'ציד אוצרות בשטח',cat:'fathers',desc:'מסלול ניווט עם רמזים — אב ובן מחפשים אוצרות ביחד.',ages:'8-13',participants:'זוגות',difficulty:2,tags:['ניווט','הרפתקה','כיף'],
+    levels:[{name:'קל',desc:'8 תחנות עם רמזים ברורים'},{name:'בינוני',desc:'12 תחנות עם חידות'},{name:'מאתגר',desc:'ציד לילי עם פנסים!'}],
+    reflection:'איך עבדתם בצוות? מי הוביל?'},
+  {name:'בישול שטח אב ובן',cat:'fathers',desc:'הכנת ארוחה בשטח — מהדלקת האש ועד האוכל. יחד!',ages:'9-13',participants:'זוגות',difficulty:2,tags:['בישול','שטח','שיתוף'],
+    levels:[{name:'קל',desc:'מתכון מוכן + אש מוכנה'},{name:'בינוני',desc:'מתכון + הדלקת אש עצמאית'},{name:'מאתגר',desc:'בישול ממרכיבים שנאספו בטבע!'}],
+    reflection:'מה למדתם על סבלנות? איך החוויה חיברה?'},
+  {name:'קפיצת אמון — אב ובן',cat:'fathers',desc:'הבן קופץ מגובה — האב תופס. רגע של אמון מוחלט.',ages:'10-13',participants:'זוגות',difficulty:3,tags:['אמון','אומץ','חיבור'],
+    levels:[{name:'קל',desc:'נפילה לאחור מעמידה'},{name:'בינוני',desc:'קפיצה מגובה 0.5 מטר'},{name:'מאתגר',desc:'קפיצה מגובה 1+ מטר + שיחה אישית אחרי'}],
+    reflection:'מה הרגשתם? על מי סמכתם? איך זה מחזק את הקשר?'},
+  {name:'מסע לילי',cat:'fathers',desc:'הליכה בחושך בטבע — רק אב ובן, כוכבים ושיחה.',ages:'10-13',participants:'זוגות',difficulty:2,tags:['לילה','שיחה','חוויה'],
+    levels:[{name:'קל',desc:'מסלול קצר עם פנסים'},{name:'בינוני',desc:'מסלול ארוך בלי פנסים'},{name:'מאתגר',desc:'מסלול + תחנות חשיבה + שתיקה מלאה'}],
+    reflection:'מה שמעתם בשקט? על מה דיברתם?'},
+  {name:'בניית מחסה יחד',cat:'fathers',desc:'אב ובן בונים מחסה מענפים ועלים — בית קטן בטבע.',ages:'9-13',participants:'זוגות',difficulty:2,tags:['בנייה','שטח','שיתוף'],
+    levels:[{name:'קל',desc:'מחסה עם הנחיות'},{name:'בינוני',desc:'מחסה ללא הנחיות — רק חומרים'},{name:'מאתגר',desc:'מחסה שעומד בגשם!'}],
+    reflection:'מה למדתם? חז"ל: "חכמה מכל אדם" — מה למדתם מהבן?'},
+  {name:'חידון טבע אב-בן',cat:'fathers',desc:'חידון על צמחים, בעלי חיים וכוכבים — מי יודע יותר?',ages:'8-13',participants:'זוגות',difficulty:1,tags:['לימוד','טבע','חידון'],
+    levels:[{name:'קל',desc:'שאלות בחירה מרובה'},{name:'בינוני',desc:'שאלות פתוחות + זיהוי בשטח'},{name:'מאתגר',desc:'חידון + איסוף דגימות בטבע!'}]},
 
   // --- CLASSROOM ---
-  {name:'סיבוב היכרות עם כדור',cat:'classroom',desc:'הכדור מועבר — מי שתופס מציג את עצמו ושואל שאלה.',ages:'6+',participants:'10-35',difficulty:1,tags:['היכרות','כיתה','פשוט']},
-  {name:'בינגו אישי',cat:'classroom',desc:'טבלת בינגו עם מאפיינים — מצא מישהו שמתאים לכל משבצת!',ages:'8+',participants:'10-35',difficulty:1,tags:['היכרות','כיתה','כיף']},
-  {name:'חידון קבוצתי',cat:'classroom',desc:'שאלות טריוויה בצוותים — כל צוות מתייעץ ועונה.',ages:'8+',participants:'10-40',difficulty:1,tags:['חידון','צוותי','לימוד']},
-  {name:'דיבייט מהיר',cat:'classroom',desc:'ויכוח מובנה בין שתי קבוצות — 2 דקות לכל צד.',ages:'12+',participants:'10-30',difficulty:2,tags:['דיון','חשיבה','כיתה']},
-  {name:'מפת חשיבה קבוצתית',cat:'classroom',desc:'כל צוות בונה מפת חשיבה על נושא — ומציג לכיתה.',ages:'10+',participants:'10-35',difficulty:2,tags:['חשיבה','יצירתיות','הצגה']},
-  {name:'סיפורי שרשרת',cat:'classroom',desc:'כל תלמיד ממשיך את הסיפור — בכתב או בע"פ.',ages:'8+',participants:'10-35',difficulty:1,tags:['יצירתיות','כתיבה','כיף']},
-  {name:'ציור עיוור',cat:'classroom',desc:'אחד מתאר — השני מצייר בלי לראות את המקור. תקשורת!',ages:'8+',participants:'4-30',difficulty:1,tags:['ציור','תקשורת','כיף']},
-  {name:'מלך/ת השאלות',cat:'classroom',desc:'תלמידים שואלים שאלות על נושא — השאלה הכי טובה מנצחת.',ages:'10+',participants:'10-35',difficulty:2,tags:['חשיבה','שאלות','לימוד']},
+  {name:'סיבוב היכרות עם כדור',cat:'classroom',desc:'הכדור מועבר — מי שתופס מציג את עצמו ושואל שאלה.',ages:'6+',participants:'10-35',difficulty:1,tags:['היכרות','כיתה','פשוט'],
+    levels:[{name:'קל',desc:'שם + תחביב'},{name:'בינוני',desc:'שם + עובדה מפתיעה'},{name:'מאתגר',desc:'שם + חיקוי של מי שזרק לך!'}]},
+  {name:'בינגו אישי',cat:'classroom',desc:'טבלת בינגו עם מאפיינים — מצא מישהו שמתאים לכל משבצת!',ages:'8+',participants:'10-35',difficulty:1,tags:['היכרות','כיתה','כיף'],
+    levels:[{name:'קל',desc:'טבלה 3x3'},{name:'בינוני',desc:'טבלה 4x4 + חתימה'},{name:'מאתגר',desc:'טבלה 5x5 + ב-3 דקות!'}]},
+  {name:'חידון קבוצתי',cat:'classroom',desc:'שאלות טריוויה בצוותים — כל צוות מתייעץ ועונה.',ages:'8+',participants:'10-40',difficulty:1,tags:['חידון','צוותי','לימוד'],
+    levels:[{name:'קל',desc:'שאלות ידע כללי'},{name:'בינוני',desc:'שאלות מהפרשה'},{name:'מאתגר',desc:'שאלות + הימור נקודות!'}]},
+  {name:'דיבייט מהיר',cat:'classroom',desc:'ויכוח מובנה בין שתי קבוצות — 2 דקות לכל צד.',ages:'12+',participants:'10-30',difficulty:2,tags:['דיון','חשיבה','כיתה'],
+    levels:[{name:'קל',desc:'נושא פשוט, 2 דקות'},{name:'בינוני',desc:'נושא מורכב, דקה אחת'},{name:'מאתגר',desc:'נושא הפוך — תגנו על הצד שאתם לא מסכימים!'}]},
+  {name:'מפת חשיבה קבוצתית',cat:'classroom',desc:'כל צוות בונה מפת חשיבה על נושא — ומציג לכיתה.',ages:'10+',participants:'10-35',difficulty:2,tags:['חשיבה','יצירתיות','הצגה'],
+    levels:[{name:'קל',desc:'מפה חופשית'},{name:'בינוני',desc:'מפה עם 5 ענפים חובה'},{name:'מאתגר',desc:'מפה + חיבור לפרשת שבוע'}]},
+  {name:'סיפורי שרשרת',cat:'classroom',desc:'כל תלמיד ממשיך את הסיפור — בכתב או בע"פ.',ages:'8+',participants:'10-35',difficulty:1,tags:['יצירתיות','כתיבה','כיף'],
+    levels:[{name:'קל',desc:'משפט שלם'},{name:'בינוני',desc:'3 מילים בלבד'},{name:'מאתגר',desc:'מילה אחת + נושא תורני!'}]},
+  {name:'ציור עיוור',cat:'classroom',desc:'אחד מתאר — השני מצייר בלי לראות את המקור. תקשורת!',ages:'8+',participants:'4-30',difficulty:1,tags:['ציור','תקשורת','כיף'],
+    levels:[{name:'קל',desc:'צורות פשוטות'},{name:'בינוני',desc:'בעלי חיים/חפצים'},{name:'מאתגר',desc:'סצנה שלמה — 60 שניות!'}]},
+  {name:'מלך/ת השאלות',cat:'classroom',desc:'תלמידים שואלים שאלות על נושא — השאלה הכי טובה מנצחת.',ages:'10+',participants:'10-35',difficulty:2,tags:['חשיבה','שאלות','לימוד'],
+    levels:[{name:'קל',desc:'שאלות פתוחות'},{name:'בינוני',desc:'רק שאלות "למה?"'},{name:'מאתגר',desc:'שאלה שאף אחד לא חשב עליה!'}]},
 
   // --- OUTDOOR ---
-  {name:'ניווט בשטח עם מפה',cat:'outdoor',desc:'ניווט עם מפה ומצפן בלבד — ללא GPS. אתגר אמיתי.',ages:'12+',participants:'4-20',difficulty:3,tags:['ניווט','שטח','הישרדות']},
-  {name:'טיפוס סלעים',cat:'outdoor',desc:'טיפוס על קירות סלע טבעיים עם ביטחון מלא.',ages:'10+',participants:'5-15',difficulty:3,tags:['טיפוס','אומץ','שטח']},
-  {name:'גלישת סנפלינג',cat:'outdoor',desc:'ירידה בחבלים ממצוק — אחד האתגרים המרגשים בשטח.',ages:'12+',participants:'5-20',difficulty:3,tags:['סנפלינג','אומץ','חבלים']},
-  {name:'ספלאנקינג (מערות)',cat:'outdoor',desc:'חקירת מערות — אתגר חושך, מרחב מוגבל ותגליות.',ages:'12+',participants:'5-15',difficulty:3,tags:['מערות','הרפתקה','חושך']},
-  {name:'רפטינג',cat:'outdoor',desc:'שייט קבוצתי במים — עבודת צוות על המים.',ages:'10+',participants:'6-30',difficulty:2,tags:['מים','צוותי','הרפתקה']},
-  {name:'הישרדות במדבר',cat:'outdoor',desc:'יום הישרדות מלא — מציאת מים, בניית צל, ניווט בחום.',ages:'14+',participants:'5-15',difficulty:3,tags:['מדבר','הישרדות','אתגר']},
-  {name:'לינת כוכבים',cat:'outdoor',desc:'לינה בטבע ללא אוהלים — רק שמיכות וכוכבים.',ages:'10+',participants:'5-30',difficulty:2,tags:['לילה','טבע','חוויה']},
-  {name:'מסלול אתגר בנחל',cat:'outdoor',desc:'הליכה בנחל עם מכשולים טבעיים — סלעים, מפלים קטנים ומים.',ages:'10+',participants:'5-25',difficulty:2,tags:['נחל','מים','שטח']},
+  {name:'ניווט בשטח עם מפה',cat:'outdoor',desc:'ניווט עם מפה ומצפן בלבד — ללא GPS. אתגר אמיתי.',ages:'12+',participants:'4-20',difficulty:3,tags:['ניווט','שטח','הישרדות'],
+    levels:[{name:'קל',desc:'מסלול קצר עם סימנים'},{name:'בינוני',desc:'מסלול בלי סימנים, מפה בלבד'},{name:'מאתגר',desc:'ניווט לילי עם מצפן בלבד!'}]},
+  {name:'טיפוס סלעים',cat:'outdoor',desc:'טיפוס על קירות סלע טבעיים עם ביטחון מלא.',ages:'10+',participants:'5-15',difficulty:3,tags:['טיפוס','אומץ','שטח'],
+    levels:[{name:'קל',desc:'קיר נמוך עם אחיזות ברורות'},{name:'בינוני',desc:'קיר גבוה, מסלול מסומן'},{name:'מאתגר',desc:'מסלול טבעי — מצא את הדרך!'}]},
+  {name:'גלישת סנפלינג',cat:'outdoor',desc:'ירידה בחבלים ממצוק — אחד האתגרים המרגשים בשטח.',ages:'12+',participants:'5-20',difficulty:3,tags:['סנפלינג','אומץ','חבלים'],
+    levels:[{name:'קל',desc:'ירידה מ-5 מטר'},{name:'בינוני',desc:'ירידה מ-15 מטר'},{name:'מאתגר',desc:'ירידה מ-30+ מטר + אחורנית!'}]},
+  {name:'ספלאנקינג (מערות)',cat:'outdoor',desc:'חקירת מערות — אתגר חושך, מרחב מוגבל ותגליות.',ages:'12+',participants:'5-15',difficulty:3,tags:['מערות','הרפתקה','חושך'],
+    levels:[{name:'קל',desc:'מערה רחבה ומוארת'},{name:'בינוני',desc:'מערה צרה, פנסים בלבד'},{name:'מאתגר',desc:'מערה + דקה של חושך מוחלט!'}]},
+  {name:'רפטינג',cat:'outdoor',desc:'שייט קבוצתי במים — עבודת צוות על המים.',ages:'10+',participants:'6-30',difficulty:2,tags:['מים','צוותי','הרפתקה'],
+    levels:[{name:'קל',desc:'מים שקטים'},{name:'בינוני',desc:'זרם קל + משימות'},{name:'מאתגר',desc:'זרם חזק + תחרות בין צוותים!'}]},
+  {name:'הישרדות במדבר',cat:'outdoor',desc:'יום הישרדות מלא — מציאת מים, בניית צל, ניווט בחום.',ages:'14+',participants:'5-15',difficulty:3,tags:['מדבר','הישרדות','אתגר'],
+    levels:[{name:'קל',desc:'יום אחד עם ציוד מלא'},{name:'בינוני',desc:'יום אחד עם ציוד מינימלי'},{name:'מאתגר',desc:'48 שעות — הישרדות אמיתית!'}]},
+  {name:'לינת כוכבים',cat:'outdoor',desc:'לינה בטבע ללא אוהלים — רק שמיכות וכוכבים.',ages:'10+',participants:'5-30',difficulty:2,tags:['לילה','טבע','חוויה'],
+    levels:[{name:'קל',desc:'לינה ליד מדורה'},{name:'בינוני',desc:'לינה בודדת + שיחה אישית'},{name:'מאתגר',desc:'לינה + זיהוי כוכבים + סיפור'}]},
+  {name:'מסלול אתגר בנחל',cat:'outdoor',desc:'הליכה בנחל עם מכשולים טבעיים — סלעים, מפלים קטנים ומים.',ages:'10+',participants:'5-25',difficulty:2,tags:['נחל','מים','שטח'],
+    levels:[{name:'קל',desc:'נחל רדוד, מסלול קצר'},{name:'בינוני',desc:'נחל עם מכשולים + משימות'},{name:'מאתגר',desc:'נחל עמוק + שיט + טיפוס!'}]},
 
   // --- MORE GROUP GAMES ---
-  {name:'מנהל הזמן',cat:'group',desc:'משימות עם מגבלת זמן קצרה — מי מספיק?',ages:'10+',participants:'5-30',difficulty:2,tags:['זמן','לחץ','כיף']},
-  {name:'מגדל הקלפים',cat:'group',desc:'בניית מגדל מקלפים — הגבוה ביותר מנצח.',ages:'8+',participants:'2-10',difficulty:2,tags:['בנייה','סבלנות','ריכוז']},
-  {name:'חבל גדול',cat:'group',desc:'משיכת חבל קלאסית — צוות מול צוות!',ages:'8+',participants:'10-50',difficulty:1,tags:['כוח','צוותי','קלאסי']},
-  {name:'ריקוד הכיסאות',cat:'energetic',desc:'הגרסה הקלאסית — מוזיקה, כיסאות, ומי נשאר?',ages:'6+',participants:'8-30',difficulty:1,tags:['קלאסי','מוזיקה','כיף']},
-  {name:'מרוץ ביצים על כף',cat:'energetic',desc:'מרוץ עם ביצה על כפית — מי לא ישבור?',ages:'7+',participants:'5-30',difficulty:1,tags:['מרוץ','ריכוז','כיף']},
-  {name:'סלט פירות',cat:'icebreaker',desc:'כל אחד בוחר פרי — כששומעים את הפרי שלך, מחליפים מקום!',ages:'6+',participants:'10-40',difficulty:1,tags:['תנועה','כיף','פשוט']},
-  {name:'תא טלפון',cat:'group',desc:'הודעה עוברת מאוזן לאוזן — מה יצא בסוף?',ages:'6+',participants:'8-30',difficulty:1,tags:['תקשורת','כיף','קלאסי']},
-  {name:'פנטומימה',cat:'group',desc:'הצגה ללא מילים — מי מנחש ראשון?',ages:'8+',participants:'4-30',difficulty:1,tags:['הצגה','כיף','יצירתיות']},
-  {name:'ציור מילים',cat:'group',desc:'צייר את המילה על הלוח — ללא אותיות! כמו פיקשנרי.',ages:'8+',participants:'4-30',difficulty:1,tags:['ציור','ניחוש','כיף']},
-  {name:'מי המרגל?',cat:'thinking',desc:'אחד מרגל בקבוצה — כולם צריכים לגלות מי!',ages:'10+',participants:'6-20',difficulty:2,tags:['חשיבה','בלשות','מתח']},
-  {name:'סודוקו קבוצתי',cat:'thinking',desc:'סודוקו על לוח ענק — כל צוות ממלא חלק.',ages:'10+',participants:'4-20',difficulty:3,tags:['לוגיקה','מספרים','צוותי']},
-  {name:'חדר בריחה שטח',cat:'thinking',desc:'חידות ופאזלים בשטח פתוח — 60 דקות לפתור!',ages:'12+',participants:'5-20',difficulty:3,tags:['חידות','אתגר','צוותי']},
-  {name:'שבב מוח',cat:'thinking',desc:'שאלות מפתיעות שדורשות חשיבה יצירתית — לא לוגית!',ages:'10+',participants:'3-30',difficulty:2,tags:['חשיבה','הפתעה','כיף']},
-  {name:'הקוד הסודי',cat:'thinking',desc:'פיצוח קוד מספרי — רמזים מוליכים לפתרון.',ages:'10+',participants:'3-15',difficulty:3,tags:['לוגיקה','קוד','אתגר']},
-  {name:'ממויין!',cat:'icebreaker',desc:'כולם עומדים בשורה — ממיינים לפי גובה/תאריך לידה/שם, בלי לדבר!',ages:'8+',participants:'8-40',difficulty:1,tags:['היכרות','תקשורת','כיף']},
-  {name:'האי הבודד',cat:'group',desc:'מה תיקח איתך לאי בודד? כל אחד בוחר ומסביר.',ages:'8+',participants:'4-30',difficulty:1,tags:['שיחה','דמיון','היכרות']},
-  {name:'מכירה פומבית',cat:'group',desc:'ערכים ומושגים נמכרים במכירה פומבית — מה הכי חשוב לך?',ages:'12+',participants:'8-30',difficulty:2,tags:['ערכים','דיון','חשיבה']},
-  {name:'עיתון קבוצתי',cat:'group',desc:'כל צוות מכין עיתון בזמן מוגבל — כתבות, ציורים, כותרות.',ages:'10+',participants:'8-35',difficulty:2,tags:['יצירתיות','צוותי','כתיבה']},
-  {name:'שרשרת אנושית',cat:'energetic',desc:'כולם מחוברים — צריך לבצע משימות בלי להיפרד!',ages:'8+',participants:'10-40',difficulty:1,tags:['שיתוף','תנועה','כיף']},
-  {name:'מרוץ סירות',cat:'outdoor',desc:'בניית רפסודה מחומרים טבעיים — ומרוץ על המים!',ages:'12+',participants:'8-30',difficulty:3,tags:['בנייה','מים','תחרות']},
-  {name:'מצפן אנושי',cat:'outdoor',desc:'ניווט רק לפי כיווני רוח — בלי שום עזר טכנולוגי.',ages:'12+',participants:'4-15',difficulty:3,tags:['ניווט','שטח','הישרדות']},
-  {name:'עקבות בטבע',cat:'outdoor',desc:'זיהוי עקבות חיות, צמחים ומינרלים — חקירת שטח.',ages:'8+',participants:'5-25',difficulty:2,tags:['טבע','לימוד','הרפתקה']},
-  {name:'תצפית ציפורים',cat:'outdoor',desc:'שקט, סבלנות ומשקפת — גילוי עולם הציפורים.',ages:'8+',participants:'5-20',difficulty:1,tags:['טבע','שקט','צפייה']},
-  {name:'גיאוקאשינג',cat:'outdoor',desc:'ציד אוצרות טכנולוגי — GPS ורמזים לאיתור נקודות.',ages:'10+',participants:'4-30',difficulty:2,tags:['ניווט','טכנולוגיה','הרפתקה']},
+  {name:'מנהל הזמן',cat:'group',desc:'משימות עם מגבלת זמן קצרה — מי מספיק?',ages:'10+',participants:'5-30',difficulty:2,tags:['זמן','לחץ','כיף'],
+    levels:[{name:'קל',desc:'60 שניות למשימה'},{name:'בינוני',desc:'30 שניות למשימה'},{name:'מאתגר',desc:'10 שניות + משימות מפתיעות!'}]},
+  {name:'מגדל הקלפים',cat:'group',desc:'בניית מגדל מקלפים — הגבוה ביותר מנצח.',ages:'8+',participants:'2-10',difficulty:2,tags:['בנייה','סבלנות','ריכוז'],
+    levels:[{name:'קל',desc:'3 קומות'},{name:'בינוני',desc:'5 קומות'},{name:'מאתגר',desc:'7+ קומות + רוח (מאוורר)!'}]},
+  {name:'חבל גדול',cat:'group',desc:'משיכת חבל קלאסית — צוות מול צוות!',ages:'8+',participants:'10-50',difficulty:1,tags:['כוח','צוותי','קלאסי'],
+    levels:[{name:'קל',desc:'משיכה רגילה'},{name:'בינוני',desc:'משיכה בישיבה!'},{name:'מאתגר',desc:'4 צוותים — חבל מוצלב!'}]},
+  {name:'ריקוד הכיסאות',cat:'energetic',desc:'הגרסה הקלאסית — מחיאות כפיים, כיסאות, ומי נשאר?',ages:'6+',participants:'8-30',difficulty:1,tags:['קלאסי','תנועה','כיף'],
+    levels:[{name:'קל',desc:'כיסאות רגילים'},{name:'בינוני',desc:'כיסאות + משימה לפני ישיבה'},{name:'מאתגר',desc:'כיסאות הולכים ומתרחקים!'}]},
+  {name:'מרוץ ביצים על כף',cat:'energetic',desc:'מרוץ עם ביצה על כפית — מי לא ישבור?',ages:'7+',participants:'5-30',difficulty:1,tags:['מרוץ','ריכוז','כיף'],
+    levels:[{name:'קל',desc:'ביצה קשה על כפית'},{name:'בינוני',desc:'ביצה חיה על כפית!'},{name:'מאתגר',desc:'ביצה + מסלול זיגזג + מכשולים'}]},
+  {name:'סלט פירות',cat:'icebreaker',desc:'כל אחד בוחר פרי — כששומעים את הפרי שלך, מחליפים מקום!',ages:'6+',participants:'10-40',difficulty:1,tags:['תנועה','כיף','פשוט'],
+    levels:[{name:'קל',desc:'4 פירות'},{name:'בינוני',desc:'6 פירות + "סלט!"=כולם'},{name:'מאתגר',desc:'פירות + תנועה לכל אחד!'}]},
+  {name:'תא טלפון',cat:'group',desc:'הודעה עוברת מאוזן לאוזן — מה יצא בסוף?',ages:'6+',participants:'8-30',difficulty:1,tags:['תקשורת','כיף','קלאסי'],
+    levels:[{name:'קל',desc:'משפט קצר'},{name:'בינוני',desc:'משפט ארוך + ציור'},{name:'מאתגר',desc:'הודעה + תנועה + צליל!'}]},
+  {name:'פנטומימה',cat:'group',desc:'הצגה ללא מילים — מי מנחש ראשון?',ages:'8+',participants:'4-30',difficulty:1,tags:['הצגה','כיף','יצירתיות'],
+    levels:[{name:'קל',desc:'חפצים פשוטים'},{name:'בינוני',desc:'פעולות/מקצועות'},{name:'מאתגר',desc:'פסוקים מהתורה!'}]},
+  {name:'ציור מילים',cat:'group',desc:'צייר את המילה על הלוח — ללא אותיות! כמו פיקשנרי.',ages:'8+',participants:'4-30',difficulty:1,tags:['ציור','ניחוש','כיף'],
+    levels:[{name:'קל',desc:'חפצים'},{name:'בינוני',desc:'מושגים'},{name:'מאתגר',desc:'ציור ב-10 שניות!'}]},
+  {name:'מי המרגל?',cat:'thinking',desc:'אחד מרגל בקבוצה — כולם צריכים לגלות מי!',ages:'10+',participants:'6-20',difficulty:2,tags:['חשיבה','בלשות','מתח'],
+    levels:[{name:'קל',desc:'מרגל אחד, שאלות פתוחות'},{name:'בינוני',desc:'מרגל + שותף סודי'},{name:'מאתגר',desc:'2 מרגלים שלא יודעים אחד על השני!'}]},
+  {name:'סודוקו קבוצתי',cat:'thinking',desc:'סודוקו על לוח ענק — כל צוות ממלא חלק.',ages:'10+',participants:'4-20',difficulty:3,tags:['לוגיקה','מספרים','צוותי'],
+    levels:[{name:'קל',desc:'סודוקו 4x4'},{name:'בינוני',desc:'סודוקו 6x6'},{name:'מאתגר',desc:'סודוקו 9x9 תחת לחץ זמן!'}]},
+  {name:'חדר בריחה שטח',cat:'thinking',desc:'חידות ופאזלים בשטח פתוח — 60 דקות לפתור!',ages:'12+',participants:'5-20',difficulty:3,tags:['חידות','אתגר','צוותי'],
+    levels:[{name:'קל',desc:'5 חידות, 60 דקות'},{name:'בינוני',desc:'8 חידות, 45 דקות'},{name:'מאתגר',desc:'12 חידות, 30 דקות!'}]},
+  {name:'שבב מוח',cat:'thinking',desc:'שאלות מפתיעות שדורשות חשיבה יצירתית — לא לוגית!',ages:'10+',participants:'3-30',difficulty:2,tags:['חשיבה','הפתעה','כיף'],
+    levels:[{name:'קל',desc:'חידות קלות'},{name:'בינוני',desc:'חידות עם עיקום'},{name:'מאתגר',desc:'חידות שהתשובה הפוכה!'}]},
+  {name:'הקוד הסודי',cat:'thinking',desc:'פיצוח קוד מספרי — רמזים מוליכים לפתרון.',ages:'10+',participants:'3-15',difficulty:3,tags:['לוגיקה','קוד','אתגר'],
+    levels:[{name:'קל',desc:'קוד 3 ספרות'},{name:'בינוני',desc:'קוד 4 ספרות + רמזים מוגבלים'},{name:'מאתגר',desc:'קוד 5 ספרות + רק 8 ניסיונות!'}]},
+  {name:'ממויין!',cat:'icebreaker',desc:'כולם עומדים בשורה — ממיינים לפי גובה/תאריך לידה/שם, בלי לדבר!',ages:'8+',participants:'8-40',difficulty:1,tags:['היכרות','תקשורת','כיף'],
+    levels:[{name:'קל',desc:'מיון לפי גובה'},{name:'בינוני',desc:'מיון לפי תאריך לידה — בלי לדבר!'},{name:'מאתגר',desc:'מיון לפי מספר אחים — בעיניים עצומות!'}]},
+  {name:'האי הבודד',cat:'group',desc:'מה תיקח איתך לאי בודד? כל אחד בוחר ומסביר.',ages:'8+',participants:'4-30',difficulty:1,tags:['שיחה','דמיון','היכרות'],
+    levels:[{name:'קל',desc:'3 חפצים'},{name:'בינוני',desc:'חפץ אחד בלבד + הסבר'},{name:'מאתגר',desc:'חפץ + ספר + אדם — ולמה?'}]},
+  {name:'מכירה פומבית',cat:'group',desc:'ערכים ומושגים נמכרים במכירה פומבית — מה הכי חשוב לך?',ages:'12+',participants:'8-30',difficulty:2,tags:['ערכים','דיון','חשיבה'],
+    levels:[{name:'קל',desc:'5 ערכים, 100 נקודות'},{name:'בינוני',desc:'10 ערכים, 50 נקודות'},{name:'מאתגר',desc:'ערכים מנוגדים — מי מנצח?'}]},
+  {name:'עיתון קבוצתי',cat:'group',desc:'כל צוות מכין עיתון בזמן מוגבל — כתבות, ציורים, כותרות.',ages:'10+',participants:'8-35',difficulty:2,tags:['יצירתיות','צוותי','כתיבה'],
+    levels:[{name:'קל',desc:'עיתון חופשי — 20 דקות'},{name:'בינוני',desc:'עיתון עם 5 מדורים חובה'},{name:'מאתגר',desc:'עיתון + הצגה חיה ב-15 דקות!'}]},
+  {name:'שרשרת אנושית',cat:'energetic',desc:'כולם מחוברים — צריך לבצע משימות בלי להיפרד!',ages:'8+',participants:'10-40',difficulty:1,tags:['שיתוף','תנועה','כיף'],
+    levels:[{name:'קל',desc:'הליכה מחוברים'},{name:'בינוני',desc:'ריצה מחוברים'},{name:'מאתגר',desc:'מסלול מכשולים מחוברים!'}]},
+  {name:'מרוץ סירות',cat:'outdoor',desc:'בניית רפסודה מחומרים טבעיים — ומרוץ על המים!',ages:'12+',participants:'8-30',difficulty:3,tags:['בנייה','מים','תחרות'],
+    levels:[{name:'קל',desc:'רפסודה מוכנה'},{name:'בינוני',desc:'בנייה + שיט'},{name:'מאתגר',desc:'בנייה מחומרים מהטבע בלבד!'}]},
+  {name:'מצפן אנושי',cat:'outdoor',desc:'ניווט רק לפי כיווני רוח — בלי שום עזר טכנולוגי.',ages:'12+',participants:'4-15',difficulty:3,tags:['ניווט','שטח','הישרדות'],
+    levels:[{name:'קל',desc:'ניווט עם שמש'},{name:'בינוני',desc:'ניווט עם כוכבים'},{name:'מאתגר',desc:'ניווט עם סימני טבע בלבד!'}]},
+  {name:'עקבות בטבע',cat:'outdoor',desc:'זיהוי עקבות חיות, צמחים ומינרלים — חקירת שטח.',ages:'8+',participants:'5-25',difficulty:2,tags:['טבע','לימוד','הרפתקה'],
+    levels:[{name:'קל',desc:'זיהוי 5 צמחים'},{name:'בינוני',desc:'זיהוי עקבות + צמחים'},{name:'מאתגר',desc:'עקוב אחרי שביל חיה!'}]},
+  {name:'תצפית ציפורים',cat:'outdoor',desc:'שקט, סבלנות ומשקפת — גילוי עולם הציפורים.',ages:'8+',participants:'5-20',difficulty:1,tags:['טבע','שקט','צפייה'],
+    levels:[{name:'קל',desc:'זיהוי 3 מינים'},{name:'בינוני',desc:'זיהוי 7 מינים + ציור'},{name:'מאתגר',desc:'תצפית שקטה של 20 דקות + יומן!'}]},
+  {name:'גיאוקאשינג',cat:'outdoor',desc:'ציד אוצרות טכנולוגי — GPS ורמזים לאיתור נקודות.',ages:'10+',participants:'4-30',difficulty:2,tags:['ניווט','טכנולוגיה','הרפתקה'],
+    levels:[{name:'קל',desc:'3 נקודות קרובות'},{name:'בינוני',desc:'6 נקודות + חידות'},{name:'מאתגר',desc:'10 נקודות + מסלול מלא!'}]},
+
+  // ===== EXTRA 100 GAMES =====
+  // --- More Thinking ---
+  {name:'20 שאלות',cat:'thinking',desc:'המנחה חושב על דבר — הקבוצה שואלת 20 שאלות כן/לא. מי מנחש?',ages:'8+',participants:'3-20',difficulty:1,tags:['חשיבה','שאלות','היכרות'],
+    levels:[{name:'קל',desc:'חפצים יומיומיים'},{name:'בינוני',desc:'דמויות מהתנ"ך'},{name:'מאתגר',desc:'מושגים מופשטים — 10 שאלות בלבד!'}],
+    reflection:'איזה שאלות היו הכי יעילות? חז"ל: "איזהו חכם — הלומד מכל אדם"'},
+  {name:'אסוציאציות',cat:'thinking',desc:'מילה אחת מובילה לשנייה — שרשרת אסוציאציות קבוצתית.',ages:'8+',participants:'4-30',difficulty:1,tags:['חשיבה','מהיר','יצירתיות'],
+    levels:[{name:'קל',desc:'אסוציאציה חופשית'},{name:'בינוני',desc:'רק מילים מעולם התורה'},{name:'מאתגר',desc:'אסוציאציה הפוכה — המילה הכי רחוקה!'}]},
+  {name:'חמש רמזים',cat:'thinking',desc:'5 רמזים מקל לקשה — מי מנחש ראשון עם הכי פחות רמזים?',ages:'9+',participants:'4-30',difficulty:2,tags:['ניחוש','חשיבה','תחרות'],
+    levels:[{name:'קל',desc:'נושאים מוכרים'},{name:'בינוני',desc:'נושאים תורניים'},{name:'מאתגר',desc:'רמז אחד בלבד!'}]},
+  {name:'מילים הפוכות',cat:'thinking',desc:'המנחה אומר מילה — צריך לענות בהפוך! גדול=קטן, חם=קר.',ages:'7+',participants:'3-20',difficulty:1,tags:['חשיבה','מהיר','ריכוז'],
+    levels:[{name:'קל',desc:'הפכים פשוטים'},{name:'בינוני',desc:'הפכים + קצב מהיר'},{name:'מאתגר',desc:'הפכים + תנועה הפוכה!'}]},
+  {name:'שרשרת מילים',cat:'thinking',desc:'כל מילה חייבת להתחיל באות האחרונה של הקודמת.',ages:'8+',participants:'3-20',difficulty:1,tags:['אוצר מילים','חשיבה','מהיר'],
+    levels:[{name:'קל',desc:'כל מילה'},{name:'בינוני',desc:'רק שמות/פעלים'},{name:'מאתגר',desc:'רק מילים מהתורה!'}]},
+  {name:'חידון כן-לא',cat:'thinking',desc:'עונים על שאלות — אבל אסור להגיד "כן" או "לא"!',ages:'8+',participants:'4-20',difficulty:2,tags:['ריכוז','חשיבה','כיף'],
+    levels:[{name:'קל',desc:'5 שאלות'},{name:'בינוני',desc:'10 שאלות מהירות'},{name:'מאתגר',desc:'גם "אה" ו"לא" אסורים!'}]},
+  {name:'זיכרון חזותי',cat:'thinking',desc:'מגש עם 20 חפצים — 30 שניות להסתכל — מה היה שם?',ages:'8+',participants:'3-30',difficulty:2,tags:['זיכרון','ריכוז','אתגר'],
+    levels:[{name:'קל',desc:'10 חפצים, 30 שניות'},{name:'בינוני',desc:'20 חפצים, 20 שניות'},{name:'מאתגר',desc:'30 חפצים + מה הוסר?'}]},
+  {name:'קטגוריות מהירות',cat:'thinking',desc:'המנחה אומר קטגוריה — כולם רצים לפינה הנכונה.',ages:'7+',participants:'8-40',difficulty:1,tags:['תנועה','חשיבה','כיף'],
+    levels:[{name:'קל',desc:'4 קטגוריות ברורות'},{name:'בינוני',desc:'קטגוריות מבלבלות'},{name:'מאתגר',desc:'קטגוריות + שאלה בכל פינה!'}]},
+  {name:'מספרים ותנועות',cat:'thinking',desc:'כל מספר = תנועה. 1=קפיצה, 2=ישיבה, 3=ספין. מי לא טועה?',ages:'7+',participants:'5-40',difficulty:2,tags:['ריכוז','תנועה','כיף'],
+    levels:[{name:'קל',desc:'3 מספרים'},{name:'בינוני',desc:'5 מספרים + קצב מהיר'},{name:'מאתגר',desc:'7 מספרים + סדר הפוך!'}]},
+  {name:'חידות גפרורים',cat:'thinking',desc:'הזיזו גפרור אחד כדי לפתור את התרגיל — חשיבה לטרלית.',ages:'9+',participants:'2-20',difficulty:3,tags:['לוגיקה','חידות','חשיבה'],
+    levels:[{name:'קל',desc:'תרגילים בסיסיים'},{name:'בינוני',desc:'צורות גיאומטריות'},{name:'מאתגר',desc:'חידות מתקדמות + הגבלת זמן'}]},
+
+  // --- More Energetic ---
+  {name:'תגובת ברק',cat:'energetic',desc:'המנחה אומר צבע/מספר — צריך לרוץ למקום הנכון. מהיר!',ages:'7+',participants:'8-40',difficulty:1,tags:['ריצה','תגובה','אנרגטי'],
+    levels:[{name:'קל',desc:'4 תחנות, קצב איטי'},{name:'בינוני',desc:'6 תחנות, קצב מהיר'},{name:'מאתגר',desc:'8 תחנות + פעולה בכל אחת!'}]},
+  {name:'קפצת חבל קבוצתית',cat:'energetic',desc:'חבל מסתובב — כמה יכולים לקפוץ ביחד?',ages:'8+',participants:'5-30',difficulty:2,tags:['קפיצה','צוותי','קואורדינציה'],
+    levels:[{name:'קל',desc:'אחד-אחד'},{name:'בינוני',desc:'שניים ביחד'},{name:'מאתגר',desc:'5+ ביחד + ספירה!'}]},
+  {name:'אולימפיאדה מצחיקה',cat:'energetic',desc:'תחרויות מטופשות — מרוץ עם כפית, הליכה לאחור, זריקת גרב.',ages:'7+',participants:'10-50',difficulty:1,tags:['כיף','תחרות','צחוק'],
+    levels:[{name:'קל',desc:'3 תחנות'},{name:'בינוני',desc:'6 תחנות + שופט'},{name:'מאתגר',desc:'10 תחנות + טקס חלוקת מדליות!'}]},
+  {name:'פס ירוק-אדום',cat:'energetic',desc:'אור ירוק — רצים! אור אדום — קופאים! מי שזז — חוזר.',ages:'6+',participants:'5-40',difficulty:1,tags:['ריצה','ריכוז','קלאסי'],
+    levels:[{name:'קל',desc:'ירוק/אדום רגיל'},{name:'בינוני',desc:'+ צהוב = הליכה איטית'},{name:'מאתגר',desc:'+ הפוך: ירוק=עצור!'}]},
+  {name:'מסלול מכשולים',cat:'energetic',desc:'מסלול עם מכשולים — זחילה, קפיצה, ריצה. מי מסיים ראשון?',ages:'8+',participants:'5-30',difficulty:2,tags:['מסלול','אתגר','ריצה'],
+    levels:[{name:'קל',desc:'5 מכשולים'},{name:'בינוני',desc:'10 מכשולים + ספירה לאחור'},{name:'מאתגר',desc:'15 מכשולים + משימת חשיבה בסוף!'}]},
+  {name:'כדור חם',cat:'energetic',desc:'כדור עובר מהר — מי שמחזיק אותו כשנשמעת צפצופ, יוצא!',ages:'6+',participants:'8-30',difficulty:1,tags:['מהירות','כדור','כיף'],
+    levels:[{name:'קל',desc:'כדור אחד'},{name:'בינוני',desc:'שני כדורים!'},{name:'מאתגר',desc:'כדור + משימה לפני שמעבירים!'}]},
+  {name:'גנב ושוטר',cat:'energetic',desc:'שוטרים תופסים גנבים. גנבים בורחים לאזור בטוח.',ages:'7+',participants:'10-50',difficulty:1,tags:['ריצה','אסטרטגיה','כיף'],
+    levels:[{name:'קל',desc:'שוטרים ברגל'},{name:'בינוני',desc:'שוטרים + שבויים'},{name:'מאתגר',desc:'שוטרים + גנבים + מרגלים!'}]},
+  {name:'כדור חמקן',cat:'energetic',desc:'שני צוותים — אחד זורק, השני מתחמק. מי שנפגע — יוצא.',ages:'8+',participants:'10-40',difficulty:1,tags:['כדור','תחרות','תנועה'],
+    levels:[{name:'קל',desc:'כדור אחד, מגרש גדול'},{name:'בינוני',desc:'שני כדורים'},{name:'מאתגר',desc:'3 כדורים + שחקנים "רופאים"!'}]},
+  {name:'דגל הזנב',cat:'energetic',desc:'כל שחקן עם "זנב" (סרט) — מי אוסף הכי הרבה?',ages:'7+',participants:'10-50',difficulty:1,tags:['ריצה','תחרות','כיף'],
+    levels:[{name:'קל',desc:'זנב אחד'},{name:'בינוני',desc:'3 זנבות'},{name:'מאתגר',desc:'זנבות + "חיים" — 3 זנבות = חיים אחד'}]},
+  {name:'מרוץ זחילה',cat:'energetic',desc:'זחילה צבאית מתחת לרשת/חבלים — מי עובר ראשון?',ages:'8+',participants:'5-30',difficulty:2,tags:['זחילה','אתגר','צבאי'],
+    levels:[{name:'קל',desc:'רשת גבוהה'},{name:'בינוני',desc:'רשת נמוכה + בוץ!'},{name:'מאתגר',desc:'רשת + משא כבד!'}]},
+
+  // --- More Group ---
+  {name:'אמן קבוצתי',cat:'group',desc:'כולם מציירים על אותו דף — בלי לדבר. מה יצא?',ages:'8+',participants:'4-20',difficulty:1,tags:['ציור','שיתוף','יצירתיות'],
+    levels:[{name:'קל',desc:'ציור חופשי'},{name:'בינוני',desc:'נושא נתון'},{name:'מאתגר',desc:'כל אחד מצייר 10 שניות וממשיך!'}]},
+  {name:'שיר קבוצתי',cat:'group',desc:'כל צוות מחבר שיר על נושא — ושר אותו!',ages:'9+',participants:'8-40',difficulty:2,tags:['שירה','יצירתיות','כיף'],
+    levels:[{name:'קל',desc:'שיר עם מנגינה מוכרת'},{name:'בינוני',desc:'שיר + מנגינה חדשה'},{name:'מאתגר',desc:'שיר + הצגה + כוריאוגרפיה!'}]},
+  {name:'משפט ראשון',cat:'group',desc:'כולם כותבים משפט ראשון של סיפור — קוראים ובוחרים את הטוב ביותר.',ages:'10+',participants:'5-30',difficulty:1,tags:['כתיבה','יצירתיות','הצבעה'],
+    levels:[{name:'קל',desc:'משפט חופשי'},{name:'בינוני',desc:'משפט על נושא'},{name:'מאתגר',desc:'בדיוק 10 מילים!'}]},
+  {name:'ארבע פינות',cat:'group',desc:'4 פינות = 4 תשובות. המנחה שואל — רצים לפינה שמתאימה.',ages:'7+',participants:'8-40',difficulty:1,tags:['תנועה','דעות','כיף'],
+    levels:[{name:'קל',desc:'שאלות טעם'},{name:'בינוני',desc:'שאלות ערכיות'},{name:'מאתגר',desc:'שאלות + הסבר למה!'}]},
+  {name:'כסא חם',cat:'group',desc:'משתתף יושב על כסא — כולם שואלים אותו שאלות למשך 2 דקות.',ages:'10+',participants:'5-25',difficulty:2,tags:['שיחה','אומץ','היכרות'],
+    levels:[{name:'קל',desc:'שאלות קלות'},{name:'בינוני',desc:'שאלות אישיות'},{name:'מאתגר',desc:'שאלות מפתיעות!'}]},
+  {name:'מחזה רחוב',cat:'group',desc:'כל צוות מכין סקיט קצר ומציג — ללא הכנה מוקדמת!',ages:'10+',participants:'8-40',difficulty:2,tags:['הצגה','אימפרוביזציה','כיף'],
+    levels:[{name:'קל',desc:'5 דקות הכנה'},{name:'בינוני',desc:'2 דקות הכנה'},{name:'מאתגר',desc:'0 דקות — אימפרוביזציה מלאה!'}]},
+  {name:'חפץ מדבר',cat:'group',desc:'כל אחד מביא חפץ ומספר עליו סיפור — אמיתי או בדוי.',ages:'9+',participants:'4-20',difficulty:1,tags:['סיפור','היכרות','יצירתיות'],
+    levels:[{name:'קל',desc:'סיפור אמיתי'},{name:'בינוני',desc:'סיפור בדוי על החפץ'},{name:'מאתגר',desc:'2 סיפורים — נחשו מה אמיתי!'}]},
+  {name:'מעגל מחמאות',cat:'group',desc:'כל אחד אומר מחמאה לשכן שלו — בניית אווירה חיובית.',ages:'7+',participants:'5-30',difficulty:1,tags:['חיזוק','חיובי','מעגל'],
+    levels:[{name:'קל',desc:'מחמאה חופשית'},{name:'בינוני',desc:'מחמאה ספציפית — "אתה טוב ב..."'},{name:'מאתגר',desc:'מחמאה + ברכה מהתורה!'}]},
+  {name:'חקירה',cat:'group',desc:'אחד "עשה משהו" — הקבוצה חוקרת בשאלות. מי מגלה?',ages:'10+',participants:'6-20',difficulty:2,tags:['חשיבה','בלשות','כיף'],
+    levels:[{name:'קל',desc:'פעולה פשוטה'},{name:'בינוני',desc:'פעולה מורכבת + 10 שאלות'},{name:'מאתגר',desc:'2 חשודים, עד אחד שקרן!'}]},
+  {name:'מכתב לעצמי',cat:'group',desc:'כל אחד כותב מכתב לעצמו — ייפתח בעוד חודש/שנה.',ages:'10+',participants:'5-30',difficulty:1,tags:['רפלקציה','כתיבה','אישי'],
+    levels:[{name:'קל',desc:'מכתב חופשי'},{name:'בינוני',desc:'מכתב + 3 מטרות'},{name:'מאתגר',desc:'מכתב + תוכנית פעולה!'}]},
+
+  // --- More Icebreaker ---
+  {name:'גלגל מזל',cat:'icebreaker',desc:'גלגל עם שאלות — מסובבים ועונים. פשוט וכיפי!',ages:'7+',participants:'5-30',difficulty:1,tags:['שאלות','כיף','פשוט'],
+    levels:[{name:'קל',desc:'שאלות קלות'},{name:'בינוני',desc:'שאלות מפתיעות'},{name:'מאתגר',desc:'שאלות + אתגר פיזי!'}]},
+  {name:'מצא את הדומה',cat:'icebreaker',desc:'בזוגות — מצאו 5 דברים משותפים בינכם! כמה שיותר מפתיעים.',ages:'8+',participants:'6-40',difficulty:1,tags:['היכרות','זוגי','שיחה'],
+    levels:[{name:'קל',desc:'5 דברים משותפים'},{name:'בינוני',desc:'5 דברים מפתיעים'},{name:'מאתגר',desc:'10 דברים + הצגה לכולם!'}]},
+  {name:'האדם הכי...',cat:'icebreaker',desc:'מי הכי גבוה? מי הכי צעיר? מי עם הכי הרבה אחים? רצו למרכז!',ages:'7+',participants:'8-40',difficulty:1,tags:['תנועה','היכרות','כיף'],
+    levels:[{name:'קל',desc:'קטגוריות פשוטות'},{name:'בינוני',desc:'קטגוריות מפתיעות'},{name:'מאתגר',desc:'הקבוצה מחליטה קטגוריות!'}]},
+  {name:'סיפור ב-6 מילים',cat:'icebreaker',desc:'ספר את החיים שלך ב-6 מילים בלבד. קשה ומעניין!',ages:'10+',participants:'4-25',difficulty:2,tags:['כתיבה','חשיבה','היכרות'],
+    levels:[{name:'קל',desc:'6 מילים על עצמך'},{name:'בינוני',desc:'6 מילים על השנה האחרונה'},{name:'מאתגר',desc:'6 מילים + ציור!'}]},
+  {name:'קו הדמיון',cat:'icebreaker',desc:'כולם עומדים בשורה — מי שהקביעה מתאימה לו, צועד קדימה.',ages:'8+',participants:'8-40',difficulty:1,tags:['היכרות','תנועה','שיתוף'],
+    levels:[{name:'קל',desc:'עובדות בסיסיות'},{name:'בינוני',desc:'עובדות אישיות'},{name:'מאתגר',desc:'חוויות ורגשות'}]},
+
+  // --- More Classroom ---
+  {name:'חידון מהיר',cat:'classroom',desc:'שאלה על הלוח — ראשון שמרים יד ועונה נכון מקבל נקודה.',ages:'8+',participants:'10-35',difficulty:1,tags:['חידון','מהיר','לימוד'],
+    levels:[{name:'קל',desc:'שאלות בחירה'},{name:'בינוני',desc:'שאלות פתוחות'},{name:'מאתגר',desc:'באזר — ראשון שעונה!'}]},
+  {name:'כדורגל שולחני מילולי',cat:'classroom',desc:'שני צוותים — שאלות מילוליות במקום כדור. גול = תשובה נכונה!',ages:'9+',participants:'10-30',difficulty:2,tags:['תחרות','לימוד','כיף'],
+    levels:[{name:'קל',desc:'שאלות ידע כללי'},{name:'בינוני',desc:'שאלות מהשיעור'},{name:'מאתגר',desc:'שאלות + זמן + בונוס!'}]},
+  {name:'גלריה',cat:'classroom',desc:'כל צוות מציג עבודה על הקיר — כולם מסתובבים ונותנים פידבק.',ages:'10+',participants:'10-35',difficulty:1,tags:['הצגה','פידבק','שיתוף'],
+    levels:[{name:'קל',desc:'מציגים ומסתובבים'},{name:'בינוני',desc:'+ פידבק כתוב'},{name:'מאתגר',desc:'+ הצבעה + שיפור!'}]},
+  {name:'זוז ותענה',cat:'classroom',desc:'שאלה נשאלת — מי שיודע רץ לפינה. מי שלא — נשאר.',ages:'8+',participants:'10-35',difficulty:1,tags:['תנועה','לימוד','כיף'],
+    levels:[{name:'קל',desc:'שאלות קלות'},{name:'בינוני',desc:'שאלות מורכבות'},{name:'מאתגר',desc:'שאלות + הסבר!'}]},
+  {name:'מורה ליום',cat:'classroom',desc:'תלמיד מלמד את הכיתה 5 דקות — על כל נושא שרוצה.',ages:'10+',participants:'10-35',difficulty:2,tags:['הצגה','מנהיגות','לימוד'],
+    levels:[{name:'קל',desc:'נושא חופשי'},{name:'בינוני',desc:'נושא מהשיעור'},{name:'מאתגר',desc:'+ שאלות + פעילות!'}]},
+
+  // --- More Fathers ---
+  {name:'חידת ניווט אב-בן',cat:'fathers',desc:'אב ובן מנווטים יחד עם מפה ורמזים — מסע אתגרי.',ages:'9-13',participants:'זוגות',difficulty:2,tags:['ניווט','שיתוף','הרפתקה'],
+    levels:[{name:'קל',desc:'מסלול קצר עם רמזים'},{name:'בינוני',desc:'מסלול ארוך, מפה בלבד'},{name:'מאתגר',desc:'ניווט לילי!'}]},
+  {name:'אתגר 60 שניות אב-בן',cat:'fathers',desc:'סדרת אתגרים של דקה אחת — אב ובן מול אב ובן.',ages:'8-13',participants:'זוגות',difficulty:1,tags:['תחרות','כיף','מהיר'],
+    levels:[{name:'קל',desc:'3 אתגרים'},{name:'בינוני',desc:'5 אתגרים'},{name:'מאתגר',desc:'10 אתגרים + טורניר!'}]},
+  {name:'כתיבת מכתב אב-בן',cat:'fathers',desc:'אב כותב לבן, בן כותב לאב — ומחליפים. רגע מרגש.',ages:'9-13',participants:'זוגות',difficulty:1,tags:['כתיבה','רגש','חיבור'],
+    levels:[{name:'קל',desc:'מכתב חופשי'},{name:'בינוני',desc:'מכתב + 3 דברים שאני מעריך'},{name:'מאתגר',desc:'מכתב + הבטחה אחת!'}]},
+
+  // --- More ODT ---
+  {name:'גומיות קבוצתיות',cat:'odt',desc:'גומיית ענק שהקבוצה מותחת ביחד — משימות קואורדינציה.',ages:'8+',participants:'8-30',difficulty:1,tags:['צוותי','קואורדינציה','כיף'],
+    levels:[{name:'קל',desc:'מתיחה ביחד'},{name:'בינוני',desc:'הרמת כדור עם הגומייה'},{name:'מאתגר',desc:'העברת כדור דרך מסלול!'}]},
+  {name:'קשר גורדי',cat:'odt',desc:'כולם אוחזים ידיים באקראי — צריך להתפרק בלי לשחרר!',ages:'9+',participants:'6-20',difficulty:2,tags:['שיתוף','חשיבה','צוותי'],
+    levels:[{name:'קל',desc:'קבוצה קטנה'},{name:'בינוני',desc:'קבוצה גדולה'},{name:'מאתגר',desc:'בעיניים עצומות!'}]},
+  {name:'עמוד קבוצתי',cat:'odt',desc:'הורידו מקל ארוך לרצפה — כשכולם נוגעים בו רק באצבע מורה!',ages:'8+',participants:'6-20',difficulty:2,tags:['תקשורת','סבלנות','צוותי'],
+    levels:[{name:'קל',desc:'מקל קצר'},{name:'בינוני',desc:'מקל ארוך'},{name:'מאתגר',desc:'בלי לדבר!'}]},
+  {name:'אלונקה',cat:'odt',desc:'הקבוצה נושאת חבר על "אלונקה" — דרך מסלול מכשולים.',ages:'10+',participants:'8-20',difficulty:2,tags:['כוח','צוותי','אחריות'],
+    levels:[{name:'קל',desc:'מסלול ישר'},{name:'בינוני',desc:'מסלול עם עיקולים'},{name:'מאתגר',desc:'מסלול + "הפצוע" מנחה!'}]},
+  {name:'דרך ארוכה-קצרה',cat:'odt',desc:'מסלול עם 2 אפשרויות — ארוך וקל או קצר ומסוכן.',ages:'10+',participants:'5-25',difficulty:2,tags:['בחירה','אסטרטגיה','אתגר'],
+    levels:[{name:'קל',desc:'בחירה אחת'},{name:'בינוני',desc:'3 בחירות'},{name:'מאתגר',desc:'בחירות + השלכות מפתיעות!'}]},
 ];
 
 // ===== SVG ILLUSTRATIONS =====
 function getSvgIllustration(type, animate=true) {
   const svgs = {
     'illust-fathers': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gf1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d5a2d"/><stop offset="100%" stop-color="#1a3a1a"/></linearGradient></defs>
+      <defs><linearGradient id="gf1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a5d6a7"/><stop offset="100%" stop-color="#81c784"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gf1)"/>
-      <circle class="star" cx="50" cy="30" r="1.5" fill="#fff"/>
-      <circle class="star" cx="150" cy="20" r="1" fill="#fff"/>
-      <circle class="star" cx="250" cy="35" r="2" fill="#fff"/>
-      <circle class="star" cx="350" cy="25" r="1" fill="#fff"/>
-      <path d="M0,160 L80,100 L160,130 L240,90 L320,120 L400,80 L400,200 L0,200Z" fill="#1a3a1a" opacity="0.5"/>
-      <path d="M0,180 L100,140 L200,160 L300,130 L400,150 L400,200 L0,200Z" fill="#0d2618"/>
+      <circle cx="350" cy="30" r="20" fill="#FFD700" opacity="0.5"/>
+      <path d="M0,160 L80,100 L160,130 L240,90 L320,120 L400,80 L400,200 L0,200Z" fill="#66bb6a" opacity="0.5"/>
+      <path d="M0,180 L100,140 L200,160 L300,130 L400,150 L400,200 L0,200Z" fill="#43a047"/>
       <g class="walker" transform="translate(160,150)">
-        <circle cx="0" cy="-28" r="8" fill="#00d2ff" opacity="0.8"/>
-        <line x1="0" y1="-20" x2="0" y2="2" stroke="#00d2ff" stroke-width="2.5" opacity="0.8"/>
-        <line x1="0" y1="-12" x2="-10" y2="-4" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
-        <line x1="0" y1="2" x2="-6" y2="15" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
-        <line x1="0" y1="2" x2="6" y2="15" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
-        <circle cx="25" cy="-20" r="6" fill="#d4af37" opacity="0.8"/>
-        <line x1="25" y1="-14" x2="25" y2="2" stroke="#d4af37" stroke-width="2" opacity="0.8"/>
-        <line x1="25" y1="-8" x2="18" y2="-2" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
-        <line x1="25" y1="2" x2="21" y2="15" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
-        <line x1="25" y1="2" x2="29" y2="15" stroke="#d4af37" stroke-width="1.5" opacity="0.8"/>
-        <line x1="-10" y1="-4" x2="18" y2="-2" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,2"/>
+        <circle cx="0" cy="-28" r="8" fill="#E65100" opacity="0.9"/>
+        <line x1="0" y1="-20" x2="0" y2="2" stroke="#E65100" stroke-width="2.5" opacity="0.9"/>
+        <line x1="0" y1="-12" x2="-10" y2="-4" stroke="#E65100" stroke-width="2" opacity="0.9"/>
+        <line x1="0" y1="2" x2="-6" y2="15" stroke="#E65100" stroke-width="2" opacity="0.9"/>
+        <line x1="0" y1="2" x2="6" y2="15" stroke="#E65100" stroke-width="2" opacity="0.9"/>
+        <circle cx="25" cy="-20" r="6" fill="#F57F17" opacity="0.9"/>
+        <line x1="25" y1="-14" x2="25" y2="2" stroke="#F57F17" stroke-width="2" opacity="0.9"/>
+        <line x1="25" y1="-8" x2="18" y2="-2" stroke="#F57F17" stroke-width="1.5" opacity="0.9"/>
+        <line x1="25" y1="2" x2="21" y2="15" stroke="#F57F17" stroke-width="1.5" opacity="0.9"/>
+        <line x1="25" y1="2" x2="29" y2="15" stroke="#F57F17" stroke-width="1.5" opacity="0.9"/>
+        <line x1="-10" y1="-4" x2="18" y2="-2" stroke="rgba(0,0,0,0.2)" stroke-width="1" stroke-dasharray="3,2"/>
       </g>
       <g transform="translate(300,135)">
-        <ellipse class="fire-group" cx="0" cy="-3" rx="5" ry="10" fill="#e67e22" opacity="0.7"/>
-        <ellipse class="fire-group" cx="2" cy="-6" rx="3" ry="7" fill="#f39c12" opacity="0.6"/>
+        <ellipse class="fire-group" cx="0" cy="-3" rx="5" ry="10" fill="#e67e22" opacity="0.8"/>
+        <ellipse class="fire-group" cx="2" cy="-6" rx="3" ry="7" fill="#f39c12" opacity="0.7"/>
       </g>
     </svg>`,
     'illust-odt': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="go1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d2137"/><stop offset="100%" stop-color="#1a3a5c"/></linearGradient></defs>
+      <defs><linearGradient id="go1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#bbdefb"/><stop offset="100%" stop-color="#90caf9"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#go1)"/>
       <line x1="100" y1="50" x2="300" y2="50" stroke="#8B4513" stroke-width="3"/>
       <line x1="100" y1="50" x2="100" y2="180" stroke="#8B4513" stroke-width="4"/>
       <line x1="300" y1="50" x2="300" y2="180" stroke="#8B4513" stroke-width="4"/>
       <g class="rope-person" transform="translate(180,50)">
-        <line x1="0" y1="0" x2="0" y2="30" stroke="#d4af37" stroke-width="1.5"/>
-        <circle cx="0" cy="35" r="5" fill="#00d2ff" opacity="0.8"/>
-        <line x1="0" y1="40" x2="0" y2="60" stroke="#00d2ff" stroke-width="2" opacity="0.8"/>
-        <line x1="0" y1="48" x2="-8" y2="42" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
-        <line x1="0" y1="48" x2="8" y2="42" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
-        <line x1="0" y1="60" x2="-5" y2="72" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
-        <line x1="0" y1="60" x2="5" y2="72" stroke="#00d2ff" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="0" x2="0" y2="30" stroke="#c8960c" stroke-width="1.5"/>
+        <circle cx="0" cy="35" r="5" fill="#E65100" opacity="0.9"/>
+        <line x1="0" y1="40" x2="0" y2="60" stroke="#E65100" stroke-width="2" opacity="0.9"/>
+        <line x1="0" y1="48" x2="-8" y2="42" stroke="#E65100" stroke-width="1.5" opacity="0.9"/>
+        <line x1="0" y1="48" x2="8" y2="42" stroke="#E65100" stroke-width="1.5" opacity="0.9"/>
+        <line x1="0" y1="60" x2="-5" y2="72" stroke="#E65100" stroke-width="1.5" opacity="0.9"/>
+        <line x1="0" y1="60" x2="5" y2="72" stroke="#E65100" stroke-width="1.5" opacity="0.9"/>
       </g>
       <g transform="translate(60,160)">
-        <circle cx="0" cy="0" r="5" fill="#e67e22" opacity="0.6"/>
-        <circle cx="15" cy="2" r="4" fill="#2980b9" opacity="0.6"/>
-        <circle cx="30" cy="-1" r="5" fill="#27ae60" opacity="0.6"/>
+        <circle cx="0" cy="0" r="5" fill="#e67e22" opacity="0.7"/>
+        <circle cx="15" cy="2" r="4" fill="#2980b9" opacity="0.7"/>
+        <circle cx="30" cy="-1" r="5" fill="#27ae60" opacity="0.7"/>
       </g>
-      <text x="200" y="190" text-anchor="middle" fill="rgba(255,255,255,0.1)" font-size="12" font-family="Heebo">ODT</text>
+      <text x="200" y="190" text-anchor="middle" fill="rgba(0,0,0,0.06)" font-size="12" font-family="Heebo">ODT</text>
     </svg>`,
     'illust-games': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#2d1a3a"/><stop offset="100%" stop-color="#4a2d6a"/></linearGradient></defs>
+      <defs><linearGradient id="gg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f3e5f5"/><stop offset="100%" stop-color="#e1bee7"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gg1)"/>
       <g class="dice" transform="translate(200,100)">
-        <rect x="-30" y="-30" width="60" height="60" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-        <circle cx="-12" cy="-12" r="4" fill="#d4af37"/>
-        <circle cx="12" cy="-12" r="4" fill="#d4af37"/>
-        <circle cx="0" cy="0" r="4" fill="#d4af37"/>
-        <circle cx="-12" cy="12" r="4" fill="#d4af37"/>
-        <circle cx="12" cy="12" r="4" fill="#d4af37"/>
+        <rect x="-30" y="-30" width="60" height="60" rx="8" fill="rgba(142,68,173,0.1)" stroke="rgba(142,68,173,0.3)" stroke-width="2"/>
+        <circle cx="-12" cy="-12" r="4" fill="#c8960c"/>
+        <circle cx="12" cy="-12" r="4" fill="#c8960c"/>
+        <circle cx="0" cy="0" r="4" fill="#c8960c"/>
+        <circle cx="-12" cy="12" r="4" fill="#c8960c"/>
+        <circle cx="12" cy="12" r="4" fill="#c8960c"/>
       </g>
       <g transform="translate(80,60)">
-        <rect x="0" y="0" width="40" height="55" rx="4" fill="rgba(0,210,255,0.15)" stroke="rgba(0,210,255,0.3)" stroke-width="1.5"/>
-        <text x="20" y="35" text-anchor="middle" fill="#00d2ff" font-size="20" font-weight="bold">7</text>
+        <rect x="0" y="0" width="40" height="55" rx="4" fill="rgba(33,118,189,0.1)" stroke="rgba(33,118,189,0.3)" stroke-width="1.5"/>
+        <text x="20" y="35" text-anchor="middle" fill="#2176bd" font-size="20" font-weight="bold">7</text>
       </g>
       <g transform="translate(280,80)">
-        <rect x="0" y="0" width="40" height="55" rx="4" fill="rgba(231,76,60,0.15)" stroke="rgba(231,76,60,0.3)" stroke-width="1.5"/>
+        <rect x="0" y="0" width="40" height="55" rx="4" fill="rgba(231,76,60,0.1)" stroke="rgba(231,76,60,0.3)" stroke-width="1.5"/>
         <text x="20" y="35" text-anchor="middle" fill="#e74c3c" font-size="20" font-weight="bold">K</text>
       </g>
-      <circle class="star" cx="50" cy="30" r="8" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1"/>
-      <circle class="star" cx="350" cy="40" r="6" fill="none" stroke="rgba(0,210,255,0.2)" stroke-width="1"/>
+      <circle class="star" cx="50" cy="30" r="8" fill="none" stroke="rgba(200,150,12,0.25)" stroke-width="1"/>
+      <circle class="star" cx="350" cy="40" r="6" fill="none" stroke="rgba(142,68,173,0.2)" stroke-width="1"/>
     </svg>`,
     'illust-workshop': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3a2d1a"/><stop offset="100%" stop-color="#6a5a2d"/></linearGradient></defs>
+      <defs><linearGradient id="gw1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fff8e1"/><stop offset="100%" stop-color="#ffecb3"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gw1)"/>
-      <rect x="60" y="60" width="280" height="120" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)"/>
-      <rect x="80" y="50" width="240" height="10" rx="2" fill="rgba(212,175,55,0.2)"/>
+      <rect x="60" y="60" width="280" height="120" rx="4" fill="rgba(0,0,0,0.03)" stroke="rgba(0,0,0,0.08)"/>
+      <rect x="80" y="50" width="240" height="10" rx="2" fill="rgba(200,150,12,0.2)"/>
       <g transform="translate(120,110)">
-        <circle cx="0" cy="0" r="10" fill="#00d2ff" opacity="0.6"/>
-        <circle cx="40" cy="5" r="10" fill="#27ae60" opacity="0.6"/>
-        <circle cx="80" cy="-2" r="10" fill="#e67e22" opacity="0.6"/>
-        <circle cx="120" cy="3" r="10" fill="#9b59b6" opacity="0.6"/>
-        <circle cx="160" cy="-5" r="10" fill="#e74c3c" opacity="0.6"/>
+        <circle cx="0" cy="0" r="10" fill="#0099cc" opacity="0.7"/>
+        <circle cx="40" cy="5" r="10" fill="#1faa5a" opacity="0.7"/>
+        <circle cx="80" cy="-2" r="10" fill="#e67e22" opacity="0.7"/>
+        <circle cx="120" cy="3" r="10" fill="#8e44ad" opacity="0.7"/>
+        <circle cx="160" cy="-5" r="10" fill="#e74c3c" opacity="0.7"/>
       </g>
       <g class="jumper" transform="translate(200,140)">
-        <circle cx="0" cy="-8" r="3" fill="#d4af37"/>
-        <line x1="0" y1="-5" x2="0" y2="5" stroke="#d4af37" stroke-width="1.5"/>
-        <line x1="-5" y1="0" x2="5" y2="0" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="0" cy="-8" r="3" fill="#c8960c"/>
+        <line x1="0" y1="-5" x2="0" y2="5" stroke="#c8960c" stroke-width="1.5"/>
+        <line x1="-5" y1="0" x2="5" y2="0" stroke="#c8960c" stroke-width="1.5"/>
       </g>
-      <text x="200" y="85" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-size="16" font-family="Heebo">סדנה</text>
+      <text x="200" y="85" text-anchor="middle" fill="rgba(0,0,0,0.06)" font-size="16" font-family="Heebo">\u05E1\u05D3\u05E0\u05D4</text>
     </svg>`,
     'illust-therapy': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gt1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a2d3a"/><stop offset="100%" stop-color="#2d4a6a"/></linearGradient></defs>
+      <defs><linearGradient id="gt1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fce4ec"/><stop offset="100%" stop-color="#f8bbd0"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gt1)"/>
-      <path d="M0,180 Q100,140 200,170 T400,160 L400,200 L0,200Z" fill="#0d1f3c" opacity="0.5"/>
-      <circle cx="350" cy="40" r="20" fill="rgba(255,255,200,0.08)"/>
-      <circle cx="350" cy="40" r="10" fill="rgba(255,255,200,0.04)"/>
-      <circle class="star" cx="50" cy="30" r="1.5" fill="#fff"/><circle class="star" cx="150" cy="20" r="1" fill="#fff"/>
-      <circle class="star" cx="250" cy="35" r="1.5" fill="#fff"/>
+      <path d="M0,180 Q100,140 200,170 T400,160 L400,200 L0,200Z" fill="#c8e6c9" opacity="0.5"/>
+      <circle cx="350" cy="40" r="20" fill="rgba(255,215,0,0.2)"/>
+      <circle cx="350" cy="40" r="10" fill="rgba(255,215,0,0.15)"/>
       <g class="walker" transform="translate(180,145)">
-        <circle cx="0" cy="-15" r="5" fill="#e84393" opacity="0.7"/>
-        <line x1="0" y1="-10" x2="0" y2="5" stroke="#e84393" stroke-width="2" opacity="0.7"/>
-        <line x1="-12" y1="8" x2="0" y2="0" stroke="#8B4513" stroke-width="1.5" opacity="0.5"/>
-        <line x1="0" y1="5" x2="-4" y2="18" stroke="#e84393" stroke-width="1.5" opacity="0.7"/>
-        <line x1="0" y1="5" x2="4" y2="18" stroke="#e84393" stroke-width="1.5" opacity="0.7"/>
+        <circle cx="0" cy="-15" r="5" fill="#d63384" opacity="0.8"/>
+        <line x1="0" y1="-10" x2="0" y2="5" stroke="#d63384" stroke-width="2" opacity="0.8"/>
+        <line x1="-12" y1="8" x2="0" y2="0" stroke="#8B4513" stroke-width="1.5" opacity="0.6"/>
+        <line x1="0" y1="5" x2="-4" y2="18" stroke="#d63384" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="5" x2="4" y2="18" stroke="#d63384" stroke-width="1.5" opacity="0.8"/>
       </g>
-      <path d="M80,170 Q120,130 160,170" fill="none" stroke="rgba(0,210,255,0.2)" stroke-width="2"/>
-      <path d="M240,165 Q280,125 320,165" fill="none" stroke="rgba(0,210,255,0.2)" stroke-width="2"/>
+      <path d="M80,170 Q120,130 160,170" fill="none" stroke="rgba(0,153,204,0.25)" stroke-width="2"/>
+      <path d="M240,165 Q280,125 320,165" fill="none" stroke="rgba(0,153,204,0.25)" stroke-width="2"/>
     </svg>`,
     'illust-podcast': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3a1a2d"/><stop offset="100%" stop-color="#6a2d4a"/></linearGradient></defs>
+      <defs><linearGradient id="gp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff3e0"/><stop offset="100%" stop-color="#ffccbc"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gp1)"/>
       <g transform="translate(200,100)">
-        <rect x="-12" y="-30" width="24" height="40" rx="12" fill="rgba(212,175,55,0.3)" stroke="rgba(212,175,55,0.5)" stroke-width="2"/>
-        <line x1="0" y1="10" x2="0" y2="25" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
-        <line x1="-10" y1="25" x2="10" y2="25" stroke="rgba(212,175,55,0.4)" stroke-width="2"/>
-        <path d="M-20,0 Q-20,20 0,20 Q20,20 20,0" fill="none" stroke="rgba(212,175,55,0.2)" stroke-width="1.5"/>
+        <rect x="-12" y="-30" width="24" height="40" rx="12" fill="rgba(200,150,12,0.25)" stroke="rgba(200,150,12,0.5)" stroke-width="2"/>
+        <line x1="0" y1="10" x2="0" y2="25" stroke="rgba(200,150,12,0.4)" stroke-width="2"/>
+        <line x1="-10" y1="25" x2="10" y2="25" stroke="rgba(200,150,12,0.4)" stroke-width="2"/>
+        <path d="M-20,0 Q-20,20 0,20 Q20,20 20,0" fill="none" stroke="rgba(200,150,12,0.25)" stroke-width="1.5"/>
       </g>
       <g transform="translate(200,100)">
-        <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1" class="star"/>
-        <circle cx="0" cy="0" r="65" fill="none" stroke="rgba(212,175,55,0.06)" stroke-width="1" class="star"/>
-        <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(212,175,55,0.03)" stroke-width="1" class="star"/>
+        <circle cx="0" cy="0" r="50" fill="none" stroke="rgba(200,150,12,0.12)" stroke-width="1" class="star"/>
+        <circle cx="0" cy="0" r="65" fill="none" stroke="rgba(200,150,12,0.08)" stroke-width="1" class="star"/>
+        <circle cx="0" cy="0" r="80" fill="none" stroke="rgba(200,150,12,0.04)" stroke-width="1" class="star"/>
       </g>
-      <text x="200" y="170" text-anchor="middle" fill="rgba(255,255,255,0.08)" font-size="14" font-family="Heebo">הקשר</text>
+      <text x="200" y="170" text-anchor="middle" fill="rgba(0,0,0,0.05)" font-size="14" font-family="Heebo">\u05D4\u05E7\u05E9\u05E8</text>
     </svg>`,
     'illust-trek': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gtr1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a2d"/><stop offset="100%" stop-color="#2d6a4a"/></linearGradient></defs>
+      <defs><linearGradient id="gtr1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e0f2f1"/><stop offset="100%" stop-color="#b2dfdb"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gtr1)"/>
-      <path d="M0,150 L100,80 L200,120 L300,70 L400,100 L400,200 L0,200Z" fill="#1a4a3a" opacity="0.5"/>
-      <path d="M0,170 L80,130 L180,155 L280,120 L400,150 L400,200 L0,200Z" fill="#0d3020"/>
+      <path d="M0,150 L100,80 L200,120 L300,70 L400,100 L400,200 L0,200Z" fill="#66bb6a" opacity="0.4"/>
+      <path d="M0,170 L80,130 L180,155 L280,120 L400,150 L400,200 L0,200Z" fill="#43a047" opacity="0.5"/>
       <g class="walker" transform="translate(200,135)">
-        <circle cx="0" cy="-15" r="5" fill="#00d2ff" opacity="0.7"/>
-        <line x1="0" y1="-10" x2="0" y2="5" stroke="#00d2ff" stroke-width="2" opacity="0.7"/>
-        <line x1="0" y1="5" x2="-4" y2="18" stroke="#00d2ff" stroke-width="1.5" opacity="0.7"/>
-        <line x1="0" y1="5" x2="4" y2="18" stroke="#00d2ff" stroke-width="1.5" opacity="0.7"/>
-        <line x1="6" y1="-5" x2="6" y2="-25" stroke="#8B4513" stroke-width="1.5" opacity="0.5"/>
+        <circle cx="0" cy="-15" r="5" fill="#E65100" opacity="0.8"/>
+        <line x1="0" y1="-10" x2="0" y2="5" stroke="#E65100" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="5" x2="-4" y2="18" stroke="#E65100" stroke-width="1.5" opacity="0.8"/>
+        <line x1="0" y1="5" x2="4" y2="18" stroke="#E65100" stroke-width="1.5" opacity="0.8"/>
+        <line x1="6" y1="-5" x2="6" y2="-25" stroke="#8B4513" stroke-width="1.5" opacity="0.6"/>
       </g>
-      <circle class="star" cx="350" cy="30" r="15" fill="rgba(255,255,200,0.06)"/>
+      <circle cx="350" cy="30" r="15" fill="rgba(255,215,0,0.15)"/>
     </svg>`,
     'illust-team': `<svg viewBox="0 0 400 200" class="svg-anim">
-      <defs><linearGradient id="gtm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a2d50"/><stop offset="100%" stop-color="#2d4a80"/></linearGradient></defs>
+      <defs><linearGradient id="gtm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e8eaf6"/><stop offset="100%" stop-color="#c5cae9"/></linearGradient></defs>
       <rect width="400" height="200" fill="url(#gtm1)"/>
       <g transform="translate(200,100)">
-        <circle cx="0" cy="-30" r="8" fill="#00d2ff" opacity="0.5"/>
-        <circle cx="-40" cy="-10" r="8" fill="#27ae60" opacity="0.5"/>
-        <circle cx="40" cy="-10" r="8" fill="#e67e22" opacity="0.5"/>
-        <circle cx="-25" cy="20" r="8" fill="#9b59b6" opacity="0.5"/>
-        <circle cx="25" cy="20" r="8" fill="#e74c3c" opacity="0.5"/>
-        <line x1="0" y1="-22" x2="-32" y2="-4" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="0" y1="-22" x2="32" y2="-4" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="-32" y1="-4" x2="-20" y2="14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="32" y1="-4" x2="20" y2="14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <line x1="-20" y1="14" x2="20" y2="14" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="0" cy="-30" r="8" fill="#0099cc" opacity="0.7"/>
+        <circle cx="-40" cy="-10" r="8" fill="#1faa5a" opacity="0.7"/>
+        <circle cx="40" cy="-10" r="8" fill="#e67e22" opacity="0.7"/>
+        <circle cx="-25" cy="20" r="8" fill="#8e44ad" opacity="0.7"/>
+        <circle cx="25" cy="20" r="8" fill="#e74c3c" opacity="0.7"/>
+        <line x1="0" y1="-22" x2="-32" y2="-4" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+        <line x1="0" y1="-22" x2="32" y2="-4" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+        <line x1="-32" y1="-4" x2="-20" y2="14" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+        <line x1="32" y1="-4" x2="20" y2="14" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+        <line x1="-20" y1="14" x2="20" y2="14" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
       </g>
     </svg>`
   };
@@ -1212,6 +1571,33 @@ function openActivityModal(idx) {
     <div style="width:100%;height:100%;background:linear-gradient(135deg,${color}25,${color}08);display:flex;align-items:center;justify-content:center">
       <span style="font-size:5rem;opacity:0.3">${getActivityEmoji(a.cat)}</span>
     </div><div class="overlay-gradient"></div>`;
+
+  // Build levels HTML
+  let levelsHtml = '';
+  if (a.levels && a.levels.length) {
+    const icons = ['\u{1F7E2}','\u{1F7E1}','\u{1F534}'];
+    const classes = ['level-easy','level-medium','level-hard'];
+    levelsHtml = `<h3><i class="bi bi-bar-chart-steps"></i> שלבים ורמות</h3>
+    <div class="levels-container">${a.levels.map((l,i)=>`
+      <div class="level-card ${classes[i]||'level-hard'}">
+        <div class="level-icon">${icons[i]||'\u{1F534}'}</div>
+        <div class="level-name">${l.name}</div>
+        <div class="level-desc">${l.desc}</div>
+      </div>`).join('')}</div>`;
+  }
+
+  // Build rules HTML
+  let rulesHtml = '';
+  if (a.rules) {
+    rulesHtml = `<div class="rules-box"><h4><i class="bi bi-list-ol"></i> חוקי המשחק</h4><p>${a.rules}</p></div>`;
+  }
+
+  // Build reflection HTML
+  let reflectHtml = '';
+  if (a.reflection) {
+    reflectHtml = `<div class="reflection-box"><h4><i class="bi bi-chat-heart"></i> שאלות רפלקציה</h4><p>${a.reflection}</p></div>`;
+  }
+
   document.getElementById('modalBody').innerHTML = `
     <div class="card-category" style="background:${color}18;color:${color}">${catNames[a.cat]}</div>
     <h2>${a.name}</h2>
@@ -1221,13 +1607,69 @@ function openActivityModal(idx) {
       <div class="detail-item"><div class="label">משתתפים</div><div class="value">${a.participants}</div></div>
       <div class="detail-item"><div class="label">רמת קושי</div><div class="value" style="color:${color}">${diffStars}</div></div>
     </div>
+    ${levelsHtml}
+    ${rulesHtml}
+    ${reflectHtml}
     <h3>תגיות</h3>
     <div class="card-tags" style="margin-bottom:15px">${a.tags.map(t=>`<span class="tag" style="font-size:0.85rem;padding:5px 14px">${t}</span>`).join('')}</div>
-    <div style="margin-top:20px;text-align:center">
-      <a href="https://www.chaim-katz.com" target="_blank" class="btn btn-outline btn-sm"><i class="bi bi-box-arrow-up-left"></i> לפרטים נוספים באתר הרשמי</a>
+    <div class="phone-section">
+      <p style="margin-bottom:8px;font-weight:700;color:var(--text)"><i class="bi bi-telephone-fill"></i> שמעו את המשחק בטלפון!</p>
+      <div class="phone-number">077-225-1404</div>
+      <p style="margin-top:5px;font-size:0.8rem;color:var(--muted)">חייגו ובחרו את המשחק — עם הסבר קולי מפורט</p>
+    </div>
+    <div style="margin-top:15px;text-align:center">
+      <a href="tel:0548531641" class="btn btn-primary btn-sm"><i class="bi bi-telephone"></i> להזמנת פעילות: 054-853-1641</a>
     </div>`;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+// ===== DAILY GAME =====
+function renderDailyGame() {
+  // Pick game based on day of year
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor((now - start) / 86400000);
+  const game = ACTIVITIES[dayOfYear % ACTIVITIES.length];
+  const catColors = {odt:'#00d2ff',group:'#27ae60',energetic:'#e74c3c',thinking:'#f39c12',icebreaker:'#9b59b6',fathers:'#d4af37',outdoor:'#2980b9',classroom:'#e67e22'};
+  const catNames = {odt:'ODT',group:'קבוצתי',energetic:'אנרגטי',thinking:'חשיבה',icebreaker:'שובר קרח',fathers:'אבות ובנים',outdoor:'שטח',classroom:'כיתה'};
+  const color = catColors[game.cat]||'#00d2ff';
+  const diffStars = '\u2605'.repeat(game.difficulty) + '\u2606'.repeat(3-game.difficulty);
+
+  let levelsHtml = '';
+  if (game.levels && game.levels.length) {
+    const icons = ['\u{1F7E2}','\u{1F7E1}','\u{1F534}'];
+    const classes = ['level-easy','level-medium','level-hard'];
+    levelsHtml = `<div class="levels-container">${game.levels.map((l,i)=>`
+      <div class="level-card ${classes[i]}">
+        <div class="level-icon">${icons[i]}</div>
+        <div class="level-name">${l.name}</div>
+        <div class="level-desc">${l.desc}</div>
+      </div>`).join('')}</div>`;
+  }
+
+  let rulesHtml = game.rules ? `<div class="rules-box"><h4><i class="bi bi-list-ol"></i> חוקי המשחק</h4><p>${game.rules}</p></div>` : '';
+  let reflectHtml = game.reflection ? `<div class="reflection-box"><h4><i class="bi bi-chat-heart"></i> שאלות רפלקציה</h4><p>${game.reflection}</p></div>` : '';
+
+  document.getElementById('daily-game-card').innerHTML = `
+    <div class="daily-card">
+      <div class="daily-badge"><i class="bi bi-calendar-check"></i> ${now.toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long'})}</div>
+      <div class="card-category" style="background:${color}18;color:${color}">${catNames[game.cat]}</div>
+      <div class="daily-title">${game.name}</div>
+      <div class="daily-desc">${game.desc}</div>
+      <div class="card-meta" style="margin-bottom:15px">
+        <span><i class="bi bi-people"></i> ${game.participants}</span>
+        <span><i class="bi bi-person"></i> ${game.ages}</span>
+        <span style="color:${color}">${diffStars}</span>
+      </div>
+      ${levelsHtml}
+      ${rulesHtml}
+      ${reflectHtml}
+      <div style="text-align:center;margin-top:15px">
+        <button class="btn btn-gold btn-sm" onclick="openActivityModal(${ACTIVITIES.indexOf(game)})"><i class="bi bi-eye"></i> פרטים מלאים</button>
+        <a href="tel:0772251404" class="btn btn-outline btn-sm"><i class="bi bi-telephone"></i> שמעו בטלפון 077-225-1404</a>
+      </div>
+    </div>`;
 }
 
 function closeModal() {
@@ -1248,7 +1690,7 @@ function initParticles() {
     ctx.clearRect(0,0,w,h);
     particles.forEach(p => {
       ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`rgba(0,210,255,${p.o})`;ctx.fill();
+      ctx.fillStyle=`rgba(255,${150+Math.floor(p.o*200)},50,${p.o*0.6})`;ctx.fill();
       p.x+=p.dx;p.y+=p.dy;
       if(p.x<0||p.x>w)p.dx*=-1;if(p.y<0||p.y>h)p.dy*=-1;
     });
@@ -1297,6 +1739,7 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
   renderPrograms();
+  renderDailyGame();
   renderActivities(ACTIVITIES);
   observeFadeUp();
   animateCounters();
