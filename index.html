@@ -153,7 +153,7 @@ section{position:relative;z-index:1;padding:80px 20px}
   width:40px;height:40px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:5;transition:all var(--transition);
   display:flex;align-items:center;justify-content:center}
 .modal-close:hover{background:var(--red);transform:rotate(90deg)}
-.modal-hero{height:320px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.modal-hero{height:320px;position:relative;overflow:visible;display:flex;align-items:center;justify-content:center;background:var(--bg2)}
 .modal-hero .overlay-gradient{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#fff);z-index:1}
 .modal-body{padding:30px;position:relative;z-index:2;margin-top:-60px}
 .modal-body h2{font-size:1.8rem;font-weight:900;margin-bottom:5px}
@@ -2041,9 +2041,9 @@ function openActivityModal(idx) {
   const diffStars = '\u2605'.repeat(a.difficulty) + '\u2606'.repeat(3-a.difficulty);
   const modal = document.getElementById('modal');
   document.getElementById('modalHero').innerHTML = `
-    <div style="width:100%;height:100%;background:linear-gradient(135deg,${color}15,${color}05);position:relative;overflow:hidden">
+    <div style="width:100%;height:100%;min-height:280px;background:linear-gradient(135deg,${color}15,${color}05);position:relative;overflow:hidden">
       ${getGameAnimation(a, color)}
-    </div><div class="overlay-gradient"></div>`;
+    </div>`;
 
   // Build levels HTML
   let levelsHtml = '';
