@@ -394,6 +394,13 @@ footer a{color:var(--accent1);text-decoration:none}
 .phone-section{background:linear-gradient(135deg,rgba(0,184,148,0.05),rgba(33,118,189,0.05));border-radius:20px;padding:25px;margin-top:20px;text-align:center;border:1px solid rgba(0,184,148,0.15)}
 .phone-number{font-size:2rem;font-weight:900;color:var(--green);direction:ltr;display:inline-block}
 
+
+/* Star Rating */
+.star-rating{display:flex;gap:2px;margin-top:8px}
+.star-rating .star{font-size:1.1rem;color:#ddd;transition:color 0.2s;cursor:pointer}
+.star-rating .star.active,.star-rating .star:hover{color:#f39c12}
+.rating-count{font-size:0.7rem;color:var(--muted);margin-right:6px;align-self:center}
+
 /* No results */
 .no-results{text-align:center;padding:60px 20px;color:var(--muted)}
 .no-results i{font-size:3rem;margin-bottom:15px;display:block;color:var(--muted)}
@@ -2014,6 +2021,14 @@ function openActivityModal(idx) {
     ${reflectHtml}
     <h3>תגיות</h3>
     <div class="card-tags" style="margin-bottom:15px">${a.tags.map(t=>`<span class="tag" style="font-size:0.85rem;padding:5px 14px">${t}</span>`).join('')}</div>
+    <div id="stars-${idx}" class="star-rating" style="justify-content:center;margin:10px 0">
+      <span class="star" onclick="rateGame(${idx},1)">★</span>
+      <span class="star" onclick="rateGame(${idx},2)">★</span>
+      <span class="star" onclick="rateGame(${idx},3)">★</span>
+      <span class="star" onclick="rateGame(${idx},4)">★</span>
+      <span class="star" onclick="rateGame(${idx},5)">★</span>
+      <span class="rating-count"></span>
+    </div>
     <div class="phone-section">
       <p style="margin-bottom:8px;font-weight:700;color:var(--text)"><i class="bi bi-telephone-fill"></i> שמעו את המשחק בטלפון!</p>
       <div class="phone-number">077-225-1404</div>
@@ -2171,6 +2186,30 @@ window.addEventListener('scroll', () => {
   bt.classList.toggle('visible', window.scrollY>500);
 });
 
+
+// Star Rating System
+function rateGame(idx, val) {
+  var ratings = JSON.parse(localStorage.getItem('gameRatings')||'{}');
+  ratings[idx] = val;
+  localStorage.setItem('gameRatings', JSON.stringify(ratings));
+  updateRatingDisplay(idx, val);
+}
+function updateRatingDisplay(idx, val) {
+  var el = document.getElementById('stars-'+idx);
+  if (!el) return;
+  el.querySelectorAll('.star').forEach(function(s,i) {
+    s.classList.toggle('active', i < val);
+  });
+  var count = el.querySelector('.rating-count');
+  if (count) count.textContent = val+'/5';
+}
+function initRatings() {
+  var ratings = JSON.parse(localStorage.getItem('gameRatings')||'{}');
+  for (var idx in ratings) {
+    updateRatingDisplay(idx, ratings[idx]);
+  }
+}
+
 // ===== INIT =====
 document.addEventListener('DOMContentLoaded', () => {
   initParticles();
@@ -2179,6 +2218,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderActivities(ACTIVITIES);
   observeFadeUp();
   animateCounters();
+  setTimeout(initRatings, 500);
 });
 </script>
 </body>
