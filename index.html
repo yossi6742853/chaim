@@ -374,6 +374,24 @@ section{position:relative}
 .program-card.fade-up.visible{animation:cardEntrance 0.5s ease-out forwards}
 @keyframes cardEntrance{from{opacity:0;transform:translateY(30px) scale(0.95)}to{opacity:1;transform:translateY(0) scale(1)}}
 
+/* Card hover micro-animation */
+.program-card .card-illustration{transition:transform 0.4s ease}
+.program-card:hover .card-illustration{transform:scale(1.05)}
+.program-card:hover .card-category{transform:translateX(-5px);transition:transform 0.3s}
+
+/* Level badges on cards */
+.card-levels{display:flex;gap:4px;margin-top:8px}
+.card-level-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.card-level-dot.easy{background:#1faa5a}
+.card-level-dot.medium{background:#e8a800}
+.card-level-dot.hard{background:#e74c3c}
+
+/* Total games counter badge */
+.total-badge{position:fixed;bottom:90px;left:30px;background:linear-gradient(135deg,var(--gold),#e8b84a);
+  color:#fff;padding:8px 16px;border-radius:12px;font-size:0.85rem;font-weight:700;z-index:99;
+  box-shadow:0 4px 15px rgba(200,150,12,0.3);display:none;animation:badgePulse 3s ease-in-out infinite}
+.total-badge.visible{display:flex;align-items:center;gap:6px}
+
 /* Subtle parallax on sections */
 #about{background-image:linear-gradient(135deg,rgba(255,107,53,0.02) 0%,rgba(255,193,7,0.02) 100%)}
 #contact{background-image:linear-gradient(135deg,rgba(0,184,148,0.02) 0%,rgba(33,118,189,0.02) 100%)}
@@ -1472,7 +1490,14 @@ function renderPrograms() {
 
 // ===== RENDER ACTIVITIES =====
 let currentFilter = 'all';
+// Pagination — show 40 at a time to reduce CPU
+let currentPage = 0;
+const PAGE_SIZE = 40;
+let currentItems = [];
+
 function renderActivities(items) {
+  currentItems = items;
+  currentPage = 0;
   const grid = document.getElementById('activities-grid');
   const noRes = document.getElementById('noResults');
   if (items.length === 0) {
@@ -1483,12 +1508,24 @@ function renderActivities(items) {
   }
   noRes.style.display = 'none';
   document.getElementById('searchCount').textContent = `${items.length} פעילויות נמצאו`;
-  grid.innerHTML = items.map((a,i) => {
-    const diffStars = '★'.repeat(a.difficulty) + '☆'.repeat(3-a.difficulty);
-    const catColors = {odt:'#00d2ff',group:'#27ae60',energetic:'#e74c3c',thinking:'#f39c12',icebreaker:'#9b59b6',fathers:'#d4af37',outdoor:'#2980b9',classroom:'#e67e22'};
-    const catNames = {odt:'ODT',group:'קבוצתי',energetic:'אנרגטי',thinking:'חשיבה',icebreaker:'שובר קרח',fathers:'אבות ובנים',outdoor:'שטח',classroom:'כיתה'};
+  grid.innerHTML = '';
+  loadMoreActivities();
+}
+
+function loadMoreActivities() {
+  const items = currentItems;
+  const grid = document.getElementById('activities-grid');
+  const start = currentPage * PAGE_SIZE;
+  const end = Math.min(start + PAGE_SIZE, items.length);
+  if (start >= items.length) return;
+  const batch = items.slice(start, end);
+  const catColors = {odt:'#00d2ff',group:'#27ae60',energetic:'#e74c3c',thinking:'#f39c12',icebreaker:'#9b59b6',fathers:'#d4af37',outdoor:'#2980b9',classroom:'#e67e22'};
+  const catNames = {odt:'ODT',group:'קבוצתי',energetic:'אנרגטי',thinking:'חשיבה',icebreaker:'שובר קרח',fathers:'אבות ובנים',outdoor:'שטח',classroom:'כיתה'};
+  const html = batch.map((a,i) => {
+    const diffStars = '\u2605'.repeat(a.difficulty) + '\u2606'.repeat(3-a.difficulty);
     const color = catColors[a.cat]||'#00d2ff';
-    return `<div class="program-card fade-up" style="animation-delay:${(i%12)*0.05}s" onclick="openActivityModal(${ACTIVITIES.indexOf(a)})">
+    const idx = ACTIVITIES.indexOf(a);
+    return `<div class="program-card fade-up" style="animation-delay:${(i%12)*0.05}s" onclick="openActivityModal(${idx})">
       <div class="card-illustration" style="height:100px;background:linear-gradient(135deg,${color}15,${color}08)">
         <div style="font-size:2.5rem;opacity:0.3;z-index:2;position:relative">${getActivityEmoji(a.cat)}</div>
         <div class="overlay-gradient"></div>
@@ -1503,9 +1540,19 @@ function renderActivities(items) {
           <span style="color:${color}">${diffStars}</span>
         </div>
         <div class="card-tags">${a.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        ${a.levels?`<div class="card-levels" title="3 רמות קושי"><span class="card-level-dot easy"></span><span class="card-level-dot medium"></span><span class="card-level-dot hard"></span><span style="font-size:0.7rem;color:var(--muted);margin-right:4px">3 רמות</span></div>`:''}
       </div>
     </div>`;
   }).join('');
+  grid.insertAdjacentHTML('beforeend', html);
+  currentPage++;
+  // Add "load more" button if more items
+  const existing = grid.querySelector('.load-more-btn');
+  if (existing) existing.remove();
+  if (end < items.length) {
+    grid.insertAdjacentHTML('beforeend', `<div class="load-more-btn" style="grid-column:1/-1;text-align:center;padding:20px">
+      <button class="btn btn-outline" onclick="loadMoreActivities()"><i class="bi bi-arrow-down-circle"></i> טען עוד ${Math.min(PAGE_SIZE, items.length - end)} משחקים (${items.length - end} נותרו)</button></div>`);
+  }
   observeFadeUp();
 }
 
@@ -1617,11 +1664,44 @@ function openActivityModal(idx) {
       <div class="phone-number">077-225-1404</div>
       <p style="margin-top:5px;font-size:0.8rem;color:var(--muted)">חייגו ובחרו את המשחק — עם הסבר קולי מפורט</p>
     </div>
-    <div style="margin-top:15px;text-align:center">
-      <a href="tel:0548531641" class="btn btn-primary btn-sm"><i class="bi bi-telephone"></i> להזמנת פעילות: 054-853-1641</a>
+    <div style="margin-top:15px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+      <button class="btn btn-gold btn-sm" onclick="printGame('${a.name}')"><i class="bi bi-printer"></i> הדפסה</button>
+      <button class="btn btn-outline btn-sm" onclick="downloadGame(${idx})"><i class="bi bi-download"></i> הורדת PDF</button>
+      <a href="tel:0772251404" class="btn btn-outline btn-sm"><i class="bi bi-telephone"></i> שמעו בטלפון</a>
+      <a href="tel:0548531641" class="btn btn-primary btn-sm"><i class="bi bi-telephone"></i> להזמנה: 054-853-1641</a>
     </div>`;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+// Print game card
+function printGame(name) {
+  const content = document.getElementById('modalBody').innerHTML;
+  const win = window.open('','_blank');
+  win.document.write(\`<!DOCTYPE html><html dir="rtl" lang="he"><head><meta charset="UTF-8">
+    <title>\${name} — חיים כץ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>*{font-family:Heebo,sans-serif;direction:rtl}body{padding:30px;max-width:700px;margin:0 auto}
+    h2{color:#c8960c;border-bottom:2px solid #c8960c;padding-bottom:10px}h3{color:#e67e22;margin-top:20px}
+    .levels-container{display:flex;gap:10px;flex-wrap:wrap}.level-card{flex:1;min-width:120px;border:1px solid #ddd;border-radius:10px;padding:12px;text-align:center}
+    .level-easy{border-color:#1faa5a}.level-medium{border-color:#e8a800}.level-hard{border-color:#e74c3c}
+    .rules-box{background:#f0f7ff;border:1px solid #b3d9ff;border-radius:10px;padding:15px;margin:10px 0}
+    .reflection-box{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:15px;margin:10px 0}
+    .phone-section,.card-tags,.btn{display:none}
+    .detail-grid{display:flex;gap:15px}.detail-item{border:1px solid #ddd;border-radius:8px;padding:10px;flex:1}
+    @media print{body{padding:10px}}</style></head><body>\${content}
+    <div style="margin-top:30px;text-align:center;color:#999;font-size:0.8rem">
+      <p>חיים כץ — פעילות מכוונת מטרה | chaim-katz.com | 054-853-1641</p>
+      <p>קו המשחקים: 077-225-1404 | tinyurl.com/chaim-games</p>
+    </div></body></html>\`);
+  win.document.close();
+  setTimeout(() => win.print(), 500);
+}
+
+// Download game as printable page
+function downloadGame(idx) {
+  const a = ACTIVITIES[idx];
+  printGame(a.name);
 }
 
 // ===== DAILY GAME =====
@@ -1685,7 +1765,7 @@ function initParticles() {
   let w, h, particles=[];
   function resize() { w=c.width=window.innerWidth; h=c.height=window.innerHeight; }
   resize(); window.addEventListener('resize', resize);
-  for(let i=0;i<60;i++) particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+0.5,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3,o:Math.random()*0.3+0.1});
+  for(let i=0;i<20;i++) particles.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+0.5,dx:(Math.random()-0.5)*0.2,dy:(Math.random()-0.5)*0.2,o:Math.random()*0.2+0.05});
   function draw() {
     ctx.clearRect(0,0,w,h);
     particles.forEach(p => {
